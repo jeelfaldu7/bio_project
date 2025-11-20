@@ -1,0 +1,21 @@
+# RSS & HTTP fetching
+feedparser==6.0.10
+requests==2.32.0
+
+# Gemini API
+google-genai==0.13.1
+
+# Data processing
+pandas==2.1.1
+numpy==1.27.5
+
+# Optional: environment variable handling
+python-dotenv==1.0.1
+
+# Optional: visualization for trends
+matplotlib==3.8.1
+seaborn==0.12.3
+plotly==5.16.1
+
+# Optional: JSON handling (usually built-in, but included for completeness)
+orjson==3.9.2
