@@ -20,11 +20,18 @@ if keyword:
 # Show table
 st.dataframe(df[['title', 'ai_summary', 'published', 'link']])
 
+
+
+
 # --PLOTS--
 # Example trend chart: number of articles per month
 df['published_date'] = pd.to_datetime(df['published'])
 trend = df.groupby(df['published_date'].dt.to_period('M')).size()
 st.line_chart(trend)
+
+
+
+
 
 # Pie chart: keyword frequency in summaries
 st.subheader("Keyword Frequency in Summaries")
