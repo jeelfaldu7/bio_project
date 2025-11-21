@@ -1,9 +1,14 @@
 {
   "feeds": [
-    "https://pubmed.ncbi.nlm.nih.gov/rss/search/1A2B3C",
-    "https://another-feed.com/rss",
-    "https://biorxiv.org/covid19.xml",
-    "https://pubmed.ncbi.nlm.nih.gov/rss/feed/atom?limit=20",
-    "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/?format=rss"
-  ]
+        "https://www.fiercebiotech.com/rss/biotech/xml",
+        "https://www.labiotech.eu/feed/",
+        "https://feeds.feedburner.com/GenEngNews",
+        "https://rss.sciencedaily.com/genetics_gene_therapy.xml",
+        "https://www.bioworld.com/rss/topic/10"
+          ]
 }
+
+
+
+
+
