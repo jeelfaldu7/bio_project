@@ -5,9 +5,9 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2025-09-09",
     "published": "Tue, 09 Sep 2025 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "As previously announced, NCBI has updated the PubMed Central (PMC) full-text search functionality and user experience. To prepare for this transition, a Beta version was released in April for users to preview and test, and a number of improvements were made based on user feedback.\nNCBI will continue to add to and improve the new search, with priorities based on your feedback.\nFor more information, please refer to the PMC User Guide, our previous blog post in NCBI Insights, and the NLM Technical Bulletin.\nPlease reach out to us if you have questions or would like to provide feedback.\n",
-    "ai_summary": "Here's a summary of the article in 3 bullet points:\n\n*   **Main finding:** The updated PubMed Central (PMC) full-text search functionality and user experience are now fully available, incorporating improvements based on user feedback from a prior beta release.\n*   **Key biological targets (genes, proteins, pathways):** Not applicable; the article is an announcement about a search tool update, not a scientific research finding.\n*   **Application area (diagnostics, therapeutics, biotech tools, etc.):** Bioinformatics/Research Tools (specifically, a scientific literature search engine for accessing published research)."
+    "ai_summary": "Here's the summary of the article:\n\n*   **Main finding:** NCBI has fully launched its updated PubMed Central (PMC) full-text search functionality and user experience, incorporating improvements based on feedback from a prior beta version.\n*   **Key biological targets (genes, proteins, pathways):** None mentioned, as the article discusses a search tool for scientific literature, not specific biological research findings.\n*   **Application area (diagnostics, therapeutics, biotech tools, etc.):** Biotech tool/resource (specifically, a scientific literature search engine) designed to improve information access for research in biomedical and life sciences."
   },
   {
     "title": "PMC OAI-PMH API Updated",
@@ -15,9 +15,9 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2025-09-02",
     "published": "Tue, 02 Sep 2025 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The PMC OAI-PMH API, a tool that allows users to retrieve metadata in Dublin Core or JATS XML for all articles in PMC, has been updated and is now in production at a new base URL. Full text XML is also available through this API for articles in the PMC Open Access Subset. See the PMC OAI-PMH API documentation for details about the changes.",
-    "ai_summary": "Here's the summary:\n\n*   **Main finding:** The PMC OAI-PMH API has been updated and is now live at a new production URL.\n*   **Key biological targets:** None mentioned. This article describes a technical tool, not biological research.\n*   **Application area:** Biotech tool for programmatic access and retrieval of scientific literature metadata (in Dublin Core or JATS XML) and full-text XML from the PMC Open Access Subset."
+    "ai_summary": "Here is the summary:\n\n*   **Main finding:** The PMC OAI-PMH API, which provides access to metadata and full-text XML for articles, has been updated and is now in production at a new base URL.\n*   **Key biological targets:** Not applicable; the article describes a data access tool, not biological entities.\n*   **Application area:** A bioinformatics tool/API for programmatic access to scientific literature (metadata and full text) from PubMed Central."
   },
   {
     "title": "Updates in Support of the 2024 NIH Public Access Policy",
@@ -25,9 +25,9 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2025-07-07",
     "published": "Mon, 07 Jul 2025 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The National Center for Biotechnology Information (NCBI) at the National Library of Medicine (NLM) has made initial updates to several offerings to support NIH-funded researchers and institutions to comply with the 2024 NIH Public Access Policy, which went into effect July 1, 2025. NCBI will continue to make ongoing improvements over the coming months. These initial changes include guidance on PubMed Central for authors and related to Online First (OLF) articles, updated options in NCBI's My Bibliography tool, and new error messaging and help text within the NIH Manuscript Submission (NIHMS) System. Please note that the NIH Public Access Compliance Monitor (PACM) continues to use the 2008 NIH Public Access Policy rules and NCBI cannot ensure the reliability of compliance data in PACM in relation to the revised requirements. For more details on all these updates, visit NCBI Insights.",
-    "ai_summary": "Here's a summary of the article in three bullet points:\n\n*   **Main finding:** The National Center for Biotechnology Information (NCBI) has released initial updates to its tools (PubMed Central, My Bibliography, NIH Manuscript Submission System) to assist NIH-funded researchers in complying with the 2024 NIH Public Access Policy, which went into effect July 1, 2025.\n*   **Key biological targets:** None. The article focuses on policy, compliance, and information management systems rather than specific biological genes, proteins, or pathways.\n*   **Application area:** Scholarly publishing compliance, scientific information management, and research infrastructure support within the biomedical research ecosystem."
+    "ai_summary": "Here's a summary of the article in three bullet points:\n\n*   **Main finding:** The National Center for Biotechnology Information (NCBI) has rolled out initial updates to its platforms, including PubMed Central, My Bibliography, and the NIH Manuscript Submission (NIHMS) System, to help NIH-funded researchers and institutions comply with the 2024 NIH Public Access Policy.\n*   **Key biological targets (genes, proteins, pathways):** This article does not discuss biological targets; it focuses on policy compliance for research publication.\n*   **Application area:** Scientific publishing support and research information management tools for policy compliance."
   },
   {
     "title": "PubMed Central's Updated Full-Text Search Preview Now Available",
@@ -35,9 +35,9 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2025-04-17",
     "published": "Thu, 17 Apr 2025 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "As the next step in the ongoing modernization of the PubMed Central (PMC) website, NCBI is updating the PMC search functionality and user experience. In preparation for a planned transition to this updated search later this year, NCBI has released a beta version for you to preview and provide feedback on. Click the \"Try this search in PMC Beta Search\" link under the search bar on the PMC website to try out the PMC Beta Search. Visit NCBI Insights or our  beta search user guide for more information.\n",
-    "ai_summary": "Here's a summary of the article:\n\n*   **Main finding**: NCBI has released a beta version of an updated search functionality and user experience for PubMed Central (PMC), available for user preview and feedback.\n*   **Key biological targets (genes, proteins, pathways)**: Not applicable; the article describes a website update, not biological research findings.\n*   **Application area (diagnostics, therapeutics, biotech tools, etc.)**: Biotech tools/resource (specifically, an improved search engine for scientific literature)."
+    "ai_summary": "Here's the summary:\n\n*   **Main finding:** NCBI has released a beta preview of updated search functionality and user experience for the PubMed Central (PMC) website, as part of its ongoing modernization efforts.\n*   **Key biological targets:** None mentioned; the article focuses on a digital platform update, not specific biological entities.\n*   **Application area:** Biotech tools/resources; specifically, improving the search capabilities of a major biomedical literature database (PubMed Central)."
   },
   {
     "title": "Preview of Upcoming Changes to PMC's eFetch Output",
@@ -45,9 +45,9 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2025-03-05",
     "published": "Wed, 05 Mar 2025 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "In April 2025, the data formats for PMC articles available through eFetch will be updated as part of NLM's ongoing efforts to modernize its products and services. While most of the data will remain unchanged, there are several key differences in the XML and PubMed (formerly MEDLINE) data formats that we'd like to highlight for users. (Learn more about eFetch and the rest of the NCBI Entrez Programming Utilities.)\nIn addition, prior to moving the new formats into production, the new PMC eFetch data formats are now available at a preview location. To use the preview version of PMC's eFetch, update the subdomain of current eFetch URLs that use db=PMC from \"eutils\" to \"eutilspreview\".\nFor example, to retrieve the XML data format for an article in the PMC Open Access Subset, such as PMC8270360, use the following preview URL, where the subdomain \"eutils\" has been replaced with \"eutilspreview\":\n\nhttps://eutilspreview.ncbi.nlm.nih.gov/entrez/eutils/efetch.cgi?db=pmc&id=PMC8270360&rettype=xml\n\nChanges and additions to the XML format\n\nWithin <article-id>, there are changes and additional pub-id-types values:\n            \npmcaid - replaces \"pmc\" as the value identifying that the value of this element is a PMCID\npmcid - the unique identifier for the article in PMC\npmcid-ver - the PMCID with a decimal suffix indicating the version number\ndoi - the DOI, or Digital Object Identifier, for the article\npmcaiid - the article instance identifier, used internally at PMC to distinguish between different versions of the article\n\n\nWithin <custom-meta-group>, there are additional <custom-meta> values for article properties and statuses:\n          \npmc-status-embargo - indicates if the full text is under embargo. If yes, only the metadata is available until the release date has been reached.\npmc-prop-open-access - indicates if the article is available for reuse under a Creative Commons or similar license through the PMC Open Access Subset.\npmc-prop-olf - indicates if this is an Online First (OLF) version of the article.\npmc-prop-manuscript - indicates if this is the accepted author manuscript version of the article.\npmc-prop-has-pdf - indicates if there is a PDF available for the article in PMC.\npmc-prop-has-supplement - indicates if the article has supplementary material available in PMC.\npmc-prop-pdf-only - indicates if the full text of the article is only available as a PDF in PMC.\npmc-prop-is-scanned-article - indicates if the article was included as part of a digitization project.\npmc-prop-preprint - indicates if the article is a preprint, deposited under the NIH Preprint Pilot.\n\n\nImage file names in the xlink:href attribute will include the file extension. In the current output, the file extension is not present.\nIf additional DOIs, PMCIDs, or PMIDs are associated with a reference in an article's reference list during processing of the article by PMC, they will be added as <pub-id> elements to the reference with attribute values of pub-id-type=\"doi\", pub-id-type=\"pmcid\", and pub-id-type=\"pmid\" respectively.\n\nAdditions to the PubMed Format\nThe updated PubMed format available when using db=pmc with eFetch will include a number of data fields previously unavailable for PMC articles, including:\n\nMESH terms when available for MEDLINE-indexed records in PubMed\nGrant information\nPreprint indicators\nAdditional Publication History (PHST) dates\n\nPlease reach out to PMC if you have questions or would like to provide feedback.",
-    "ai_summary": "Here's the summary in three bullet points:\n\n*   **Main finding**: PMC's eFetch data formats (XML and PubMed) are being updated by April 2025, introducing new article identifiers (e.g., pmcaid, pmcid-ver), extensive metadata on article properties and statuses (e.g., embargo, open-access, preprint), and additional data fields (e.g., MESH terms, grant information), with a preview available for users.\n*   **Key biological targets**: The article does not discuss specific biological targets (genes, proteins, pathways). Instead, it details changes to the metadata and identifiers used to describe and organize biomedical literature, including the inclusion of MESH terms.\n*   **Application area**: These updates primarily enhance bioinformatics infrastructure and biotech tools by improving the programmatic retrieval and processing of biomedical literature data from PMC, facilitating more robust data analysis and integration for research."
+    "ai_summary": "Here's a summary of the article in 3 bullet points:\n\n*   **Main finding:** PMC's eFetch output data formats (XML and PubMed) are being updated in April 2025 to modernize services, introducing new identifiers, article properties, and previously unavailable data fields (e.g., MESH terms, grant info) with a preview version currently available.\n*   **Key biological targets (genes, proteins, pathways):** Not applicable; the article focuses on data formats and access methods for biomedical literature, not specific biological targets.\n*   **Application area:** Biotech tools, specifically bioinformatics utilities for retrieving and processing biomedical literature data from PMC and PubMed."
   },
   {
     "title": "PMC Transitions to Updated Website",
@@ -55,7 +55,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2024-10-21",
     "published": "Mon, 21 Oct 2024 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "\nOn October 16, 2024, NLM's NCBI transitioned to an updated PubMed Central (PMC) website, representing the next step in ongoing efforts to modernize NLM's products and services. As part of this update, the primary URL for the PMC website has changed from ncbi.nlm.nih.gov/pmc to pmc.ncbi.nlm.nih.gov. In addition, you'll notice a new look, feel, and organization of PMC article pages and the PMC Journal List.\nLearn more in the NLM Technical Bulletin.",
     "ai_summary": NaN
   },
@@ -65,7 +65,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2024-10-17",
     "published": "Thu, 17 Oct 2024 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The PMC Tagging Guidelines (TG) were updated on October 7, 2024, to provide new guidance for PMC data providers on how to deposit accessible article information using Journal Article Tag Suite (JATS) XML. This guidance aligns with accessibility recommendations from JATS for Reuse, a working group under NISO. This recommendation bases its set of tagging best practices on the following definition:\n\"Accessibility is the practice of ensuring there are minimal barriers to access and interact with \twebsites and other electronic information for users with physical or situational disabilities.\"\nThe newly added Accessibility section provides an overview summarizing these recommendations and provides links to over 30 elements and document objects throughout the TG. For ease of identification, each updated TG area has an \"Accessibility\" section that provides guidance.  \nPMC's operations team will be engaging with publisher and data providers to encourage adoption of this guidance to improve the digital accessibility of articles that are deposited into PMC over the long term.",
     "ai_summary": NaN
   },
@@ -75,7 +75,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2024-09-16",
     "published": "Mon, 16 Sep 2024 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "On October 16, 2024, PMC will transition to a new website. This update, available for preview since March 2024 for user testing and feedback, will become the default for PMC on that date.\nWith this update:\n\n the primary URL format for the website will change from https://www.ncbi.nlm.nih.gov/pmc/ to https://pmc.ncbi.nlm.nih.gov/\nExisting links to most PMC pages with the prior format will redirect to the equivalent page using the new format. \nPMC search, the PMC Publisher Portal, and most of the public file validation tools will maintain the https://www.ncbi.nlm.nih.gov/pmc format. \nJournal \"archive\" pages will redirect to the new PMC Journal List record: https://www.ncbi.nlm.nih.gov/pmc/journals/2/ --> https://pmc.ncbi.nlm.nih.gov/journals/?term=Proceedings+of+the+National+Academy+of+Sciences+of+the+United+States+of+America \nTable of contents pages for issues will also redirect to the PMC Journal List. Visit the PMC User Guide to learn how to find articles by volume and issue.\n\nThis change will NOT affect PubMed URLs (https://pubmed.ncbi.nlm.nih.gov/). \nSee our previous posts in NCBI Insights (March 2024) and in the NLM Technical Bulletin (May 2024) for more details.",
     "ai_summary": NaN
   },
@@ -85,7 +85,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2024-03-21",
     "published": "Thu, 21 Mar 2024 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "\nWe are pleased to announce the availability of a preview of improvements planned for the PMC website. These improvements will become the default in October 2024 and include an updated article display and enhanced PMC journal list. Click on the \"Try it out now\" link in the banner on the top of any page on the current PMC website to preview these updates, and visit NCBI Insights for more information.",
     "ai_summary": NaN
   },
@@ -95,7 +95,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2023-12-15",
     "published": "Fri, 15 Dec 2023 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The PubReader format was added to PMC in 2012 to make it easier to read full text articles on tablet, mobile, and other small screen devices.\nIn March 2022, NCBI launched an updated PMC website. The updated website is mobile responsive, making it easy to read articles in PMC on any device. This makes some legacy  features, such as the PubReader view, no longer necessary.\nIn January 2024, we will remove the PubReader links from the PMC website. You will temporarily still be able to access the PubReader format by appending \"?report=reader\" to any PMC article URL (e.g., https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9825438/?report=reader).\nIn May 2024, we will fully remove the PubReader functionality from the PMC website. Any link to the PubReader format will redirect to the standard, mobile responsive, PMC article view. For content in Bookshelf, PubReader view will continue to be available for the majority of titles, specifically those with unrestricted navigation. PubReader view is accessed from the Views menu on the right.",
     "ai_summary": NaN
   },
@@ -105,7 +105,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2023-08-30",
     "published": "Wed, 30 Aug 2023 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "Early in the COVID-19 pandemic, the National Library of Medicine (NLM) collaborated with publishers and scholarly societies to expand access to coronavirus-related journal articles in PubMed Central (PMC). Through this collaboration, more than 50 publishers made more than 350,000 coronavirus-related articles accessible under various license terms through the PMC COVID-19 Collection (previously the PMC COVID-19 Public Health Emergency Initiative).\nAs COVID-19 emergency declarations expired in the United States and around the globe, so too did article-level license terms for use of some of these articles. Most of the articles deposited in the PMC COVID-19 Collection will remain available in PMC, and all citations will remain searchable in PubMed and available for bulk distribution and reuse through the PMC Open Access Subset. However, some publishers retained the right to remove their content and have requested to do so. \nDetails on changes to the licensing status or availability of content can be found in the NLM Technical Bulletin. More information, including a list of publishers and their licensing statuses, is available in the PMC COVID-19 Collection FAQs and on the PMC COVID-19 Collection webpage.",
     "ai_summary": NaN
   },
@@ -115,7 +115,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2023-05-03",
     "published": "Wed, 03 May 2023 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The National Library of Medicine (NLM) recently renamed the COVID-19 and Mpox Public Health Emergency Initiatives as the PMC COVID-19 Collection and PMC Mpox Collection, respectively. NLM continues to work with publisher and scholarly society collaborators who contribute content to these collections to provide broad access and support reuse of relevant scientific literature.",
     "ai_summary": NaN
   },
@@ -125,7 +125,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2023-04-19",
     "published": "Wed, 19 Apr 2023 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The role of what a library means in a digital world is evolving and expanding. PMC has a large and diverse user base that includes students and the public, as well as researchers, clinicians, and librarians. We recognize that these different audiences have varying levels of familiarity with NLM, the National Institutes of Health (NIH), and the scholarly publishing process and have recently updated how we describe, display, and share articles in PMC to provide our users with more context. Visit NCBI Insights for more information about these updates.",
     "ai_summary": NaN
   },
@@ -135,7 +135,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2023-01-30",
     "published": "Mon, 30 Jan 2023 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "Today, we are pleased to announce the launch of the second phase of the NIH Preprint Pilot with the addition of more than 700 new preprint records to PubMed Central (PMC) and PubMed. This second phase expands the scope of the Pilot to include preprints resulting from all NIH-funded research. Eligible preprints are those acknowledging direct support of an NIH award or authored by NIH staff and posted to bioRxiv, medRxiv, arXiv, or Research Square, on or after January 1, 2023. NLM will automatically include the full text of the preprint (as license terms allow) and associated citation information in PMC and PubMed, respectively. New preprint records will be added on a weekly basis. Phase 2 of the pilot is expected to run through 2023. A project of NLM, the NIH Preprint Pilot was launched in 2020 to explore new approaches to increase the discoverability of NIH-supported research results, with the first phase focusing on NIH-supported research on COVID-19 and the SARS-CoV-2 virus.\nTo learn more, visit the NIH Preprint Pilot page.",
     "ai_summary": NaN
   },
@@ -145,7 +145,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2023-01-10",
     "published": "Tue, 10 Jan 2023 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "Last month, the National Library of Medicine (NLM) announced plans to extend its NIH Preprint Pilot in PubMed Central (PMC) and PubMed beyond COVID-19 to encompass all preprints reporting on NIH-funded research. The second phase of the pilot, launching later this month, will include preprints supported by an NIH award, contract, or intramural program and posted to an eligible preprint server on or after January 1, 2023.\nIn preparation for the launch of this second phase, we have updated PMC and PubMed site features to help users of these databases incorporate the increased volume of preprints into their discovery workflows. See the NCBI Insights post for more information about these preprint record display and search filter updates.\nPMC will continue to update the NIH Preprint Pilot Overview and FAQs in the coming weeks. Please send your questions and feedback to pmc-preprints@ncbi.nlm.nih.gov.",
     "ai_summary": NaN
   },
@@ -155,7 +155,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2022-09-08",
     "published": "Thu, 08 Sep 2022 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "On August 4, 2022, the White House Office of Science and Technology Policy (OSTP) announced a coordinated call to action with the science and technology leaders of more than 20 countries, requesting that publishers voluntarily make mpox and other orthopox-related publications freely and immediately accessible in appropriate public repositories to support the ongoing public health emergency response efforts. The call specified that these articles be made available with broad reuse rights in both human- and machine-readable formats to allow access to full text content and metadata.\nPublishers have responded to the call by volunteering to make their relevant articles accessible in PMC in formats and under license terms that facilitate text mining and secondary analysis. PMC-participating publishers can email PMC at pmc-phe@ncbi.nlm.nih.gov to notify us of their interest in collaborating on this effort.\nFor a list of current collaborators, help with querying mpox-related literature, and more information, please visit our  Public Health Emergency Mpox Initiative webpage.",
     "ai_summary": NaN
   },
@@ -165,7 +165,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2022-08-30",
     "published": "Tue, 30 Aug 2022 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC has released an updated feature to make it easier to explore information related to a given article. You will now see three sections in the right-hand column of all PMC articles which can be opened to browse similar articles in PubMed, articles that cite the current article, and links to related data records in National Center for Biotechnology Information (NCBI) databases.\nSee our post in the NLM Technical Bulletin for more details about the update, and please continue to provide feedback through the Feedback button found on the PMC website.",
     "ai_summary": NaN
   },
@@ -175,7 +175,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2022-03-22",
     "published": "Tue, 22 Mar 2022 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "\nWe have launched a fresh look and feel to the PubMed Central (PMC) website, which marks the first step of an ongoing modernization effort. Now when you visit PMC's website, you will see:\n\na redesigned and reorganized homepage\neasy-to-navigate help documentation\na similar look and feel between features in PMC and PubMed\na streamlined article display\n\nSee our post in NCBI Insights for more details about the update, and please continue to provide feedback through the green \"Feedback\" button in the lower right-hand corner of the PMC website.",
     "ai_summary": NaN
   },
@@ -185,7 +185,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2022-02-24",
     "published": "Thu, 24 Feb 2022 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "In 2021, PubMed Central (PMC) continued to grow and evolve in its role as a repository for research support by the National Institutes of Health (NIH) and other partner funding agencies. Around 1.3 million articles have been made publicly accessible in PMC under the NIH Public Access Policy; and the volume of NIH-supported articles added to PMC with associated data content continues to increase annually (59% of articles in 2020 included supplementary material and/or a data availability statement vs. 27% in 2009). Other recent activities include:\n\nRelease of a new training video that walks users through the NIH Manuscript Submission (NIHMS) system deposit workflow, as well as updated tutorials.\nModifications to the NIHMS system to support new funder requirements (e.g., see the updated Howard Hughes Medical Institute Open Access Policy that took effect January 1, 2022; a supplemental tutorial is also now available for HHMI submitters).\nExpansion of the Health Research Alliance (HRA) Open program to support the open access policies of The Association for Frontotemporal Degeneration and IRIDIAN GENOMES.\nNew submissions to NASA PubSpace have moved from the NIHMS system to the NASA Science and Technology Information Program. Further information is available on the NASA STI Program website.\nRelease of the PMC Funder Deposit List to help publishers, funders, and institutions identify the funded content that can be deposited in PMC and clarify the available submission routes.\n\nOver the last year, PMC has also continued to pilot the curation and ingest of NIH-support preprints reporting COVID-19 research. There are now over 3,000 preprint records discoverable in PMC, accelerating and expanding discovery of NIH research.",
     "ai_summary": NaN
   },
@@ -195,7 +195,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2021-09-21",
     "published": "Tue, 21 Sep 2021 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "[Story Updated April 1, 2022]\nPubMed Central (PMC) has made significant improvements to the bulk retrieval of two of the PMC Article Datasets from our FTP service. The improvements were made to bulk packages which include metadata and full text of articles in XML or plain text formats for the PMC Open Access (OA) Subset and the Author Manuscript Dataset, which combined encompass more than half of the 7 million articles in PMC. To improve the usability of these two datasets, PMC has redesigned the bulk download directory structure and file packages on our FTP service. The new structure includes:\n\nbaseline packages that contain all articles available in PMC as of the baseline date for each respective dataset or grouping; and\ndaily incremental packages for each respective dataset or grouping that only contain articles that are new to the dataset or that have been updated since the baseline or previous incremental file was created.\n\nThe PMC Open Access Subset bulk packages have been divided into three groups based on available license terms:\n\nCommercial Use Allowed - CC0, CC BY, CC BY-SA, CC BY-ND licenses;\nNon-Commercial Use Only - CC BY-NC, CC BY-NC-SA, CC BY-NC-ND licenses; and \nOther - no machine-readable Creative Commons license, no license, or a custom license.\n\nThe baseline packages for each of these PMC Open Access Subset usage groups and for the Author Manuscript Dataset have been further divided by PMCID range (e.g., a package with PMC004XXXXXX in its name means that any appropriate articles with PMCIDs falling between PMC4000000 and PMC4999999 are included in the package).\nThe previous bulk download directories and packages were moved to a new temporary location in December 2021 and were deleted on April 1, 2022. This change does NOT impact the individual PMC Open Access Subset article directories and packages on the PMC FTP service, those will remain unchanged. Please also note that the datasets discussed in this update are also now available for retrieval and computing in the cloud. \nSee the PMC FTP Service page for more details. Please send your feedback and share more about how you are using the PMC Article Datasets to pubmedcentral@ncbi.nlm.nih.gov.",
     "ai_summary": NaN
   },
@@ -205,7 +205,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2021-06-14",
     "published": "Mon, 14 Jun 2021 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "[Update March 14, 2022: On March 21, 2022, we will be releasing an updated PMC website design, which has been in development on PMC Labs since June. Please see NCBI Insights to learn more.]\nNCBI is at work on a PMC update aimed at creating a more modern and accessible user experience. The first phase of this work is now available on PMC Labs, https://www.ncbi.nlm.nih.gov/labs/pmc, for you to explore and provide feedback. See our post on NCBI Insights for details about key features in PMC Labs and more about our plan for updating the site.\nTrying Out PMC on Labs\nWe encourage you to explore the site and provide feedback. Buttons on the lower right-hand side of the screen make it easy to provide feedback or navigate back to the current PMC site.\nTo return to the PMC website after visiting PMC on Labs, click the red \"Exit PMC Labs\" button or the link in the banner at the top of the page.\n",
     "ai_summary": NaN
   },
@@ -215,7 +215,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2020-06-15",
     "published": "Mon, 15 Jun 2020 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "On June 9, 2020, NLM launched the NIH Preprint Pilot. During the pilot, NLM will make preprints resulting from research funded by the National Institutes of Health (NIH) available via PubMed Central (PMC) and, by extension, PubMed. The pilot aims to explore approaches to increasing the discoverability of early NIH research results. The pilot will run for a minimum of 12 months. Lessons learned during that time will inform future NLM efforts with preprints.\nTo learn more about the pilot, see:\nNIH Preprint Pilot Overview\nNIH Preprint Pilot FAQs\nNLM Director's blog announcement\nNLM Technical Bulletin\nNIH Extramural Nexus\nTo find preprints in PMC, you can search: preprint[filter]. You can exclude preprints from search results by using the Boolean NOT, e.g., covid-19 NOT preprint[filter]. For additional information on filtering preprints in PMC and PubMed see the FAQ.\nRegular updates on the pilot status will be posted to the NLM Technical Bulletin. We encourage you to send your feedback to pmc-preprints@ncbi.nlm.nih.gov.",
     "ai_summary": NaN
   },
@@ -225,7 +225,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2020-03-26",
     "published": "Thu, 26 Mar 2020 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "On March 13, 2020, the National Science and Technology Advisors from a dozen countries, including the United States, called on publishers to voluntarily agree to make their COVID-19 and coronavirus-related publications and associated data immediately accessible in PubMed Central (PMC) and other appropriate public repositories to support the ongoing public health emergency response efforts.\nFor more information on which publishers have responded to this call and how to discover COVID-19 and coronavirus-related publications in PMC, see the main COVID-19 Initiative page.\nA FAQ is also available. If you have questions not addressed in the FAQ, please contact pmc-phe@ncbi.nlm.nih.gov.\nYou can learn more about how this initiative fits into the wider NLM response to the current public health emergency in Dr. Patti Brennan's post, \"How Does a Library Respond to a Global Crisis?\"",
     "ai_summary": NaN
   },
@@ -235,7 +235,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2019-07-31",
     "published": "Wed, 31 Jul 2019 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "Peer review documents, including review reports and editor decision letters, are increasingly being published along with the articles they review. This practice is intended to make the publishing process more transparent. To support these efforts,  PMC's Tagging Guidelines have been updated to include the tagging of peer review documents. NLM encourages PMC-participating publishers, journals, and data providers to review this guidance. Please contact us at pubmedcentral@ncbi.nlm.nih.gov if you have any questions.",
     "ai_summary": NaN
   },
@@ -245,7 +245,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2019-02-04",
     "published": "Mon, 04 Feb 2019 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC has updated the Associated Data box to display unique identifiers assigned to\n        supplemental material files by the publisher when available (e.g., DOI; see PMC6351104). In cases\n        where the publisher has not assigned a unique ID to a supplemental file, NLM will generate\n        and display a Globally Unique Identifier (GUID; see PMC6351564). This update\n        aims to support the reporting of datasets as well as the citation and discovery of this\n        content.\nPublishers that are interested in supplying unique IDs for supplemental material files with\n        their PMC submissions should visit the Tagging Guidelines.",
     "ai_summary": NaN
   },
@@ -255,7 +255,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2019-01-14",
     "published": "Mon, 14 Jan 2019 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "On March 18, 2019, PMC will no longer provide bulk packages of Open Access (OA) Subset text\n        and XML at the top level directory of the FTP Service. These files were superseded in August\n        2016 by the Commercial Use and Non-Commercial Use bulk packages located in the oa_bulk\n        subdirectory. One set comprises articles that may be used for commercial purposes (the\n        Commercial Use Collection); the other contains articles that can be used only for\n        non-commercial purposes. Anyone planning to use OA subset content for non-commercial\n        purposes will need to download both \"non_comm_use.*.tar.gz\" and \"comm_use.*.tar.gz\" to\n        access the complete collection. See the Open Access\n          Subset page for additional details. Questions should be directed to pubmedcentral@ncbi.nlm.nih.gov.",
     "ai_summary": NaN
   },
@@ -265,7 +265,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2019-01-07",
     "published": "Mon, 07 Jan 2019 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "Machine-readability of scholarly outputs is critical to supporting large-scale analysis of\n        the scientific literature. To that end, PMC's Tagging Guidelines and internal processes have been updated to support the JATS4R recommendations for tagging clinical\n        trial information. NLM encourages PMC-participating publishers, journals, and data providers\n        to review this guidance. Please contact us at pubmedcentral@ncbi.nlm.nih.gov if you\n        have any questions.",
     "ai_summary": NaN
   },
@@ -275,7 +275,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2018-11-15",
     "published": "Thu, 15 Nov 2018 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "In the NLM Strategic Plan released earlier this year, we noted that \"[c]reating efficient\n        ways to link the literature with associated datasets enables knowledge generation and\n        discovery.\" To that end, PMC is now aggregating data citations, data availability statements\n        and supplementary materials, as available, in an Associated Data box. This box will only\n        display on articles that have one or more of these features in the article.\n\nTo limit your search to records with an Associated Data box, you can use the new\n        \"Associated Data\" facet on the search results page:\n\nWe hope that exposing this content in a consistent format and in an easy to find and easy\n        to access manner, you will more readily find the datasets you need to further accelerate\n        discovery and advance health. As part of our ongoing commitment to making data\n          findable, accessible, interoperable, and re-usable (FAIR), we encourage you to contact us with your feedback on these\n        updates and with any other suggestions you may have for improving discovery of related data\n        in PMC.",
     "ai_summary": NaN
   },
@@ -285,7 +285,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2018-10-23",
     "published": "Tue, 23 Oct 2018 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "Collaboration with publishers and funders to ensure the openness and preservation of the\n        scientific record is one of PMC's core principles. Open Access Week offers an opportunity to\n        celebrate some of the recent outcomes of these collaborations: \nIn July 2018, the PMC corpus of publicly accessible articles hit 5 million\n            articles.\nIn May 2018, the PMC Open Access Subset\n            surpassed the 2 million article mark.\nThe Author Manuscript Collection now includes more\n            than 500,000 papers for text mining.\nThe PMC and Research Funder Policy page underwent an\n            update in September 2018 to increase transparency around funder support in PMC for\n            publishers, authors, and the public.\nFunder policy support in PMC has been extended to the US Department of Homeland\n            Security, in addition to several new US private research funders via the Health Research\n            Alliance.\n\n\nIn FY2018 more than 200 new journals committed to archiving their complete contents in PMC,\n        to be made publicly accessible in 12 months or less.",
     "ai_summary": NaN
   },
@@ -295,7 +295,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2018-06-26",
     "published": "Tue, 26 Jun 2018 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC has released expanded information about its\n        selection process for journals that apply for participation. The current review process has\n        been in place since November 2014 and focuses\n        on the scientific rigor and editorial quality of each journal that applies to participate in\n        PMC. Some of the attributes taken into account as part of this process include the article\n        content, journal policies, language quality, and presentation of content. The same\n        assessment considerations are used for reevaluation\n          of currently participating journals. We encourage you to visit the Journal Selection for PMC page to learn more.\nPublishers and journals interested in submitting an application to PMC are also encouraged\n        to review our updated policies on agreement\n          types. These policies provide the eligibility criteria for each type of participation\n        agreement and should be considered alongside the pre-application requirements. \nWe hope these updates are informative and look forward to hearing your feedback.",
     "ai_summary": NaN
   },
@@ -305,7 +305,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2018-04-18",
     "published": "Wed, 18 Apr 2018 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "Looking for journal articles with associated data sets? New search filters in PMC and\n        PubMed aim to increase the discoverability of articles with associated data information.\nIn PMC, users can now search on or append searches with filters to discover articles with\n        specific types of associated data, i.e., to find\n\narticles with associated supplementary material, use hassuppdata;\narticles that include a data availability or data accessibility statement, use hasdataavail; or \narticles that include data citation(s), use hasdatacitations\n\nAlternatively, users can run a search on hasassociateddata to\n        find all articles with any type of data section described above. \nIn PubMed, users can now search on or append searches with data[filter] to find articles with related\n        data links in either the Secondary Source ID field or the LinkOut -- Other Literature\n        Resources field (both located below the abstract). These data links may be to records in\n        other NLM databases (e.g., GenBank) or external data repositories (e.g., figshare, Dryad). \nThe provision and availability of associated datasets still varies widely from article to\n        article, but it is our hope that this small step helps improve the discoverability of this\n        material and supports wider community efforts to advance science in new directions. ",
     "ai_summary": NaN
   },
@@ -315,7 +315,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2018-03-28",
     "published": "Wed, 28 Mar 2018 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "In collaboration with Europe PMC, PMC has rolled out\n        several updates to our article display in order to enhance the transparency and readability\n        of the content.\n\nNavigating from the PMC record to the PubMed record has been made easier by the addition of\n        hyperlinked PubMed IDs (PMIDs) in the upper right-hand corner of article records. Clicking\n        the PMID link will take you to the corresponding citation record in PubMed.\nThe PMC Disclaimer link has also been moved out of the Copyright and License information\n        section for easier discovery and access. This page describes what content is included in PMC\n        as well as other important NCBI and NLM disclaimer information.\n\nAdditionally, two changes have been implemented to improve the functionality of author\n        names. Users can now click on an author name to view the author's affiliation(s). Users also\n        have the option of running a quick author name search in PMC by clicking the linked author\n        name in \"Find articles by [author name]\". In the example pictured above, the search would be\n        for \"Sawyer SL\"[Author].\n\nAnd finally, figures and tables have been moved inline in the article display. By moving\n        away from the thumbnail display, PMC hopes to make it easier for users to view figure and\n        table data as they read articles. Users may still click on the figure/table title or \"Open\n        in separate window\" (as available) link for a closer look. \nWe hope these updates improve the overall user experience in PMC and look forward to\n        hearing your feedback. \nReferences\nScreenshots from:\nQiao, Y., Yang, J., Liu, L., Zeng, Y., Ma, J., Jia, J., … Wang, Y. (2018). Successful treatment with pazopanib plus PD-1\n          inhibitor and RAK cells for advanced primary hepatic angiosarcoma: a case report. BMC\n        Cancer, 18, 212. http://doi.org/10.1186/s12885-018-3996-3\nStabell, A. C., Meyerson, N. R., Gullberg, R. C., Gilchrist, A. R., Webb, K. J., Old, W.\n        M., … Sawyer, S. L. (2018). Dengue viruses cleave\n          STING in humans but not in nonhuman primates, their presumed natural reservoir. eLife,\n        7, e31919. http://doi.org/10.7554/eLife.31919\nBoth articles made available under a CC-BY license. ",
     "ai_summary": NaN
   },
@@ -325,7 +325,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2018-01-04",
     "published": "Thu, 04 Jan 2018 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "As we kick off a new year, we wanted to take this opportunity to look back on 2017, which\n        was a milestone year for PMC.\nLast year, PMC made nearly half a million articles available for the public to access with\n        the support of participating journals, publisher programs, and research funders. Also, in\n        addition to expanding support for public access to\n          research results and the linking of those\n          results to the underlying dataset(s), PMC released several other policy and resource\n        updates. These include:\n\nClearer statement of scope for PMC (see also the updated\n          entry in the NLM Collection Development Manual for \"Journals\");\nGuidance for journals on reapplying to PMC;\nPolicy statements on the scientific, editorial, and\n            technical standards for PMC (including details on the journal reevaluation process),\n          the supply of back content, the eligibility of\n          non-English language journals, and the maintenance of publishing schedules; \nProduction data requirements for PMC-participating\n          journals; and\nMajor update to the PMC Article\n            Previewer, a tool that allows publishers to see or \"preview\" how articles will\n          appear in PMC and resolve data problems prior to submission.\n\nIn September, NLM recognized the achievements to date in the Wellcome Trust and NLM Biomedical Journal\n        Digitization project, which has added a dozen new historical titles and more than a half\n        million pages to the PMC archive. The PMC archive now includes content from as far back as\n        the late 18th century.\nMany thanks all our participants and users for a wonderful year!",
     "ai_summary": NaN
   },
@@ -335,7 +335,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2017-12-18",
     "published": "Mon, 18 Dec 2017 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC Canada, sponsored by the Canadian Institutes of Health Research (CIHR), with\n        operational support provided by the National Research Council (NRC), has been a valued\n        partner in the PMC International network since 2009. CIHR and\n        NRC have now notified NLM of their decision to permanently take PubMed Central Canada (PMC\n        Canada) offline on February 23, 2018. Details of this decision are available on the PMC Canada website.\nThe decision to decommission PMC Canada does not affect the status or operations of NIH's\n        PubMed Central (US) or Europe PubMed Central. PMC Canada content will remain in the PMC\n        archive and be publicly searchable on NLM's PubMed Central (US) and through Europe PMC. CIHR researchers who publish in journals that\n        deposit their articles directly into NIH's PubMed Central or deposit manuscripts co-funded\n        with current PMC-participating funders will continue to be considered in compliance with the\n          Tri-Agency Open Access Policy on Publications.\nNIH and NLM have appreciated our cooperation with CIHR and NRC over the last several years\n        and will continue to identify new opportunities to work together to support open access and\n        research excellence.",
     "ai_summary": NaN
   },
@@ -345,7 +345,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2017-10-30",
     "published": "Mon, 30 Oct 2017 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "In response to the growing interest in the availability of data associated with articles,\n        PMC is reviewing current practices around data and seeking feedback on how to best serve the\n        data needs of the research community.\nAs part of these efforts, the PMC policy statement on\n          supplementary data was recently updated to more clearly articulate the requirement\n        that any supplementary data (images, tables, video, or other documents / files) that are\n        associated with an article must be deposited in PMC with an article. The search filter \"hassuppdata\" can be used in PMC to discover records with associated supplementary\n        data files.\nIn addition to providing supplementary data with an article, NLM is also encouraging\n        journals and authors to make research data available in a public repository and include the\n        relevant data citation(s) in the paper. Guidance for PMC data providers on tagging data\n        citations is available in the Tagging\n          Guidelines. This guidance is based on the JATS4R recommendations on data citations.\nStarting this month, the NIH Manuscript Submission (NIHMS) system will also accept deposits\n        of small datasets accompanying deposits of funded author manuscripts for inclusion of PMC.\n        (Guidance for authors is available in the NIHMS FAQ.)\nIf you have suggestions on future directions in data for PMC to consider, please let us\n        know at pubmedcentral@ncbi.nlm.nih.gov.",
     "ai_summary": NaN
   },
@@ -355,7 +355,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2017-08-28",
     "published": "Mon, 28 Aug 2017 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "Since March 2016, the NIH\n          Manuscript Submission (NIHMS) system has added support for researchers from the\n        following federal agencies to deposit in PMC any manuscripts that fall under the agency's\n        public access policy: \n\nAssistant Secretary for Preparedness and Response (ASPR/HHS; intramural only at this\n          time) \nEnvironmental Protection Agency (EPA; intramural only at this time) \nNational Aeronautics and Space Administration (NASA; intramural/civil servants and\n          grantees) \n\nManuscript deposit support for all Administration for Community Living (ACL/HHS)\n        researchers will be available in NIHMS by October 2017 and for Department of Homeland\n        Security researchers in early 2018.\nAdditionally, the Bill & Melinda Gates Foundation Open Access Policy now requires their\n        grantees to make their published research results available in PMC immediately upon\n        publication under a Creative Commons Attribution (CC-BY) license. Manuscript deposit support\n        is not provided in NIHMS for Gates-funded researchers; rather the final published version of\n        any Gates-funded article is to be deposited directly to PMC by the publisher or a\n        funder-supported data provider without author involvement. More information on this open\n        access policy is available on the Gates Foundation website. \nPMC will continue to update the list of participating funding agencies at Public Access and PMC as support is implemented. ",
     "ai_summary": NaN
   },
@@ -365,7 +365,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2017-01-19",
     "published": "Thu, 19 Jan 2017 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "A large-scale update of the file names used for articles available via the PMC FTP service for bulk download was undertaken in early January\n        2017. The new file naming convention is PMCID-based (e.g., PMC4855680.tar.gz) rather than\n        being built from article citation data (i.e., journal abbreviation_pub\n        date_volume_issue_page). This update was made following user reports that the previous\n        naming convention was resulting in missing contents in cases where citation data was\n        duplicated across multiple articles. The new convention will ensure that file names are\n        unique and that the corpus available via the FTP service is complete.",
     "ai_summary": NaN
   },
@@ -375,7 +375,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2016-08-17",
     "published": "Wed, 17 Aug 2016 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "As of August 2016, PMC is home to four million articles! To make this wealth of\n        full-text content easier to navigate, PMC has rolled out a few updates:\n1) Search Result Filters On all search results pages, you will now see filters\n        (similar to PubMed's filters) on the left-hand side that allow you to filter your results by\n        article attributes, publication date, research funder, and search fields. These filters\n        replace the Limits page and allow you to more readily:\n\nfind open access articles (PMC has more than 1.35 million open access articles that can\n          be reused according to their license statements),\nexplore PMC's rich historical content from NLM's back issue\n            digitization project,\nbrowse research supported by PMC-participating funding\n            organizations (click \"Customize\" to view additional funder options),\nand much more. \n\nYou can now also quickly add articles that are under a 12-month or less embargo in PMC to\n        your search results by selecting the \"Include embargoed articles\" filter option under Text\n        Availability. See the PMC User Guide for\n        more information on these filters. \n\n2) Reference List Display Using related article data available in PMC,\n        articles that cite papers that have been either retracted or named in a Findings of Research\n        Misconduct issued by the HHS Office of Research Integrity and not yet retracted will now\n        include a red hyperlink to the relevant notice directly from the article's reference list.\n        This update will help users more easily identify post-publication updates to existing\n        research. \n",
     "ai_summary": NaN
   },
@@ -385,7 +385,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2016-08-01",
     "published": "Mon, 01 Aug 2016 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC has reorganized its FTP Service site for users interested\n        in accessing the PMC Article Datasets, which include\n        the original Open Access (OA) Subset. New top-level FTP directories help users quickly\n        locate the content available for bulk download that best suits their research needs. These\n        directories include:\n\noa_package - article\n          packages for individual OA articles\noa_pdf - individual PDFs for OA\n          articles\noa_bulk - bulk packages of\n          text from OA articles\nmanuscript - author\n          manuscripts collected under a funding agency's public access policy\nhistorical_ocr - select\n          OCR texts from the PMC Back Issue Digitization\n          project\n\nTo make it easier for users to identify and comply with the different licenses that apply\n        to OA articles, new file lists have been created and the file lists for individual OA\n        articles now include a \"license-type\" field for each article. Similarly, the bulk packages\n        of OA article text have been divided into two sets. One set comprises articles that may be\n        used for commercial purposes (the Commercial Use Collection); the other contains\n        articles that can be used only for non-commercial purposes. See the Open Access Subset page for details.\nTo allow regular users to transition to the new arrangement, the previous arrangement of\n        files and directories will be maintained in parallel for at least four weeks (i.e., until\n        the end of August 2016). ",
     "ai_summary": NaN
   },
@@ -395,7 +395,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2016-03-24",
     "published": "Thu, 24 Mar 2016 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "Last month marked the third anniversary of the White House's Office of Science and\n        Technology Policy (OSTP) memorandum directing Federal agencies with more than $100 million\n        in annual research and development (R&D) expenditures to develop plans for increasing\n        public access to the results of the research they support, including scholarly publications.\n        As a result of this directive, in 2015, PMC started providing support as a public access\n        repository for funding agencies beyond the National\n          Institutes of Health (NIH) and Howard Hughes Medical Institute\n        (HHMI).\nAs of March 2015, the following additional agencies are using the NIH Manuscript Submission (NIHMS) system to facilitate\n        the deposit in PMC of peer-reviewed manuscripts that fall under their public access\n        policies:\n\nAgency for Healthcare Research Quality (AHRQ/HHS)\nCenters for Disease Control and Prevention (CDC/HHS), \nFood and Drug Administration (FDA/HHS), \nNational Institute of Standards and Technology (NIST), and \nU.S. Department of Veterans Affairs (VA)\n\nAdditionally, the following additional HHS and other federal agencies have announced public\n        access plans and committed to using PMC as the repository for agency-funded\n        publications:\n\nAdministration for Community Living (ACL/HHS)\nAssistant Secretary for Preparedness and Response (ASPR/HHS)\nEnvironmental Protection Agency (EPA)\nNational Aeronautics and Space Administration (NASA)\n\nPMC will continue to update the list of participating funding agencies at Public Access and PMC as these agencies begin implementation of\n        their policies.\nMore information about the current status of public access expansion as a result of the\n        OSTP memo can be found on the White House blog.",
     "ai_summary": NaN
   },
@@ -405,7 +405,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2016-01-11",
     "published": "Mon, 11 Jan 2016 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "NIH-supported scientists have made over 300,000 author manuscripts available in PMC. Now\n        NIH is making these papers accessible to the public in a format that will allow robust text\n        analyses.\nYou can download the PMC collection of NIH-supported author manuscripts as a package in\n        either XML or plain-text format at ftp://ftp.ncbi.nlm.nih.gov/pub/pmc/manuscript/. The collection encompasses all NIH\n        manuscripts posted to PMC that were published in July 2008 or later. While the public can\n        access the manuscripts' full text and accompanying figures, tables, and multimedia via the\n        PMC website, the newly available XML and plain-text files include full text only. In\n        addition to text mining, the files may be used consistent with the principles of fair use under copyright law.\nPlease note that these author manuscript files are not part of the PMC Open Access Subset.\nThe NIH Office of Extramural Research developed this resource to increase the impact of NIH\n        funding. Through this collection, scientists will be able to analyze these manuscripts,\n        further apply NIH research findings, and generate new discoveries.\nFor more information, please visit the PMC author\n          manuscript collection webpage.",
     "ai_summary": NaN
   },
@@ -415,7 +415,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2015-12-15",
     "published": "Tue, 15 Dec 2015 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The PMC Overview and FAQ have been updated to\n        provide more information on the Scientific Quality Review Process for journals that apply to\n        participate in PMC.\nIn 2014, PMC implemented a scientific and editorial quality review procedure whereby expert\n        consultants from outside the National Library of Medicine (NLM) conduct an independent\n        review of journals seeking to participate in PMC. This was in response to a significant\n        increase in new publishers and journals applying to participate in PMC, many of which are\n        unknown to NLM in terms of quality and publishing practices. The independent review, which\n        was approved by the PMC National Advisory Committee (see minutes from June\n        10, 2014), follows an assessment by NLM that the journal meets NLM's criteria for its\n        collection, as outlined in the Collection Development\n          Manual.\nPMC also recently updated the minimum requirement on the number of substantive,\n        peer-reviewed articles needed before a journal can apply to PMC. The new 25-article minimum ensures that the reviewers have a\n        sufficient amount of content on which to base their recommendation for inclusion in PMC. The\n        new minimum article requirement takes effect on January 1, 2016. Publishers are encouraged\n        to use the 25-article minimum as a guideline in the interim when submitting\n        applications.",
     "ai_summary": NaN
   },
@@ -425,7 +425,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2015-11-23",
     "published": "Mon, 23 Nov 2015 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC includes some journals published by US government agencies that make their articles\n        available under a Creative Commons CC0 (public domain) license. Some other journals also\n        apply a CC0 license to selected articles in PMC. All these articles may be used and\n        reproduced without special permission. However, anyone using the material is requested to\n        properly cite and acknowledge the source. \nYou may now search for CC0 articles by using special filters in both PMC (cc0 license[filter]) and PubMed (pmc cc0 license[filter]). These filters\n        are based on license information that is provided to PMC by publishers and encoded as\n        machine-readable identifiers in the source XML of each article. For more information, see\n        the FAQ titled How do I search for articles by Creative Commons license? page. \nPlease bear in mind that these articles, although made available under a CC0 license, may\n        still contain photographs or illustrations copyrighted by other commercial organizations or\n        individuals that may not be used without obtaining prior approval from the holder of the\n        copyright.",
     "ai_summary": NaN
   },
@@ -435,7 +435,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2015-02-05",
     "published": "Thu, 05 Feb 2015 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "In order to facilitate text and data mining for articles in the Open Access Subset, we are\n        now providing plain text files for those articles on our FTP site. These files contain the\n        full text of the article, extracted either from the XML source files, or (for those articles\n        that don't have XML) the PDF files. Users are directly and solely responsible for compliance\n        with copyright restrictions and are expected to adhere to the terms and conditions defined\n        by the copyright holder (see the PMC Copyright Notice).\nThese text files are bundled in gzipped archives. Note that these files are quite large\n        (each greater than one gigabyte). They are available for download as:\n\nftp://ftp.ncbi.nlm.nih.gov/pub/pmc/articles.txt.0-9A-B.tar.gz\nftp://ftp.ncbi.nlm.nih.gov/pub/pmc/articles.txt.C-H.tar.gz\nftp://ftp.ncbi.nlm.nih.gov/pub/pmc/articles.txt.I-N.tar.gz\nftp://ftp.ncbi.nlm.nih.gov/pub/pmc/articles.txt.O-Z.tar.gz\n\nThese files are updated every week, on Saturday.\nFor more information, see the Bulk Packages of OA\n          Articles section of our FTP Service page.",
     "ai_summary": NaN
   },
@@ -445,7 +445,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2014-11-18",
     "published": "Tue, 18 Nov 2014 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC is happy to announce the addition of a citation exporter feature. This feature makes it\n        easy to retrieve either styled citations that you can copy/paste into your manuscripts, or\n        to download them into a format compatible with your bibliographic reference manager\n        software.\nWhen viewing an Entrez search results page, each result summary will now include a\n        \"Citation\" link. When, clicked, this will open a pop-up window that you can use to easily\n        copy/paste citations formatted in one of three popular styles: AMA (American Medical\n        Association), MLA (Modern Language Association), or APA (American Psychological\n        Association). In addition, the box has links at the bottom that can be used to download the\n        citation information in one of three machine-readable formats, which most bibliographic\n        reference management software can import.\n\nThe same citation box can also be invoked from an individual article, either in classic\n        view (with the \"Citation\" link among the list of formats) or the PubReader view, by clicking\n        on the citation information just below the article title in the banner.\nThese human-readable styled citations, and machine-readable formats, will be available\n        through a public API, and we will be providing more details about that in another\n        announcement, on the pmc-utils-announce\n          mailing list. Please subscribe to that list if you are interested.",
     "ai_summary": NaN
   },
@@ -455,7 +455,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2014-03-28",
     "published": "Fri, 28 Mar 2014 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": " This year's PMC Advisory Committee meeting will be held on Tuesday, June 10. The meeting\n        will take place in the NLM Board room starting at 9:30 am. Stay tuned for further details.\n      ",
     "ai_summary": NaN
   },
@@ -465,7 +465,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2014-02-24",
     "published": "Mon, 24 Feb 2014 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": " As of February 21, 2014, PMC became home to three million articles! As listed on\n        our home page, the content has been provided in part by\n          1441 full participation journals, 277 NIH Portfolio journals and\n          2470 selective deposit journals. For related information on PMC\n        milestones, see these announcements from 2007 and 2010, respectively. ",
     "ai_summary": NaN
   },
@@ -475,7 +475,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2013-11-18",
     "published": "Mon, 18 Nov 2013 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": " PMC has just released an upgrade to our ID converter, now dubbed the  PMCID - PMID -Manuscript ID - DOI Converter. This utility\n        allows you to start with the unique identifier for an article that is in PMC, and find\n        additional unique identifiers that may apply to the article. Improvements include support\n        for DOIs, auto-detection of the ID type based on its format, and enhanced output. It also\n        provides output in any of several different formats: HTML, XML, JSON, or CSV. This tool uses\n        an underlying web service, that is also publicly available for those needing programmatic\n        access to this data. See the ID Converter API\n          documentation.\nUPDATE 2025-06-13: PMC ID Converter URL and API Updated.",
     "ai_summary": NaN
   },
@@ -485,7 +485,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2013-11-18",
     "published": "Mon, 18 Nov 2013 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The NCBI Handbook, 2nd Edition was released on November 14 and is now searchable in Bookshelf. The handbook features an updated section on PMC, which includes information on article retrieval, data\n        processing, and PMC tools and utilities. Other PMC-related literature sections that have\n        been updated include Bookshelf, the NIH Manuscript Submission System and the NLM\n        DTD.",
     "ai_summary": NaN
   },
@@ -495,7 +495,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2013-09-04",
     "published": "Wed, 04 Sep 2013 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC has recently released an updated version of its PubReader\n          view. The new version (1.2) includes a \"search this page\" feature\n        that allows you to find specific terms within the article. The latest source code is also\n        available from the GitHub\n        repository.",
     "ai_summary": NaN
   },
@@ -505,7 +505,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2013-08-15",
     "published": "Thu, 15 Aug 2013 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC has recently replaced the PMC-News mailing list and its accompanying RSS feed with a\n        new PMC-Announce\n          list and a new RSS feed. Please note that the\n        older list and feed have now been retired. To subscribe to the new announcement list, see https://www.ncbi.nlm.nih.gov/mailman/listinfo/pmc-announce/. To see the new RSS feed,\n        update your news reader to subscribe to https://www.ncbi.nlm.nih.gov/pmc/about/new-in-pmc/?format=rss.",
     "ai_summary": NaN
   },
@@ -515,7 +515,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2013-08-05",
     "published": "Mon, 05 Aug 2013 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "You can now search for Open Access articles that have certain types of licenses, by using\n        special filters in both PMC and PubMed. These filters are based on license information that\n        is provided to PMC by publishers and other content providers, as encoded by machine-readable\n        identifiers in the source XML of each article. For more information, see our FAQ titled How do I search for articles by Creative Commons license?.",
     "ai_summary": NaN
   },
@@ -525,7 +525,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#2013-07-17",
     "published": "Wed, 17 Jul 2013 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "JATS-Con is a conference for users of the\n        Journal Article Tag Suite, that is, users of any of the \"NLM DTDs\" or NISO Z39.96. JATS-Con\n        will take place on the NIH campus in Bethesda, Maryland on October 22 and 23, 2013.\nThe full program is\n        now available, as are proceedings from previous years. \nThere is no charge for the conference; however, space is limited so registration is\n        required.\nYou may also sign up for a pre-conference tutorial on October 21, 2013. Details are on the\n           Tutorial Registration\n          page.",
     "ai_summary": NaN
   },
@@ -535,7 +535,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day30",
     "published": "Mon, 22 Apr 2013 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC has created a new email list for announcements of new or updated tools and utilities to\n        help you keep better track of improvements to the archive. To find out more information\n        about the list, or to subscribe, please visit PMC-Utils-Announce.",
     "ai_summary": NaN
   },
@@ -545,7 +545,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day29",
     "published": "Fri, 19 Apr 2013 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC is pleased to announce the new OA web service, designed to allow tool developers an\n        easier way to find content in the PMC open access subset. Until now, it has not been easy\n        for outside users to determine which articles in the subset are new or have been updated\n        recently. Our new OA web service addresses this need. It provides a simple API to allow you\n        to query the subset, to find PDF or tgz (tarred-gzipped) format files, either by article ID,\n        or by date/time ranges. More information, along with examples, is available from the\n        documentation page, at OA Web Service. Your feedback\n        is welcome; please send it to the PMC Help Desk, at pubmedcentral@ncbi.nlm.nih.gov.",
     "ai_summary": NaN
   },
@@ -555,7 +555,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day28",
     "published": "Fri, 01 Feb 2013 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "KoreaMed Synapse, a digital archive and reference\n        linking platform of Korean medical journals, is now using NCBI's new PubReader presentation\n        style to display their full-text journal articles. KoreaMed's database of 122 journals now\n        includes a blue 'PubReader' icon for each full-text article. NCBI launched PubReader in \n        December 2012 as a convenient new way to view\n        full-text articles in PubMed Central on desktops as well as tablets and mobile devices. In\n        tandem with the launch, NCBI made the code used to create PubReader freely available on GitHub.",
     "ai_summary": NaN
   },
@@ -565,7 +565,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day27",
     "published": "Fri, 01 Feb 2013 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "As of February 1, 2013, the following new members have been appointed to serve on the PMC\n        National Advisory Committee: Ms. Sharon Terry of the Genetic Alliance; Dr. C. Victor\n        Jongneel of the University of Illinois at Urbana-Champaign; Dr. Bevin Engelward of the\n        Massachusetts Institute of Technology; Dr. Randall Morse of the Wadsworth Center; and Dr.\n        Adelita Cantu of the University of Texas. For more information, see PMC\n          National Advisory Committee. ",
     "ai_summary": NaN
   },
@@ -575,7 +575,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day26",
     "published": "Tue, 11 Dec 2012 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "NCBI has developed a new web presentation style called PubReader, which offers you an\n        easier way to use your Web browser to read the articles in PMC. Designed particularly for\n        enhancing readability and navigation on tablet and other small screen devices, PubReader can\n        also be used on desktops and laptops and from multiple web browsers. For more information on\n        PubReader, see the article in the November-December issue of the NLM Technical Bulletin.",
     "ai_summary": NaN
   },
@@ -585,7 +585,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day25",
     "published": "Mon, 05 Nov 2012 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "With the addition of several European sponsoring agencies, including the European Research\n        Council, UKPMC was renamed Europe PMC  as of November 1,\n        2012. Europe PMC is an outgrowth and expansion of UKPMC, which was first launched in January\n        2007 with sponsorship from the Wellcome Trust and several other funders of biomedical\n        research in the UK. Europe PMC receives all of its final published articles directly from\n        the U.S. PMC archive. It also accepts and processes author manuscripts of journal articles\n        funded by the Europe PMC sponsoring agencies and\n        makes them available to U.S. PMC and PMC Canada. For more information, see PMC International.",
     "ai_summary": NaN
   },
@@ -595,7 +595,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day24",
     "published": "Wed, 22 Aug 2012 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The Journal Archiving Tag Suite(JATS), known formerly as the NLM DTD, has now been\n        officially adopted as an American National Standards Institute (ANSI)/ National Information\n        Standards Organization (NISO) standard. According to the press release from NISO, \"JATS\n        provides a common XML format in which publishers and archives can exchange journal content\n        by preserving the intellectual content of journals independent of the form in which that\n        content was originally delivered.\" For more information, see NISO Publishes Journal Article Tag Suite (JATS) Standard.",
     "ai_summary": NaN
   },
@@ -605,7 +605,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day23",
     "published": "Fri, 13 Jul 2012 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC has recently undergone another redesign to improve the look and feel and functionality\n        of the site, featuring more white space, cleaner lines and enhanced navigation on its article, issue, and\n          journal archive pages. For more information, see the article in\n        the July-August 2012 issue of the NLM Technical Bulletin.",
     "ai_summary": NaN
   },
@@ -615,7 +615,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day22",
     "published": "Thu, 12 Jul 2012 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The PMC user's guide, PMC Help has been updated to include\n        new and improved information on navigating the site as well as descriptions and instructions\n        on using the new search functions, such as Limits and Advanced Search\n          Builder. Further updates will also be forthcoming.",
     "ai_summary": NaN
   },
@@ -625,7 +625,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day21",
     "published": "Mon, 26 Mar 2012 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The third annual Journal Article Tag Suite Conference (JATS-Con) will be held on October 16\n        and 17, 2012 on the NIH Campus in Bethesda, Maryland. JATS-Con is a conference for users of\n        the NISO Z39.96 Journal Article Tag Suite: that is, users of any of the NLM DTDs. JATS-Con\n        is a peer-reviewed conference with a broad range of content on the Tag Suite from the\n        technical to publishing theory — and the latest news on the Tag Suite. For more information,\n        see JATS-Con.",
     "ai_summary": NaN
   },
@@ -635,7 +635,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day20",
     "published": "Wed, 29 Feb 2012 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The following new members have been appointed to serve on the PMC National Advisory\n        Committee: Martha Bedard, Dean of Libraries at the University of New Mexico; and Lorraine\n        Haricombe, Dean of Libraries at the University of Kansas and a member of SPARC's board. The\n        next meeting of the committee is scheduled for June 19, 2012. For more information, see PMC National Advisory Committee. ",
     "ai_summary": NaN
   },
@@ -645,7 +645,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day19",
     "published": "Tue, 12 Jul 2011 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The second annual Journal Article Tag Suite Conference (JATS-Con) will be held on September\n        26 and 27, 2011, at the Natcher Conference Center on the NIH Campus in Bethesda, Maryland.\n        The 2011 conference will feature a host of presenters who will discuss topics ranging from\n          Best Practices to PMC Tagging Guidelines. For more information on the\n        conference and the program, see JATS-Con.",
     "ai_summary": NaN
   },
@@ -655,7 +655,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day18",
     "published": "Mon, 20 Jun 2011 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "A video celebrating PMC's first decade is now available for viewing on the NCBI YouTube Channel. The\n          PMC 10th Anniversary Video can\n        also be found on the regular YouTube site. ",
     "ai_summary": NaN
   },
@@ -665,7 +665,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day17",
     "published": "Tue, 14 Jun 2011 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The PMC Advisory Committee will hold its annual meeting at the National Library of Medicine\n        on Friday, June 17, 2011 from 9:30 am to 3 pm. Four new committee members will be joining\n        the group, see New Members Appointed to PMC Advisory\n          Committee. Presentations will include discussions relating to the NIH Public Access\n        policy and a viewing of the PMC 10th Anniversary video. For more information, see PMC National Advisory Committee. ",
     "ai_summary": NaN
   },
@@ -675,7 +675,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day16",
     "published": "Thu, 26 May 2011 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC has gotten a facelift-- or more accurately, an interface-lift! The home page, search\n        page and other PMC informational pages have all undergone an overhaul, in order to provide\n        users with easier navigation, enhanced features, and a look and feel that is more consistent\n        with other recently updated NCBI sites, such as PubMed and Bookshelf. Additional new\n        features and updates will be coming soon. For more information on navigating the new site,\n        see the article in\n        the July-August issue of the NLM Technical Bulletin.",
     "ai_summary": NaN
   },
@@ -685,7 +685,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day15",
     "published": "Mon, 28 Feb 2011 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC marked its 10th anniversary in 2010 with a celebratory event at its annual Advisory\n        Committee meeting, held at the National Library of Medicine last June. This milestone event\n        was recently featured in the February 17th edition of NLM In Focus, in an article NLM\n          Milestones: The Hits Just Keep on Coming. For more information on the ten years of\n        PMC, see the article in the May-June issue of the NLM Technical Bulletin.\n\n\n",
     "ai_summary": NaN
   },
@@ -695,7 +695,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day14",
     "published": "Thu, 17 Feb 2011 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "Four new members have been appointed to serve on the PMC National Advisory Committee:\n        Philip Bourne, of the University of California, San Diego; Sophia Colamarino, an independent\n        consultant in San Francisco; Paul Courant, of the University of Michigan; and Patricia\n        Thibodeau, of Duke University. Each member will serve a 4-year term. The next meeting of the\n        committee is scheduled for Friday, June 17, 2011. For more information on the committee, see\n          PMC National Advisory Committee.",
     "ai_summary": NaN
   },
@@ -705,7 +705,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day13",
     "published": "Tue, 14 Sep 2010 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The Public Access & PMC page has been redesigned\n        for greater clarity and usability. In addition to including a list of the FAQs at the top,\n        the new page features a table illustrating all the ways to find various reference numbers\n        for an article: the PMID, NIHMSID, and most important, the PMCID, which must be used to\n        demonstrate compliance in terms of the NIH Public\n          Access Policy.",
     "ai_summary": NaN
   },
@@ -715,7 +715,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day12",
     "published": "Fri, 25 Jun 2010 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "It's official—PMC has just become home to two million\n          articles! The record-breaking article, which came from the American Journal of\n          Medical Genetics Part B: Neuropsychiatric Genetics, became publicly available in the\n        PMC archive on June 23. This new PMC milestone has occurred almost three years to the day\n        since PMC reached its last one: the one-million article mark in June 2007. See also: PubMed Central Hits One Million\n          Article Mark.",
     "ai_summary": NaN
   },
@@ -725,7 +725,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day11",
     "published": "Thu, 17 Jun 2010 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC is pleased to announce the first of what we hope will be an annual series of\n        conferences for users of the Journal Article Tag Suite, that is, for users of any of the\n        “NLM DTDs”. The Journal Article Tag Suite Conference (JATS-Con) is a peer-reviewed\n        conference that will feature a broad range of content on the Tag Suite—from the technical\n        components to publishing theory—as well as the latest news on the Tag Suite. The conference\n        will be hosted by the National Center for Biotechnology Information (NCBI) at the National\n        Library of Medicine on the NIH campus in Bethesda, Maryland on November 1 & 2, 2010. \nFor more information on the conference, see https://jats.nlm.nih.gov/jats-con.\n\n\n\nNote: There is no charge for the conference; however, space is limited so\n        preregistration is required.",
     "ai_summary": NaN
   },
@@ -735,7 +735,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day10",
     "published": "Thu, 29 Apr 2010 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The PMC Canada manuscript submission system\n        was released on April 28, 2010. The system will enable researchers funded by the Canadian\n        Institutes of Health Research to deposit their peer-reviewed research publications, in\n        compliance with CIHR's Policy on Access to\n          Research Outputs.",
     "ai_summary": NaN
   },
@@ -745,7 +745,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day9",
     "published": "Wed, 24 Feb 2010 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "Four new members have been appointed to serve on the PMC National Advisory Committee: Mike\n        Rossner of Rockefeller University Press, Jan Fassler of the University of Iowa, Ivy Anderson\n        of the California Digital Library, and Delores Meglio from the Knovel Corporation. Each\n        member will serve a 4-year term. The next meeting of the committee is scheduled for June 4,\n        2010. For more information on the committee, see PMC National Advisory\n          Committee.",
     "ai_summary": NaN
   },
@@ -755,7 +755,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day8",
     "published": "Mon, 16 Nov 2009 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC recently redesigned its URL format to allow for easier usability as well as consistency\n        across the NCBI site. To implement this change, we moved the previous site,\n          www.pubmedcentral.nih.gov, into the NCBI domain as a sub-site. You can\n        now access the PMC home page at https://www.ncbi.nlm.nih.gov/pmc.\nThe primary advantage of the new format is to enable the PMC site to become more fully\n        integrated with other NCBI resources. The new URLs are also more user-friendly—they no\n        longer include technology-driven terminology, such as CGI script names and file extensions\n        (Figure 1). \n\n\n\nFigure 1 - Old URL for Journal Page with CGI Script Name\nInstead, note that after the NCBI/PMC address, the URL first identifies the type of\n        resource, e.g., the PMC journal list, with subsequent identification for a particular subset\n        of that resource—in this case, the journal number (Figure 2). \n\n\n\nFigure 2 - New URL for Journal Page with Journal Number\nAdditionally, you will have greater flexibility in accessing particular types of material\n        because, in a number of cases, more than one URL can be used for the same resource. In these\n        instances, one URL is considered to be canonical, or primary; however, using any of the\n        ancillary URLs for that resource will redirect you back to the canonical one. For example\n        (see Figure 3), although the first URL, which represents the PMCID, is considered to be the\n        canonical URL, you may also access the article by using other identifiers, such as the pmid,\n        doi, or the issn-volume-issue-page (ivip). \n\n\n\nFigure 3 - Canonical and Ancillary URLs for the Same Full-Text Article\n Finally, with the roll-out of these more stable and standardized URLs, as in the table\n        below (Figure 4), you will also find it easier to modify the web addresses in your browser.\n        Note that the canonical URL is given first and is in bold; the ancillary URLs are listed\n        below it. \n\n\n\nFigure 4 - Table Display of all New URLs\nAlthough the new URLs are firmly in place, please also note that we haven't completely\n        discarded the old to bring in the new. If you do use an old URL, it's not a problem. Your\n        browser will be redirected to the new location. ",
     "ai_summary": NaN
   },
@@ -765,7 +765,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day7",
     "published": "Wed, 28 Oct 2009 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "For any journal issue that has at least one open access or early access article, PMC is now\n        displaying the table of contents (TOC) in advance of the whole issue becoming available. Not\n        to worry, though—only those articles specified for early release are immediately viewable in\n        PMC. As consistent with the terms of access in the journal agreement, the other articles\n        will only become available on their specified release date, as shown in the TOC below.\n\n\n\nThe journal's accessiblity, as indicated on the PMC Journal\n          list also has not changed; for example, Plant Physiology's embargo period is still 12\n        months. What has changed is that the issues with \"preview\" TOCs now additionally appear on\n        the journal's archive page. Publishers and others can rest\n        assured, however, that no access terms for any journal have been changed with the unveiling\n        of this new format. ",
     "ai_summary": NaN
   },
@@ -775,7 +775,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day6",
     "published": "Wed, 21 Oct 2009 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The newest addition to the PMC International effort, PubMed Central Canada has now been made public.\n        Stay tuned for the launch of PMC Canada's manuscript submission system later this year.\n\n\n",
     "ai_summary": NaN
   },
@@ -785,7 +785,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day5",
     "published": "Thu, 01 Oct 2009 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "A new page, Public Access & PMC, has now been\n        added to the About PMC section of the PubMed Central site. “Public Access\n        & PMC” provides information on the relationship between PMC and the NIH Public Access\n        policy, including the difference between the NIH Public Access journal list and PMC journal\n        list. In particular, authors and publishers should find this new site to be a useful\n        resource.",
     "ai_summary": NaN
   },
@@ -795,7 +795,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day4",
     "published": "Fri, 24 Jul 2009 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "You can now find embargoed articles and their corresponding PMCIDs through a recently\n        released search option in the PMC Entrez database. Using the \"Limits\" tab, click in the\n        field, \"Show both free and embargoed articles\" and refine your search by journal, author,\n        date, article type, and/or tag term, as needed. Once you're on the summary page, click on\n        the \"embargoed\" tab at the top to find the articles in this category. You can then find the\n        PMCID and date of availability at the bottom of the article citation, as indicated in the\n        example below. Note: The PMC search option only includes articles with an initial\n            embargo of up to 12 months. Articles with an embargo greater than 12 months are not\n            compliant with the NIH Public Access Policy and will appear in search results only when\n            the full text is free in PMC. For more information, see the article in the September-October issue of the NLM Technical Bulletin. \n\n\n",
     "ai_summary": NaN
   },
@@ -805,7 +805,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day3",
     "published": "Mon, 06 Jul 2009 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "Canada is soon expected to join the international effort to provide access to health\n        research through the PMC International network of digital\n        archives. PMC Canada is the result of a three-way collaborative effort by the National\n        Library of Medicine (NLM), the Canadian Institutes of Health Research (CIHR), and the\n        National Research Council's Canada Institute for Scientific and Technical Information\n        (NRC-CISTI). Similar to UK PubMed Central, PMC Canada will include most of the health and\n        life sciences literature available through the U.S. PMC. PMC Canada will also include\n        research resulting from funding through the Canadian Institutes of Health Research (CIHR).\n        Components of the new repository will include a bilingual interface as well a manuscript\n        submission system for CIHR researchers.\n\n\n",
     "ai_summary": NaN
   },
@@ -815,7 +815,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day2",
     "published": "Tue, 16 Jun 2009 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "The most recent meeting of the PMC Advisory Committee was held at\n        the National Library of Medicine on June 15, 2009. The committee meets at least once a year\n        and its members are appointed by the NIH Director from the biomedical information\n        communities and the general public. Dr. Gary Ward, of the Department of Microbiology &\n        Molecular Genetics at the University of Vermont, has been appointed to serve as Chair of the\n        Committee through January 2011. ",
     "ai_summary": NaN
   },
@@ -825,7 +825,7 @@
     "link": "https://pmc.ncbi.nlm.nih.gov/about/new-in-pmc/#day1",
     "published": "Tue, 19 May 2009 08:00:00 -0500",
     "source": "Unknown",
-    "fetched_at": "2025-11-21T04:09:41.022642",
+    "fetched_at": "2025-11-21T15:07:20.237600",
     "summary_text": "PMC released a new and improved journal list on March 31, 2009, after a comprehensive\n        redesign for greater clarity and organization. \nThe new design not only combines the full-list and tabbed-list views of the previous\n        version but also includes some new or updated features to provide users with a greater\n        overview of the total PMC archive. Looking at this new list, you will find: \n\nAn Expanded View of PMC journals that includes NIH Portfolio\nSpecial Collections\nA New \"Participation Level\" Journal Category\nHide/Show Display Option for Predecessor Titles\nArticle and Journal Search Feature\n\nFor more information, see the complete article in the May-June issue of the NLM Technical\n        Bulletin: https://www.nlm.nih.gov/pubs/techbull/mj09/mj09_pmc_redesign.html\n\n\n\n",
     "ai_summary": NaN
   }
