@@ -7,21 +7,21 @@
       "scientific_terms": [],
       "companies": [
         "fda",
-        "US",
-        "FDA"
+        "FDA",
+        "US"
       ],
       "concepts": [
-        "volatility",
-        "biotech"
+        "biotech",
+        "volatility"
       ],
       "methods": []
     },
     "clusters": [
       "Regulatory / Biotech Business",
+      "Regulatory / Biotech Business",
       "Other",
-      "Regulatory / Biotech Business",
-      "Regulatory / Biotech Business",
-      "Other"
+      "Other",
+      "Regulatory / Biotech Business"
     ]
   },
   {
@@ -138,9 +138,9 @@
     "topics": {
       "scientific_terms": [],
       "companies": [
+        "RFK",
         "fda",
-        "FDA",
-        "RFK"
+        "FDA"
       ],
       "concepts": [],
       "methods": [
@@ -148,9 +148,9 @@
       ]
     },
     "clusters": [
-      "Regulatory / Biotech Business",
-      "Regulatory / Biotech Business",
       "Other",
+      "Regulatory / Biotech Business",
+      "Regulatory / Biotech Business",
       "Other"
     ]
   },
@@ -255,14 +255,14 @@
       "scientific_terms": [],
       "companies": [],
       "concepts": [
-        "AI-biotech",
-        "biotech"
+        "biotech",
+        "AI-biotech"
       ],
       "methods": []
     },
     "clusters": [
-      "AI in Biotech",
-      "Other"
+      "Other",
+      "AI in Biotech"
     ]
   },
   {
@@ -325,16 +325,16 @@
         "phase"
       ],
       "companies": [
-        "HIV",
-        "gilead"
+        "gilead",
+        "HIV"
       ],
       "concepts": [],
       "methods": []
     },
     "clusters": [
       "Other",
-      "Other",
-      "Major Biotech Companies"
+      "Major Biotech Companies",
+      "Other"
     ]
   },
   {
@@ -376,8 +376,8 @@
     "topics": {
       "scientific_terms": [],
       "companies": [
-        "LTZ",
-        "GSK"
+        "GSK",
+        "LTZ"
       ],
       "concepts": [],
       "methods": []
@@ -450,8 +450,8 @@
     "topics": {
       "scientific_terms": [],
       "companies": [
-        "DISCO",
-        "BIO"
+        "BIO",
+        "DISCO"
       ],
       "concepts": [],
       "methods": []
