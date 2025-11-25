@@ -1,12 +1,28 @@
 {
   "feeds": [
-        "https://www.fiercebiotech.com/rss/biotech/xml",
-        "https://www.labiotech.eu/feed/",
-        "https://feeds.feedburner.com/GenEngNews",
-        "https://rss.sciencedaily.com/genetics_gene_therapy.xml",
-        "https://www.bioworld.com/rss/topic/10"
-          ]
+    "https://www.fiercebiotech.com/rss/biotech/xml",
+    "https://www.labiotech.eu/feed/",
+    "https://feeds.feedburner.com/GenEngNews",
+    "https://rss.sciencedaily.com/genetics_gene_therapy.xml",
+    "https://www.bioworld.com/rss/topic/10",
+    "https://www.genomeweb.com/rss-feeds",
+    "https://www.biopharmadive.com/feeds/news",
+    "https://endpts.com/feed",
+    "http://www.biologynews.net/feeds/biotechnology.xml",
+    "https://www.isaaa.org/rss/cropbiotechupdate/",
+    "http://www.fda.gov/AboutFDA/ContactFDA/StayInformed/RSSFeeds/MedWatch/rss.xml",
+    "https://www.bayer.com/rss/CORPORATE_NEWS.xml",
+    "https://www.pharma-iq.com/rss-feeds/articles",
+    "https://the-dna-universe.com/feed",
+    "https://frontlinegenomics.com/feed",
+    "https://phasegenomics.com/feed",
+    "https://alitheagenomics.com/blog/rss.xml",
+    "https://www.genengnews.com/feed/",
+    "https://www.biospace.com/rss/topstories.xml",
+    "https://www.nature.com/subjects/genetics.rss"
+  ]
 }
+
 
 
 
