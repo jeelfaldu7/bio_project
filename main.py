@@ -1,58 +1,173 @@
 import streamlit as st
 import pandas as pd
 import json
-from collections import Counter
-import altair as alt
+import plotly.express as px
 
-# Load articles
-with open("data/rss_summarized.json", "r", encoding="utf-8") as f:
-    articles = json.load(f)
+# ------------------------------------------------------
+# LOAD DATA
+# ------------------------------------------------------
+with open("trends.json", "r") as f:
+    trends = json.load(f)
 
-df = pd.DataFrame(articles)
+df = pd.DataFrame(trends)
 
-st.title("Biotech News & Trend Analyzer")
+# Format lists for display
+df["articles_str"] = df["articles"].apply(lambda x: "• " + "\n• ".join(x))
+df["key_terms_str"] = df["key_terms"].apply(lambda x: ", ".join(x))
 
-# Filter by keyword
-keyword = st.text_input("Search articles by keyword")
-if keyword:
-    df = df[df['summary_text'].str.contains(keyword, case=False) | df['title'].str.contains(keyword, case=False)]
-
-# Show table
-st.dataframe(df[['title', 'ai_summary', 'published', 'link']])
-
-
-
-
-# --PLOTS--
-# Example trend chart: number of articles per month
-df['published_date'] = pd.to_datetime(df['published'])
-trend = df.groupby(df['published_date'].dt.to_period('M')).size()
-st.line_chart(trend)
-
-
-
-
-
-# Pie chart: keyword frequency in summaries
-st.subheader("Keyword Frequency in Summaries")
-
-# Simple keyword extraction (split by space, lowercase)
-all_text = " ".join(df['summary_text'].tolist()).lower()
-words = all_text.split()
-
-# Optionally filter out common stopwords
-stopwords = {"the", "and", "of", "in", "for", "to", "with", "on", "a", "an", "at", "as", "by", "is", "are", "this", "that"}
-filtered_words = [w.strip(".,()") for w in words if w not in stopwords]
-
-# Count top 10 words
-word_counts = Counter(filtered_words)
-top_words = word_counts.most_common(10)
-top_df = pd.DataFrame(top_words, columns=["keyword", "count"])
-
-# Display pie chart
-pie_chart = alt.Chart(top_df).mark_arc().encode(
-    theta=alt.Theta(field="count", type="quantitative"),
-    color=alt.Color(field="keyword", type="nominal"),
-    tooltip=["keyword", "count"]
+# ------------------------------------------------------
+# PAGE CONFIG + CUSTOM CSS
+# ------------------------------------------------------
+st.set_page_config(
+    page_title="Biotech Trend Intelligence",
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
-st.altair_chart(pie_chart, use_container_width=True)
+
+# Premium styling
+st.markdown("""
+    <style>
+        .main {
+            background-color: #fafafa;
+        }
+        .big-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: -10px;
+            background: -webkit-linear-gradient(90deg, #0061ff, #60efff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtle {
+            font-size: 18px;
+            color: #666;
+        }
+        .chip {
+            display: inline-block;
+            padding: 4px 10px;
+            margin: 2px;
+            background: #e6f0ff;
+            color: #003d99;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .metric-card {
+            padding: 18px;
+            border-radius: 14px;
+            background: white;
+            box-shadow: 0px 1px 4px rgba(0,0,0,0.08);
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# ------------------------------------------------------
+# HEADER
+# ------------------------------------------------------
+st.markdown('<p class="big-title">Biotech Trend Intelligence</p>', unsafe_allow_html=True)
+st.markdown('<p class="subtle">A portfolio-ready dashboard analyzing macro trends in biopharma, R&D innovation, and regulatory activity.</p>', unsafe_allow_html=True)
+
+st.divider()
+
+# ------------------------------------------------------
+# SIDEBAR — ADVANCED FILTERS
+# ------------------------------------------------------
+st.sidebar.header("🔍 Filters")
+
+# Search box
+search_query = st.sidebar.text_input("Search Topics or Summaries")
+
+# Trend score range
+score_range = st.sidebar.slider(
+    "Trend Score Range",
+    min_value=int(df.trend_score.min()),
+    max_value=int(df.trend_score.max()),
+    value=(7, 10)
+)
+
+# Key term filtering
+all_terms = sorted({term for terms in df.key_terms for term in terms})
+selected_terms = st.sidebar.multiselect("Filter by Key Terms", all_terms)
+
+# Apply filters
+filtered = df[
+    (df.trend_score >= score_range[0]) &
+    (df.trend_score <= score_range[1])
+]
+
+if search_query:
+    q = search_query.lower()
+    filtered = filtered[
+        filtered.topic.str.lower().str.contains(q) |
+        filtered.summary.str.lower().str.contains(q)
+    ]
+
+if selected_terms:
+    filtered = filtered[filtered.key_terms.apply(lambda terms: any(t in terms for t in selected_terms))]
+
+# ------------------------------------------------------
+# METRIC CARDS
+# ------------------------------------------------------
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.markdown('<div class="metric-card">', unsafe_allow_html=True)
+    st.metric("Total Trends", len(filtered))
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with col2:
+    st.markdown('<div class="metric-card">', unsafe_allow_html=True)
+    st.metric("Average Score", round(filtered.trend_score.mean(), 2))
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with col3:
+    st.markdown('<div class="metric-card">', unsafe_allow_html=True)
+    st.metric("Max Score", int(filtered.trend_score.max()))
+    st.markdown("</div>", unsafe_allow_html=True)
+
+st.divider()
+
+# ------------------------------------------------------
+# PLOTLY BAR CHART
+# ------------------------------------------------------
+st.subheader("📈 Trend Score Distribution (Interactive)")
+
+chart_df = filtered.sort_values("trend_score", ascending=False)
+
+fig = px.bar(
+    chart_df,
+    x="topic",
+    y="trend_score",
+    title="Trend Scores by Topic",
+    hover_data=["summary", "key_terms_str"],
+)
+
+fig.update_layout(
+    xaxis_title="Topic",
+    yaxis_title="Score",
+    title_x=0.2,
+    plot_bgcolor="white",
+    paper_bgcolor="white",
+)
+
+st.plotly_chart(fig, use_container_width=True)
+
+st.divider()
+
+# ------------------------------------------------------
+# EXPANDABLE TREND CARDS
+# ------------------------------------------------------
+st.subheader("📚 Detailed Trend Breakdown")
+
+for _, row in filtered.iterrows():
+    with st.expander(f"{row['topic']}  —  Score: {row['trend_score']}"):
+        st.markdown(f"### 🧠 Summary")
+        st.write(row["summary"])
+
+        st.markdown("### 📰 Articles")
+        st.markdown(row["articles_str"])
+
+        st.markdown("### 🔑 Key Terms")
+        for term in row["key_terms"]:
+            st.markdown(f"<span class='chip'>{term}</span>", unsafe_allow_html=True)
+        st.write("")
