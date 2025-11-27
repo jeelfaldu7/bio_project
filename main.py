@@ -1,12 +1,17 @@
 import streamlit as st
 import pandas as pd
 import json
+import os
 import plotly.express as px
 
 # ------------------------------------------------------
 # LOAD DATA
 # ------------------------------------------------------
-with open("data/trending_topics.json", "r") as f:
+# Path of current script, not working directory
+script_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(script_dir, "trending_topics.json")
+
+with open(file_path, "r") as f:
     trends = json.load(f)
 
 df = pd.DataFrame(trends)
