@@ -6,7 +6,7 @@ import plotly.express as px
 # ------------------------------------------------------
 # LOAD DATA
 # ------------------------------------------------------
-with open("trends.json", "r") as f:
+with open("data/trending_topics.json", "r") as f:
     trends = json.load(f)
 
 df = pd.DataFrame(trends)
