@@ -1,21 +1,24 @@
-# RSS & HTTP fetching
-feedparser==6.0.10
-requests==2.32.0
+# Core App
+streamlit==1.39.0
 
-# Gemini API
-google-genai==1.51.0
+# Data Processing
+pandas==2.2.2
+numpy==1.26.4
 
-# Data processing
-pandas==2.1.1
-numpy==1.27.5
+# JSON handling
+orjson==3.10.7
 
-# Optional: environment variable handling
+# Plotting
+plotly==5.22.0
+matplotlib==3.8.4
+seaborn==0.13.2
+
+# HTTP / RSS
+requests==2.32.3
+feedparser==6.0.11
+
+# Environment Variables
 python-dotenv==1.0.1
 
-# Optional: visualization for trends
-matplotlib==3.8.1
-seaborn==0.12.3
-plotly==5.16.1
-
-# Optional: JSON handling (usually built-in, but included for completeness)
-orjson==3.9.2
+# Gemini API (this is the latest version that Streamlit Cloud can install consistently)
+google-genai==1.51.0
