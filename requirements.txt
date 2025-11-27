@@ -5,9 +5,6 @@ streamlit==1.39.0
 pandas==2.2.2
 numpy==1.26.4
 
-# JSON handling
-orjson==3.10.7
-
 # Plotting
 plotly==5.22.0
 matplotlib==3.8.4
@@ -19,6 +16,3 @@ feedparser==6.0.11
 
 # Environment Variables
 python-dotenv==1.0.1
-
-# Gemini API (this is the latest version that Streamlit Cloud can install consistently)
-google-genai==1.51.0
