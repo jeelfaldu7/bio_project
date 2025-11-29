@@ -86,7 +86,7 @@ The project highlights several strengths relevant to ML engineering, bioinformat
 - Unsupervised ML for topic grouping  
 - Effective prompt engineering and schema alignment  
 - Handling messy real-world RSS data  
-- Domain familiarity with therapeutics, gene editing, oncology, and regulatory science  
+- Domain familiarity with biotech: therapeutics, gene editing, oncology, and regulatory science  
 
 ---
 
