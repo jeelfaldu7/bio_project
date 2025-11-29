@@ -1,5 +1,5 @@
 # Biotech Trend Intelligence
-![Thumbnail](path_or_url_to_your_thumbnail_image)  
+![Thumbnail](thumbnail.png)  
 **An interactive intelligence platform showcasing automated trend extraction across the biotech ecosystem.**
 
 **Submission Track:** *Concierge Agent* [(Google AI Agents Intensive Capstone Project)](https://www.kaggle.com/competitions/agents-intensive-capstone-project/overview))
