@@ -3,7 +3,7 @@ streamlit==1.39.0
 feedparser==6.0.10
 requests==2.32.0
 
-# Safe google-genai version for Python 3.13 / Cloud
+# Google GenAI (safe for Python 3.13 / Cloud)
 google-genai==1.30.0
 
 pandas==2.2.3
@@ -14,3 +14,6 @@ python-dotenv==1.0.1
 matplotlib==3.9.2
 seaborn==0.13.2
 plotly==5.23.0
+
+Pillow==10.4.0
+wordcloud==1.9.3
