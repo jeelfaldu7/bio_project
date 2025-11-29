@@ -2,7 +2,7 @@
 
 # *An interactive intelligence platform showcasing automated trend extraction across the biotech ecosystem.*
 
-Submitted as a *Concierge Agent* for [Google AI Agents Intensive Capstone Project](https://www.kaggle.com/competitions/agents-intensive-capstone-project/overview).
+Submitted 12/1/2025 as a *Concierge Agent* for [Google AI Agents Intensive Capstone Project](https://www.kaggle.com/competitions/agents-intensive-capstone-project/overview).
 
 by Jeel Faldu and Paul London
 
