@@ -9,6 +9,7 @@ import numpy as np
 from datetime import datetime
 from collections import Counter
 from pathlib import Path
+from PIL import Image
 
 # ----------------------
 # Page config + CSS
@@ -29,6 +30,13 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+# Load hero image
+banner = Image.open("thumbnail.png")
+st.markdown("<h1 style='text-align:center; color:white; margin-top:-20px;'> </h1>", unsafe_allow_html=True)
+
+# Full-width banner
+st.image(banner, caption=None)
 
 # ----------------------
 # Helper functions
