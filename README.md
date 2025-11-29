@@ -10,7 +10,7 @@ by Jeel Faldu and Paul London
 
 ## Overview
 
-**Biotech Trend Intelligence** is a data-driven pipeline we built to automatically monitor emerging developments across the biotechnology industry and convert them into structured, decision-ready insights. The project demonstrates our ability to design a clean, reliable workflow that ingests real-world biotech news, processes it through a controlled AI summarization layer, and outputs standardized JSON used by a lightweight Streamlit dashboard.
+**Biotech Trend Intelligence** is a data-driven pipeline we built to automatically monitor emerging developments across the biotechnology industry and convert them into structured, decision-ready insights. The project demonstrates our ability to design a clean, reliable workflow that ingests real-world biotech news, processes it through a controlled AI summarization layer, and outputs standardized JSON used by a lightweight [**Streamlit dashboard**](https://bioproject.streamlit.app/).
 
 The system collects articles from curated biotech-focused RSS feeds—including therapeutics, clinical development, genomics, synthetic biology, regulatory updates, and market dynamics—and parses each item into a unified schema.
 
@@ -91,7 +91,7 @@ The project highlights several strengths relevant to ML engineering, bioinformat
 
 ## Dashboard
 
-The Streamlit front end offers a polished, portfolio-ready interface where users can explore:
+The Streamlit front end offers a polished, user-first interface where users can explore:
 
 - Extracted biotech trends  
 - Trend scores  
@@ -108,3 +108,12 @@ The dashboard remains responsive because all computation is preprocessed and sto
 **Biotech Trend Intelligence** is a practical demonstration of responsible AI use—not model-heavy experimentation. We use LLMs for focused tasks (summarization, key-term extraction, scoring) while relying on classical data engineering and unsupervised ML to deliver structure and reliability.
 
 The project exemplifies the type of real-world ML engineering work we aim to pursue: building tools that help analysts, researchers, and decision-makers navigate complex scientific landscapes through clean data, clear structure, and thoughtful AI integration.
+
+---
+
+## Contact
+
+For questions or collaboration, please don't hesitate to reach out.
+
+Jeel Faldu | [Email](jeel.faldu7@gmail.com) | [LinkedIn](https://www.linkedin.com/in/jeelfaldu7/)  
+Paul London | [Email](palondon@hotmail.com) | [LinkedIn](https://www.linkedin.com/in/palondon)
