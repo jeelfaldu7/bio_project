@@ -371,6 +371,14 @@ search_q = st.sidebar.text_input("")
 st.sidebar.markdown("---")
 
 # --- Key Terms Multiselect ---
+# Gather all unique key terms for the multiselect
+all_terms = sorted({
+    t
+    for terms in df["key_terms"]
+    if isinstance(terms, list)
+    for t in terms
+})
+
 st.sidebar.markdown(
     """
     <p style='margin:0; font-weight:600; font-size:14px;'>Key Terms</p>
