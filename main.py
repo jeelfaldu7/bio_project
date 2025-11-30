@@ -462,14 +462,14 @@ with center_cols:
             <div style='text-align:center; background: rgba(255,255,255,0.08); 
                         border-radius:16px; padding:14px; font-weight:600; cursor:help;'
                  {tooltip_attr}>
-                <div style='font-size:14px; color:#c9d3ea;'>{title}</div>
-                <div style='font-size:22px; margin-top:4px;'>{value}</div>
+                <div style='font-size:22px; color:#c9d3ea;'>{title}</div>
+                <div style='font-size:30px; margin-top:4px;'>{value}</div>
             </div>
             """,
             unsafe_allow_html=True
         )
 
-    # RSS Feeds
+    # RSS Feeds (with tooltip)
     with m1:
         metric_box("RSS Feeds", len(rss_names), tooltip="\n".join(rss_names))
 
