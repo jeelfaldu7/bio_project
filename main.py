@@ -392,6 +392,7 @@ st.sidebar.markdown(
     </p>
     """,
     unsafe_allow_html=True
+)
 
 # --- Min Articles per Topic ---
 """
