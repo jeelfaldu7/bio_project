@@ -347,6 +347,7 @@ st.sidebar.markdown(
 )
 
 score_range = st.sidebar.slider(
+    "",
     min_value=score_min,
     max_value=score_max,
     value=(score_min, score_max),
