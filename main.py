@@ -430,6 +430,7 @@ if selected_terms:
 # -------------------------
 # 9) HEADER + METRICS
 # -------------------------
+# Header
 st.markdown(
     '<p style="font-size:30px; color:#c9d3ea; text-align:center;">'
     'Interactive dashboard: Trend clusters, intensity, and sources</p>',
@@ -438,58 +439,49 @@ st.markdown(
 
 st.divider()
 
-# ------- Metrics -------
-# Gather RSS feed names from your _infer_source function
-rss_names = [
-    "FierceBiotech", "Labiotech.eu", "GEN (Genetic Engineering & Biotech News)",
-    "ScienceDaily – Gene Therapy", "BioWorld Omics / Genomics", "GenomeWeb",
-    "BioPharma Dive", "Endpoints News", "Biology News Net – Biotechnology",
-    "ISAAA – Crop Biotech Update", "FDA MedWatch", "Bayer Corporate News",
-    "Pharma IQ", "The DNA Universe", "Front Line Genomics",
-    "Phase Genomics", "Alithea Genomics Blog", "BioSpace Top Stories", "Nature – Genetics"
-]
+# Metrics
+sp1, center_cols, sp2 = st.columns([1, 3, 1])
 
-# Columns for metrics
-sp1, center_cols, sp2 = st.columns([1,3,1])
 with center_cols:
-    m1, m2, m3, m4 = st.columns([1,1,1,1])
+    # Use 4 columns, but make Date Range slightly wider
+    m1, m2, m3, m4 = st.columns([1, 1, 1, 1.5])
 
-    # Helper function for uniform box
-    def metric_box(title, value, tooltip=None):
-        tooltip_attr = f"title='{tooltip}'" if tooltip else ""
-        st.markdown(
-            f"""
-            <div style='text-align:center; background: rgba(255,255,255,0.08); 
-                        border-radius:16px; padding:14px; font-weight:600; cursor:help;'
-                 {tooltip_attr}>
-                <div style='font-size:22px; color:#c9d3ea;'>{title}</div>
-                <div style='font-size:30px; margin-top:4px;'>{value}</div>
-            </div>
-            """,
-            unsafe_allow_html=True
+    # Gather RSS feed names from your _infer_source function
+    rss_names = [
+        "FierceBiotech", "Labiotech.eu", "GEN", "ScienceDaily – Gene Therapy",
+        "BioWorld Omics / Genomics", "GenomeWeb", "BioPharma Dive", "Endpoints News",
+        "Biology News Net – Biotechnology", "ISAAA – Crop Biotech Update", "FDA MedWatch",
+        "Bayer Corporate News", "Pharma IQ", "The DNA Universe", "Front Line Genomics",
+        "Phase Genomics", "Alithea Genomics Blog", "BioSpace Top Stories", "Nature – Genetics"
+    ]
+    with m1:
+        st.metric(
+            label=f"RSS Feeds ({len(rss_names)})",
+            value="",
+            help="<br>".join(rss_names)  # use <br> for new lines in Streamlit tooltip
         )
 
-    # RSS Feeds (with tooltip)
-    with m1:
-        metric_box("RSS Feeds", len(rss_names), tooltip="\n".join(rss_names))
-
-    # Topics count
+    # Topics metric
     with m2:
-        metric_box("Topics", len(filtered))
+        st.metric("Topics", len(filtered))
 
-    # Average Trend Score
+    # Avg Score metric
     with m3:
-        avg_score = round(filtered.trend_score.mean(skipna=True), 2) if len(filtered) > 0 else 0
-        metric_box("Avg Score", avg_score)
+        st.metric("Avg Score", round(filtered.trend_score.mean(skipna=True), 2) if len(filtered) > 0 else 0)
 
-    # Date Range
+    # Date Range metric (wider)
     with m4:
-        if "published_dt" in filtered.columns and not filtered["published_dt"].isna().all():
-            min_date = filtered['published_dt'].min().strftime("%-m/%-d/%Y")
-            max_date = filtered['published_dt'].max().strftime("%-m/%-d/%Y")
-            metric_box("Date Range", f"{min_date} – {max_date}")
+        if not filtered.empty and not flat_df.empty:
+            flat_filtered = flat_df[flat_df["topic"].isin(filtered["topic"])].copy()
+            if not flat_filtered["published_dt"].isna().all():
+                min_date = flat_filtered['published_dt'].min().strftime("%-m/%-d/%Y")
+                max_date = flat_filtered['published_dt'].max().strftime("%-m/%-d/%Y")
+                date_range_value = f"{min_date} – {max_date}"
+            else:
+                date_range_value = "N/A"
         else:
-            metric_box("Date Range", "N/A")
+            date_range_value = "N/A"
+        st.metric("Date Range", date_range_value)
 
 st.divider()
 
