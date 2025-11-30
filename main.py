@@ -391,21 +391,19 @@ st.sidebar.markdown(
 selected_terms = st.sidebar.multiselect("", all_terms)
 
 # --- Minimum Articles Filter ---
-"""
-st.sidebar.markdown(
-    "<p style='margin-bottom:4px; font-weight:600;'>Minimum Articles per Topic<br>"
-    "<span style='font-size:12px; color:#c9d3ea;'>(1 = included, 2+ for higher coverage)</span></p>",
-    unsafe_allow_html=True
-)
+#st.sidebar.markdown(
+#    "<p style='margin-bottom:4px; font-weight:600;'>Minimum Articles per Topic<br>"
+#    "<span style='font-size:12px; color:#c9d3ea;'>(1 = included, 2+ for higher coverage)</span></p>",
+#    unsafe_allow_html=True
+#)
 
-min_articles = st.sidebar.slider(
-    "",
-    min_value=1,
-    max_value=5,  # adjust based on your data; avoids useless 0 values
-    value=1,
-    step=1
-)
-"""
+#min_articles = st.sidebar.slider(
+#    "",
+#    min_value=1,
+#    max_value=5,  # adjust based on your data; avoids useless 0 values
+#    value=1,
+#    step=1
+#)
 
 # Apply filters
 filtered = df[
@@ -425,12 +423,10 @@ if selected_terms:
         filtered["key_terms"].apply(lambda terms: any(t in terms for t in selected_terms) if isinstance(terms, list) else False)
     ]
 
-"""
-if min_articles > 0:
-    filtered = filtered[
-        filtered["articles"].apply(lambda arr: len(arr) if isinstance(arr, list) else 0) >= min_articles
-    ]
-"""
+# if min_articles > 0:
+#   filtered = filtered[
+#        filtered["articles"].apply(lambda arr: len(arr) if isinstance(arr, list) else 0) >= min_articles
+#    ]
 
 # -------------------------
 # 9) HEADER + METRICS
