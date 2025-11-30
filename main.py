@@ -411,39 +411,38 @@ st.subheader("🕒 Trend Activity Over Time")
 if not flat_df.empty:
     ts_df = flat_df.copy()
 
-    # Apply filters: only include articles whose topic is in the filtered list
-    filtered_topics = filtered["topic"].tolist()
-    ts_df = ts_df[ts_df["topic"].isin(filtered_topics)]
+    # Aggregate per day (force date only, start of day)
+    ts_df["date"] = ts_df["published_dt"].dt.floor("D")
 
-    if not ts_df.empty:
-        # Aggregate articles per day
-        ts_df["date"] = ts_df["published_dt"].dt.date
-        ts_agg = ts_df.groupby("date").size().reset_index(name="article_count")
-        ts_agg["date"] = pd.to_datetime(ts_agg["date"])  # ensure datetime for Plotly
+    ts_agg = (
+        ts_df.groupby("date")
+        .size()
+        .reset_index(name="count")
+    )
 
-        # Plotly line chart
-        fig_ts = px.line(
-            ts_agg,
-            x="date",
-            y="article_count",
-            title="Daily Article Volume for Selected Topics",
-            markers=True,
-            template="biotech_dark",
-            labels={
-                "date": "Date",
-                "article_count": "Number of Articles"
-            }
-        )
-        fig_ts.update_layout(
-            paper_bgcolor=LIGHT_BG,
-            plot_bgcolor=LIGHT_BG,
-            xaxis=dict(showgrid=False, color=TEXT_COLOR),
-            yaxis=dict(showgrid=False, color=TEXT_COLOR),
-            title_font=dict(color=TEXT_COLOR),
-        )
-        st.plotly_chart(fig_ts, use_container_width=True)
-    else:
-        st.info("No articles available for the selected filters.")
+    # Plot
+    fig_ts = px.line(
+        ts_agg,
+        x="date",
+        y="count",
+        markers=True,
+        template="biotech_dark"
+    )
+    fig_ts.update_layout(
+        title="",
+        paper_bgcolor=LIGHT_BG,
+        plot_bgcolor=LIGHT_BG,
+        xaxis=dict(
+            showgrid=False,
+            color=TEXT_COLOR,
+            type="date",   # ensures clean date axis
+            tickformat="%b %d, %Y"  # readable format
+        ),
+        yaxis=dict(showgrid=False, color=TEXT_COLOR),
+        title_font=dict(color=TEXT_COLOR),
+        height=450
+    )
+    st.plotly_chart(fig_ts, use_container_width=True)
 else:
     st.info("No article publication dates available.")
 
