@@ -445,41 +445,54 @@ rss_names = [
     "ScienceDaily – Gene Therapy", "BioWorld Omics / Genomics", "GenomeWeb",
     "BioPharma Dive", "Endpoints News", "Biology News Net – Biotechnology",
     "ISAAA – Crop Biotech Update", "FDA MedWatch", "Bayer Corporate News",
-    "Pharma IQ", "The DNA Universe", "Front Line Genomics", "Phase Genomics",
-    "Alithea Genomics Blog", "BioSpace Top Stories", "Nature – Genetics"
+    "Pharma IQ", "The DNA Universe", "Front Line Genomics",
+    "Phase Genomics", "Alithea Genomics Blog", "BioSpace Top Stories", "Nature – Genetics"
 ]
 
-# Compute date range from flat_df for filtered topics
-ts_filtered = flat_df[flat_df["topic"].isin(filtered["topic"])].copy()
-if not ts_filtered.empty:
-    min_date = ts_filtered["published_dt"].min()
-    max_date = ts_filtered["published_dt"].max()
-    date_range_str = f"{min_date.strftime('%-m/%-d/%Y')} – {max_date.strftime('%-m/%-d/%Y')}"
-else:
-    date_range_str = "N/A"
+# Center all metrics in one row
+sp1, center_cols, sp2 = st.columns([1,3,1])
+with center_cols:
+    m1, m2, m3, m4 = st.columns([1,1.2,1,1])
+    
+    # RSS Feeds (HTML with line breaks)
+    with m1:
+        st.markdown(
+            f"""
+            <div style='text-align:center; background: rgba(255,255,255,0.08); border-radius:16px; padding:12px;'>
+                <strong>RSS Feeds ({len(rss_names)})</strong><br>
+                {'<br>'.join(rss_names)}
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
-# Center all metrics
-cols = st.columns(4)
+    # Topics count
+    with m2:
+        st.metric("Topics", len(filtered))
 
-with cols[0]:
-    st.metric(
-        label="RSS Feeds",
-        value=len(rss_names),
-        delta="",
-        help="\n".join(rss_names)
-    )
+    # Average Trend Score
+    with m3:
+        st.metric(
+            "Avg Score",
+            round(filtered.trend_score.mean(skipna=True), 2) if len(filtered) > 0 else 0
+        )
 
-with cols[1]:
-    st.metric("Topics", len(filtered))
-
-with cols[2]:
-    st.metric(
-        "Avg Score",
-        round(filtered.trend_score.mean(skipna=True), 2) if len(filtered) > 0 else 0
-    )
-
-with cols[3]:
-    st.metric("Date Range", date_range_str)
+    # Date Range (wider box)
+    with m4:
+        if "published_dt" in filtered.columns and not filtered["published_dt"].isna().all():
+            min_date = filtered['published_dt'].min().strftime("%-m/%-d/%Y")
+            max_date = filtered['published_dt'].max().strftime("%-m/%-d/%Y")
+            st.markdown(
+                f"""
+                <div style='text-align:center; background: rgba(255,255,255,0.08); border-radius:16px; padding:12px;'>
+                    <strong>Date Range</strong><br>
+                    {min_date} – {max_date}
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+        else:
+            st.metric("Date Range", "N/A")
 
 st.divider()
 
