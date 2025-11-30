@@ -385,7 +385,7 @@ st.sidebar.markdown(
     """,
     unsafe_allow_html=True
 )
-selected_terms = st.sidebar.multiselect(all_terms)
+selected_terms = st.sidebar.multiselect("", all_terms)
 
 # --- Minimum Articles Filter ---
 """
