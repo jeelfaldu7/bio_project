@@ -353,11 +353,45 @@ score_range = st.sidebar.slider(
 )
 
 # --- Search Box ---
-search_q = st.sidebar.text_input("Search topic or summary")
+st.sidebar.markdown(
+    """
+    <p style='margin-bottom:2px; font-weight:600; font-size:14px;'>
+        Search
+    </p>
+    <p style='margin-top:0; font-size:11px; color:#c9d3ea;'>
+        Search topic or summary text
+    </p>
+    """,
+    unsafe_allow_html=True
+)
+search_q = st.sidebar.text_input("")
 
 # --- Key Terms Filter ---
 all_terms = sorted({t for terms in df["key_terms"] for t in (terms if isinstance(terms, list) else [])})
-selected_terms = st.sidebar.multiselect("Key terms (filter)", all_terms)
+st.sidebar.markdown(
+    """
+    <p style='margin-bottom:2px; font-weight:600; font-size:14px;'>
+        Key Terms
+    </p>
+    <p style='margin-top:0; font-size:11px; color:#c9d3ea;'>
+        Filter by specific keywords
+    </p>
+    """,
+    unsafe_allow_html=True
+)
+selected_terms = st.sidebar.multiselect("", all_terms)
+
+# --- Minimum Articles Filter ---
+st.sidebar.markdown(
+    """
+    <p style='margin-bottom:2px; font-weight:600; font-size:14px;'>
+        Minimum Articles
+    </p>
+    <p style='margin-top:0; font-size:11px; color:#c9d3ea;'>
+        Minimum # of articles per topic to display
+    </p>
+    """,
+    unsafe_allow_html=True
 
 # --- Min Articles per Topic ---
 """
