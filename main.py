@@ -63,11 +63,11 @@ st.markdown(f"""
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
     /* Page and content */
-    html, body, [class*="stApp"] {{
+    html, body, [class*="stApp"] {
         font-family: 'Inter', sans-serif;
-        background: {LIGHT_BG};
+        background: {DASHBOARD_BG};
         color: #f4f7fb;
-    }}
+    }
 
     /* Titles */
     .big-title {{
