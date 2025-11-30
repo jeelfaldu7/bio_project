@@ -320,12 +320,14 @@ df["trend_score_norm"] = (df["trend_score"] - df["trend_score"].min()) / (
     df["trend_score"].max() - df["trend_score"].min()
 ) * 100
 
-score_min, score_max = float(df["trend_score_norm"].min(skipna=True)), float(df["trend_score_norm"].max(skipna=True))
+score_min, score_max = int(df["trend_score_norm"].min(skipna=True)), int(df["trend_score_norm"].max(skipna=True))
 score_range = st.sidebar.slider(
-    "Topic Momentum\n(0 = barely mentioned, 100 = highly trending)",
+    "Topic Momentum\n",
+    "(0 = barely mentioned, 100 = highly trending)",
     min_value=score_min,
     max_value=score_max,
     value=(score_min, score_max),
+    step=1,  # ensure only integers
     help="A composite measure of how 'hot' a topic is: considers number of articles, recency, and relevance of keywords."
 )
 
