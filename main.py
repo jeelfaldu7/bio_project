@@ -385,13 +385,12 @@ if not display_df.empty:
 else:
     st.info("No topics match the filters.")
 
-# -------------------------
 # 2. Time Series Articles per Day
-# -------------------------
-st.subheader("🕒 Articles Per Day")
+st.subheader("🕒 Trend Activity Over Time")
 
-if not flat_df.empty:
-    ts_df = flat_df.copy()
+if not flat_df.empty and not filtered.empty:
+    # Only keep articles from currently filtered topics
+    ts_df = flat_df[flat_df["topic"].isin(filtered["topic"])].copy()
 
     # Aggregate per day
     ts_agg = (
@@ -400,16 +399,16 @@ if not flat_df.empty:
         .reset_index(name="count")
     )
     ts_agg.rename(columns={"published_dt": "date"}, inplace=True)
-    ts_agg["date"] = pd.to_datetime(ts_agg["date"])  # ensure datetime for Plotly
+    ts_agg["date"] = pd.to_datetime(ts_agg["published_dt"])  # ensure datetime for Plotly
 
     # Plot
     fig_ts = px.line(
         ts_agg,
         x="date",
         y="count",
-        title="Articles per Day",
         markers=True,
-        template="biotech_dark"
+        template="biotech_dark",
+        labels={"date": "Date", "count": "Number of Articles"}
     )
     fig_ts.update_layout(
         title="",
@@ -418,10 +417,11 @@ if not flat_df.empty:
         xaxis=dict(showgrid=False, color=TEXT_COLOR),
         yaxis=dict(showgrid=False, color=TEXT_COLOR),
         title_font=dict(color=TEXT_COLOR),
+        height=400
     )
     st.plotly_chart(fig_ts, use_container_width=True)
 else:
-    st.info("No article publication dates available.")
+    st.info("No articles available for filtered topics.")
 
 # 3. Top Companies
 st.subheader("🏢 Top Companies / Entities Mentioned")
