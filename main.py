@@ -250,6 +250,12 @@ def restore_published_dates_by_position(df, original_json):
 # Restore flat dataframe with published dates (position-matched)
 # -------------------------
 flat_rows = restore_published_dates_by_position(df, original_json)  # already returns 'published_dt'
+flat_df = pd.DataFrame(flat_rows)
+
+# Ensure published_dt is datetime dtype
+flat_df["published_dt"] = pd.to_datetime(flat_df["published_dt"], errors="coerce")
+flat_df = flat_df.dropna(subset=["published_dt"]).copy()
+
 
 # -------------------------
 # Check restored published dates
@@ -260,11 +266,7 @@ st.write(f"Articles with valid published_dt: {flat_df['published_dt'].notna().su
 st.dataframe(flat_df[["topic", "article_title", "source", "published", "published_dt"]].head(20))
 
 
-flat_df = pd.DataFrame(flat_rows)
 
-# Ensure published_dt is datetime dtype
-flat_df["published_dt"] = pd.to_datetime(flat_df["published_dt"], errors="coerce")
-flat_df = flat_df.dropna(subset=["published_dt"]).copy()
 
 # -------------------------
 # 8) SIDEBAR FILTERS
