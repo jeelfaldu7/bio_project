@@ -173,6 +173,7 @@ def safe_to_datetime(x):
 # -------------------------
 # 7) LOAD DATA
 # -------------------------
+# Load processed trending topics
 raw = load_trending_json()
 if not raw:
     st.error("No `data/trending_topics.json` found.")
@@ -195,28 +196,34 @@ for r in raw:
     })
 
 df = pd.DataFrame(rows)
-df["articles_str"] = df["articles"].apply(lambda x: "• " + "\n• ".join(
-    [a.get("title") if isinstance(a, dict) else str(a) for a in x]) if isinstance(x, list) else str(x))
+df["articles_str"] = df["articles"].apply(lambda x: "• " + "\n• ".join([a.get("title") if isinstance(a, dict) else str(a) for a in x]) if isinstance(x, list) else str(x))
 df["key_terms_str"] = df["key_terms"].apply(lambda x: ", ".join(x) if isinstance(x, list) else str(x))
 
 # -------------------------
-# Restore published dates from original JSON
+# Load original JSON (with published dates)
 # -------------------------
 with open("data/rss_summarized.json", "r", encoding="utf-8") as f:
     original_json = json.load(f)
 
-def restore_published_dates(df, original_json):
+# -------------------------
+# Restore published dates by position
+# -------------------------
+def restore_published_dates_by_position(df, original_json):
     flat_rows = []
-    for _, row in df.iterrows():
+
+    for idx, row in df.iterrows():
         topic = row["topic"]
         articles = row["articles"]
-        # Find matching original topic
-        orig_topic = next((o for o in original_json if o.get("title")==topic or o.get("topic")==topic), None)
+
+        # Align original topic by position
+        orig_topic = original_json[idx] if idx < len(original_json) else None
         orig_articles = orig_topic.get("articles", []) if orig_topic else []
 
         for i, art in enumerate(articles):
             orig_art = orig_articles[i] if i < len(orig_articles) else {}
             title = art.get("title") if isinstance(art, dict) else str(art)
+
+            # Published date
             published_str = orig_art.get("published") or orig_art.get("published_at") if isinstance(orig_art, dict) else None
             published_dt = None
             if published_str:
@@ -224,19 +231,22 @@ def restore_published_dates(df, original_json):
                     published_dt = datetime.strptime(published_str, "%b %d, %Y %I:%M%p")
                 except:
                     published_dt = None
+
+            source = orig_art.get("source") if isinstance(orig_art, dict) else ""
+
             flat_rows.append({
                 "topic": topic,
                 "article_title": title,
-                "source": orig_art.get("source") if isinstance(orig_art, dict) else "",
+                "source": source,
                 "published": published_str,
                 "published_dt": published_dt
             })
-    return pd.DataFrame(flat_rows)
 
-# Restore flat_df with proper dates
-flat_df = restore_published_dates(df, original_json)
-flat_df["published_dt"] = pd.to_datetime(flat_df["published_dt"], errors="coerce")
-flat_df = flat_df.dropna(subset=["published_dt"]).copy()
+    flat_df = pd.DataFrame(flat_rows)
+    flat_df["published_dt"] = pd.to_datetime(flat_df["published_dt"], errors="coerce")
+    return flat_df.dropna(subset=["published_dt"]).copy()
+
+flat_df = restore_published_dates_by_position(df, original_json)
 
 # -------------------------
 # 8) SIDEBAR FILTERS
