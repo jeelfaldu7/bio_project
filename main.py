@@ -431,7 +431,11 @@ if selected_terms:
 # -------------------------
 # 9) HEADER + METRICS
 # -------------------------
-st.markdown('<p class="subtle">Interactive dashboard — clusters, trend intensity, and signal sources.</p>', unsafe_allow_html=True)
+st.markdown(
+    '<p style="font-size:18px; color:#c9d3ea; text-align:center;">'
+    'Interactive dashboard: Trend clusters, intensity, and sources</p>',
+    unsafe_allow_html=True
+)
 st.divider()
 
 sp1, center_cols, sp2 = st.columns([1,3,1])
