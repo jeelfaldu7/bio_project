@@ -337,7 +337,7 @@ st.sidebar.markdown(
         Topic Momentum
     </p>
     <p style='margin-top:0; font-size:11px; color:#c9d3ea;'>
-        0 = barely mentioned, 100 = highly trending
+        0 (barely mentioned) ↔ 100 (highly trending)
     </p>
     """,
     unsafe_allow_html=True
