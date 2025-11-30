@@ -332,8 +332,14 @@ score_min = int(df["trend_score_norm"].min(skipna=True))
 score_max = int(df["trend_score_norm"].max(skipna=True))
 
 st.sidebar.markdown(
-    "<p style='margin-bottom:4px; font-weight:600;'>Topic Momentum<br>"
-    "<span style='font-size:12px; color:#c9d3ea;'>0 = barely mentioned, 100 = highly trending</span></p>",
+    """
+    <p style='margin-bottom:2px; font-weight:600; font-size:14px;'>
+        Topic Momentum
+    </p>
+    <p style='margin-top:0; font-size:11px; color:#c9d3ea;'>
+        0 = barely mentioned, 100 = highly trending
+    </p>
+    """,
     unsafe_allow_html=True
 )
 
