@@ -663,7 +663,7 @@ st.markdown(
     }
     </style>
     <div class="footer">
-        © 2025 
+        Created by:
         <br>
         Jeel Faldu | <a href="mailto:jeel.faldu7@gmail.com">Email</a> | <a href="https://www.linkedin.com/in/jeelfaldu7" target="_blank">LinkedIn</a>
         <br>
