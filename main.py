@@ -323,18 +323,16 @@ else:
     df["trend_score_norm"] = 0  # fallback if trend_score is missing
 
 # -------------------------
-# 8) SIDEBAR FILTERS
+# Sidebar Filters (Compact)
 # -------------------------
+
+# Filters Header
 st.sidebar.markdown(
-    "<p style='font-size:30px; font-weight:700; margin-bottom:4px;'>Filters</p>",
+    "<p style='font-size:28px; font-weight:700; margin-bottom:6px;'>Filters</p>",
     unsafe_allow_html=True
 )
 
-# --- Topic Momentum ---
-score_min = int(df["trend_score_norm"].min(skipna=True))
-score_max = int(df["trend_score_norm"].max(skipna=True))
-
-# Topic Momentum
+# --- Topic Momentum Slider ---
 st.sidebar.markdown(
     """
     <p style='margin:0; font-weight:600; font-size:14px;'>Topic Momentum</p>
@@ -345,12 +343,16 @@ st.sidebar.markdown(
     unsafe_allow_html=True
 )
 score_range = st.sidebar.slider(
-    "", min_value=score_min, max_value=score_max,
-    value=(score_min, score_max), step=1,
-    help="A composite measure of how 'hot' a topic is."
+    "",
+    min_value=score_min,
+    max_value=score_max,
+    value=(score_min, score_max),
+    step=1,
+    help="A composite measure of how 'hot' a topic is: considers number of articles, recency, and relevance of keywords."
 )
+st.sidebar.markdown("---")
 
-# Search Box
+# --- Search Box ---
 st.sidebar.markdown(
     """
     <p style='margin:0; font-weight:600; font-size:14px;'>Search</p>
@@ -360,9 +362,10 @@ st.sidebar.markdown(
     """,
     unsafe_allow_html=True
 )
-search_q = st.sidebar.text_input("", value="")
+search_q = st.sidebar.text_input("")
+st.sidebar.markdown("---")
 
-# Key Terms
+# --- Key Terms Multiselect ---
 st.sidebar.markdown(
     """
     <p style='margin:0; font-weight:600; font-size:14px;'>Key Terms</p>
