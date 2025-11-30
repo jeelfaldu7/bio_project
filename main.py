@@ -352,6 +352,8 @@ score_range = st.sidebar.slider(
     help="A composite measure of how 'hot' a topic is: considers number of articles, recency, and relevance of keywords."
 )
 
+st.divider()
+
 # --- Search Box ---
 st.sidebar.markdown(
     """
@@ -365,6 +367,8 @@ st.sidebar.markdown(
     unsafe_allow_html=True
 )
 search_q = st.sidebar.text_input("")
+
+st.divider()
 
 # --- Key Terms Filter ---
 all_terms = sorted({t for terms in df["key_terms"] for t in (terms if isinstance(terms, list) else [])})
