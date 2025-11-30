@@ -272,8 +272,7 @@ def restore_published_dates(filtered_df, original_json):
 # -------------------------
 # Restore flat dataframe with published dates
 # -------------------------
-flat_df = restore_published_dates(filtered_df, original_json)
-flat_df = pd.DataFrame(flattened_rows)
+flat_df = restore_published_dates(df, original_json)
 flat_df["published_dt"] = pd.to_datetime(flat_df["published"], errors="coerce")
 flat_df = flat_df.dropna(subset=["published_dt"]).copy()
 
