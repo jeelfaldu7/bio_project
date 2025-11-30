@@ -326,7 +326,7 @@ else:
 # 8) SIDEBAR FILTERS
 # -------------------------
 st.sidebar.markdown(
-    "<p style='font-size:20px; font-weight:700; margin-bottom:8px;'>Filters</p>",
+    "<p style='font-size:30px; font-weight:700; margin-bottom:8px;'>Filters</p>",
     unsafe_allow_html=True
 )
 
