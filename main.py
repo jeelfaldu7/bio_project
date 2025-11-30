@@ -461,7 +461,7 @@ with center_cols:
         st.metric(
             label=f"RSS Feeds",
             value=len(rss_names),
-            help="<br>".join(rss_names)  # tooltip with each feed on new line
+            help="|".join(rss_names)  # tooltip with each feed on new line
         )
 
     # Topics metric
