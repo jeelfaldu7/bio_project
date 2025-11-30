@@ -388,40 +388,44 @@ else:
 # 2. Time Series Articles per Day
 st.subheader("🕒 Trend Activity Over Time")
 
-if not flat_df.empty and not filtered.empty:
-    # Only keep articles from currently filtered topics
-    ts_df = flat_df[flat_df["topic"].isin(filtered["topic"])].copy()
+if not flat_df.empty:
+    ts_df = flat_df.copy()
 
-    # Aggregate per day
-    ts_agg = (
-        ts_df.groupby(ts_df["published_dt"].dt.date)
-        .size()
-        .reset_index(name="count")
-    )
-    ts_agg.rename(columns={"published_dt": "date"}, inplace=True)
-    ts_agg["date"] = pd.to_datetime(ts_agg["published_dt"])  # ensure datetime for Plotly
+    # Apply filters: only include articles whose topic is in the filtered list
+    filtered_topics = filtered["topic"].tolist()
+    ts_df = ts_df[ts_df["topic"].isin(filtered_topics)]
 
-    # Plot
-    fig_ts = px.line(
-        ts_agg,
-        x="date",
-        y="count",
-        markers=True,
-        template="biotech_dark",
-        labels={"date": "Date", "count": "Number of Articles"}
-    )
-    fig_ts.update_layout(
-        title="",
-        paper_bgcolor=LIGHT_BG,
-        plot_bgcolor=LIGHT_BG,
-        xaxis=dict(showgrid=False, color=TEXT_COLOR),
-        yaxis=dict(showgrid=False, color=TEXT_COLOR),
-        title_font=dict(color=TEXT_COLOR),
-        height=400
-    )
-    st.plotly_chart(fig_ts, use_container_width=True)
+    if not ts_df.empty:
+        # Aggregate articles per day
+        ts_df["date"] = ts_df["published_dt"].dt.date
+        ts_agg = ts_df.groupby("date").size().reset_index(name="article_count")
+        ts_agg["date"] = pd.to_datetime(ts_agg["date"])  # ensure datetime for Plotly
+
+        # Plotly line chart
+        fig_ts = px.line(
+            ts_agg,
+            x="date",
+            y="article_count",
+            title="Daily Article Volume for Selected Topics",
+            markers=True,
+            template="biotech_dark",
+            labels={
+                "date": "Date",
+                "article_count": "Number of Articles"
+            }
+        )
+        fig_ts.update_layout(
+            paper_bgcolor=LIGHT_BG,
+            plot_bgcolor=LIGHT_BG,
+            xaxis=dict(showgrid=False, color=TEXT_COLOR),
+            yaxis=dict(showgrid=False, color=TEXT_COLOR),
+            title_font=dict(color=TEXT_COLOR),
+        )
+        st.plotly_chart(fig_ts, use_container_width=True)
+    else:
+        st.info("No articles available for the selected filters.")
 else:
-    st.info("No articles available for filtered topics.")
+    st.info("No article publication dates available.")
 
 # 3. Top Companies
 st.subheader("🏢 Top Companies / Entities Mentioned")
