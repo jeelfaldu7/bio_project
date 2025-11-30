@@ -314,16 +314,32 @@ for idx in range(min(len(flat_df), len(rows))):
 # 8) SIDEBAR FILTERS
 # -------------------------
 st.sidebar.header("Filters")
-score_min, score_max = float(df.trend_score.min(skipna=True)), float(df.trend_score.max(skipna=True))
-score_range = st.sidebar.slider("Trend Score", min_value=score_min, max_value=score_max, value=(score_min, score_max))
+
+# Normalize trend score 0-100 for easier interpretation
+df["trend_score_norm"] = (df["trend_score"] - df["trend_score"].min()) / (
+    df["trend_score"].max() - df["trend_score"].min()
+) * 100
+
+score_min, score_max = float(df["trend_score_norm"].min(skipna=True)), float(df["trend_score_norm"].max(skipna=True))
+score_range = st.sidebar.slider(
+    "Trend Score (0 = low attention, 100 = high attention)",
+    min_value=score_min,
+    max_value=score_max,
+    value=(score_min, score_max),
+    help="A composite measure of how 'hot' a topic is: considers number of articles, recency, and relevance of keywords."
+)
+
 search_q = st.sidebar.text_input("Search topic or summary")
+
 all_terms = sorted({t for terms in df["key_terms"] for t in (terms if isinstance(terms, list) else [])})
 selected_terms = st.sidebar.multiselect("Key terms (filter)", all_terms)
+
 min_articles = st.sidebar.slider("Min # of articles per topic", 0, 50, 0)
 
+# Apply filters
 filtered = df[
-    (df["trend_score"].fillna(-999) >= score_range[0]) &
-    (df["trend_score"].fillna(-999) <= score_range[1])
+    (df["trend_score_norm"].fillna(-1) >= score_range[0]) &
+    (df["trend_score_norm"].fillna(-1) <= score_range[1])
 ]
 
 if search_q:
@@ -332,12 +348,16 @@ if search_q:
         filtered["topic"].str.lower().str.contains(q, na=False) |
         filtered["summary"].str.lower().str.contains(q, na=False)
     ]
+
 if selected_terms:
     filtered = filtered[
         filtered["key_terms"].apply(lambda terms: any(t in terms for t in selected_terms) if isinstance(terms, list) else False)
     ]
+
 if min_articles > 0:
-    filtered = filtered[filtered["articles"].apply(lambda arr: len(arr) if isinstance(arr, list) else 0) >= min_articles]
+    filtered = filtered[
+        filtered["articles"].apply(lambda arr: len(arr) if isinstance(arr, list) else 0) >= min_articles
+    ]
 
 # -------------------------
 # 9) HEADER + METRICS
