@@ -1,4 +1,4 @@
-# main.py
+# main.py — rewritten with unified dark theme
 import streamlit as st
 import pandas as pd
 import json
@@ -32,54 +32,37 @@ DASHBOARD_BG = "#00091a"
 SURFACE_BG = "#001022"
 TEXT_COLOR = "white"
 ACCENT_COLOR = "#4dc4ff"
-LIGHT_BG = "#0c1a3d"
 
 # -------------------------
-# 3) CREATE PLOTLY TEMPLATE
+# 3) DARK PLOTLY TEMPLATE (Unified)
 # -------------------------
 pio.templates["biotech_dark"] = go.layout.Template(
     layout=go.Layout(
-        paper_bgcolor=LIGHT_BG,
-        plot_bgcolor=LIGHT_BG,
+        paper_bgcolor=DASHBOARD_BG,
+        plot_bgcolor=DASHBOARD_BG,
         font=dict(color=TEXT_COLOR),
         title=dict(font=dict(color=TEXT_COLOR)),
         xaxis=dict(showgrid=False, color=TEXT_COLOR),
         yaxis=dict(showgrid=False, color=TEXT_COLOR),
         legend=dict(bgcolor="rgba(0,0,0,0)", font=dict(color=TEXT_COLOR)),
         colorway=[ACCENT_COLOR, "#ff9f43", "#ff6b81", "#6c5ce7", "#00d2d3"]
-    ),
-    data={
-        "scatter": [go.Scatter()],
-        "bar": [go.Bar()],
-        "heatmap": [go.Heatmap()],
-        "pie": [go.Pie()],
-        "histogram": [go.Histogram()],
-        "box": [go.Box()],
-        "violin": [go.Violin()]
-    }
+    )
 )
-
-#pio.templates.default = "biotech_dark"
-
-# Helper function to enforce template on existing figure
-def apply_dark_theme(fig):
-    return fig
+pio.templates.default = "biotech_dark"
 
 # -------------------------
-# 4) CSS FOR STREAMLIT PAGE
+# 4) CSS
 # -------------------------
 st.markdown(f"""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-    /* Page and content */
     html, body, [class*="stApp"] {{
         font-family: 'Inter', sans-serif;
         background: {DASHBOARD_BG};
         color: #f4f7fb;
     }}
 
-    /* Titles */
     .big-title {{
         font-size: 48px;
         font-weight: 700;
@@ -87,636 +70,223 @@ st.markdown(f"""
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         text-align: center;
-        margin-top: 10px;
-        margin-bottom: 4px;
     }}
 
     .subtle {{
         text-align: center;
         font-size: 18px;
         color: #c9d3ea;
-        margin-top: -8px;
-        margin-bottom: 18px;
     }}
 
-    /* Metric cards */
-    .stMetric {{
-        background: rgba(255,255,255,0.08);
-        border-radius: 16px;
-        padding: 12px 14px;
-        backdrop-filter: blur(6px);
-    }}
-
-    /* Chips */
-    .chip {{
-        display: inline-block;
-        padding: 6px 12px;
-        margin: 4px 6px 4px 0;
-        background: rgba(255,255,255,0.12);
-        color: {ACCENT_COLOR};
-        border-radius: 14px;
-        font-size: 13px;
-        font-weight: 500;
-        letter-spacing: .2px;
-    }}
-
-    /* Expander */
-    details {{
-        background: rgba(255,255,255,0.05);
-        border-radius: 14px;
-        padding: 8px 16px;
-        margin-bottom: 10px;
-        border: 1px solid rgba(255,255,255,0.08);
-    }}
-    summary {{
-        font-size: 18px;
-        font-weight: 600;
-        padding: 6px;
-    }}
-
-    /* Plot container */
     .plot-container > div {{
-        background: rgba(255,255,255,0.06) !important;
+        background: rgba(255,255,255,0.04) !important;
         border-radius: 18px;
         padding: 18px;
-    }}
-
-    /* Headings */
-    h1, h2, h3, h4, h5, h6 {{
-        color: white !important;
     }}
 </style>
 """, unsafe_allow_html=True)
 
 # -------------------------
-# 5) HERO BANNER
+# 5) BANNER
 # -------------------------
 banner = Image.open("thumbnail.png")
-
-# Create 3 columns: left spacer, center for image, right spacer
-sp_left, sp_center, sp_right = st.columns([0.5, 4, 0.5])
-
-with sp_center:
-    st.image(banner, use_column_width=True)
+st.image(banner, use_column_width=True)
 
 # -------------------------
-# 6) HELPER FUNCTIONS
+# 6) LOAD TRENDING DATA
 # -------------------------
 @st.cache_data
-def load_trending_json(path: str = "data/trending_topics.json"):
+def load_trending_json(path="data/trending_topics.json"):
     p = Path(path)
     if not p.exists():
         return []
-    with p.open("r", encoding="utf-8") as f:
-        return json.load(f)
+    return json.load(p.open("r", encoding="utf-8"))
 
-def safe_to_datetime(x):
-    try:
-        return pd.to_datetime(x)
-    except:
-        return None
-
-# -------------------------
-# 7) LOAD DATA
-# -------------------------
-# Load processed trending topics
 raw = load_trending_json()
 if not raw:
-    st.error("No `data/trending_topics.json` found.")
+    st.error("Missing data/trending_topics.json")
     st.stop()
 
 rows = []
 for r in raw:
-    topic = r.get("topic") or r.get("title") or "Unknown"
-    score = r.get("trend_score") or r.get("score") or np.nan
-    articles = r.get("articles") or []
-    key_terms = r.get("key_terms") or []
-    summary = r.get("summary") or r.get("ai_summary") or ""
-    
     rows.append({
-        "topic": topic,
-        "trend_score": float(score) if score is not None else np.nan,
-        "articles": articles,
-        "key_terms": key_terms,
-        "summary": summary
+        "topic": r.get("topic") or r.get("title") or "Unknown",
+        "trend_score": float(r.get("trend_score") or r.get("score") or np.nan),
+        "articles": r.get("articles") or [],
+        "key_terms": r.get("key_terms") or [],
+        "summary": r.get("summary") or r.get("ai_summary") or ""
     })
 
 df = pd.DataFrame(rows)
-df["articles_str"] = df["articles"].apply(lambda x: "• " + "\n• ".join([a.get("title") if isinstance(a, dict) else str(a) for a in x]) if isinstance(x, list) else str(x))
+df["articles_str"] = df["articles"].apply(lambda x: "• " + "• ".join([a.get("title") if isinstance(a, dict) else str(a) for a in x]) if isinstance(x, list) else str(x))
 df["key_terms_str"] = df["key_terms"].apply(lambda x: ", ".join(x) if isinstance(x, list) else str(x))
 
 # -------------------------
-# Load original JSON (with published dates)
+# 7) LOAD ORIGINAL RAW DATA
 # -------------------------
 with open("data/rss_summarized.json", "r", encoding="utf-8") as f:
     original_json = json.load(f)
 
 # -------------------------
-# Restore published dates by position
+# 8) DATE PARSING
 # -------------------------
-# Helper to parse multiple date formats
-# Helper: parse multiple date formats
 def parse_published_date(date_str):
-    if not date_str or not isinstance(date_str, str):
+    if not isinstance(date_str, str):
         return None
-
-    # Try fixed format: Nov 24, 2025 3:18pm
     try:
         return pd.to_datetime(date_str, format="%b %d, %Y %I:%M%p")
-    except (ValueError, TypeError):
-        pass
-
-    # Try RFC 2822 with numeric or abbreviation timezone
-    try:
-        # Map common TZ abbreviations to offsets
-        tzinfos = {
-            "EST": -5*3600,
-            "EDT": -4*3600,
-            "CST": -6*3600,
-            "CDT": -5*3600,
-            "MST": -7*3600,
-            "MDT": -6*3600,
-            "PST": -8*3600,
-            "PDT": -7*3600,
-        }
-        dt = parser.parse(date_str, tzinfos=tzinfos)
-        return dt
-    except (ValueError, TypeError):
-        pass
-
-    # Fallback
-    try:
-        return pd.to_datetime(date_str, errors="coerce", infer_datetime_format=True)
     except:
-        return None
+        pass
+    try:
+        tzinfos = {"EST": -5*3600, "EDT": -4*3600, "PST": -8*3600, "PDT": -7*3600}
+        return parser.parse(date_str, tzinfos=tzinfos)
+    except:
+        return pd.to_datetime(date_str, errors="coerce")
 
-# -------------------------
-# Restore flat dataframe with topics and published dates
-# -------------------------
 def restore_published_dates_flat(original_json):
-    """
-    Flatten articles from original_json and parse their published dates.
-    Ensures 'published_dt' exists and handles missing or malformed dates.
-    """
-    flat_rows = []
-
+    rows = []
     for art in original_json:
-        if not isinstance(art, dict):
-            continue
-
-        # Get published string and source safely
-        published_str = art.get("published") or art.get("published_at")
-        source = art.get("source") or ""
-
-        # Parse date robustly
-        published_dt = parse_published_date(published_str)
-
-        # Normalize timezone to UTC if naive
-        if published_dt is not None:
-            if published_dt.tzinfo is None:
-                published_dt = pd.Timestamp(published_dt).tz_localize("UTC")
+        dt = parse_published_date(art.get("published") or art.get("published_at"))
+        if dt is not None:
+            if dt.tzinfo is None:
+                dt = pd.Timestamp(dt).tz_localize("UTC")
             else:
-                published_dt = pd.Timestamp(published_dt).tz_convert("UTC")
-
-        flat_rows.append({
-            "article_title": art.get("title") or "",
-            "source": source,
-            "published": published_str or "",
-            "published_dt": published_dt
+                dt = pd.Timestamp(dt).tz_convert("UTC")
+        rows.append({
+            "article_title": art.get("title", ""),
+            "source": art.get("source", "Unknown"),
+            "published_dt": dt
         })
-
-    # Create DataFrame
-    flat_df = pd.DataFrame(flat_rows)
-
-    # Ensure 'published_dt' exists even if flat_rows is empty
-    if "published_dt" not in flat_df.columns:
-        flat_df["published_dt"] = pd.NaT
-    if "article_title" not in flat_df.columns:
-        flat_df["article_title"] = ""
-    if "source" not in flat_df.columns:
-        flat_df["source"] = ""
-    if "published" not in flat_df.columns:
-        flat_df["published"] = ""
-
-    # Drop rows without valid datetime
-    flat_df = flat_df.dropna(subset=["published_dt"]).copy()
-
-    return flat_df
+    flat = pd.DataFrame(rows).dropna(subset=["published_dt"])
+    return flat
 
 flat_df = restore_published_dates_flat(original_json)
-
-# -------------------------
-# Add topic to flat_df by position
-# -------------------------
-# rows is your trending topics list (processed)
-flat_df = flat_df.copy()
 flat_df["topic"] = ""
-
-for idx in range(min(len(flat_df), len(rows))):
-    flat_df.at[idx, "topic"] = rows[idx]["topic"]
-
+for i in range(min(len(flat_df), len(rows))):
+    flat_df.at[i, "topic"] = rows[i]["topic"]
 
 # -------------------------
-# Normalize trend score 0-100 for easier interpretation
+# 9) NORMALIZE TREND SCORE
 # -------------------------
-if "trend_score" in df.columns:
-    df["trend_score_norm"] = (
-        (df["trend_score"] - df["trend_score"].min(skipna=True)) /
-        (df["trend_score"].max(skipna=True) - df["trend_score"].min(skipna=True))
-    ) * 100
-else:
-    df["trend_score_norm"] = 0  # fallback if trend_score is missing
+df["trend_score_norm"] = (
+    (df["trend_score"] - df["trend_score"].min()) /
+    (df["trend_score"].max() - df["trend_score"].min())
+) * 100
 
 # -------------------------
-# Sidebar Filters (Compact)
+# 10) SIDEBAR FILTERS
 # -------------------------
+st.sidebar.markdown("<h2>Filters</h2>", unsafe_allow_html=True)
+score_range = st.sidebar.slider("Trend Score", 0, 100, (0, 100))
+search_q = st.sidebar.text_input("Search topic or summary")
+all_terms = sorted({t for terms in df.key_terms if isinstance(terms, list) for t in terms})
+selected_terms = st.sidebar.multiselect("Key Terms", all_terms)
 
-# Filters Header
-st.sidebar.markdown(
-    "<p style='font-size:28px; font-weight:700; margin-bottom:6px;'>Filters</p>",
-    unsafe_allow_html=True
-)
-
-# --- Topic Momentum Slider ---
-st.sidebar.markdown(
-    """
-    <p style='margin:0; font-weight:600; font-size:14px;'>Topic Momentum</p>
-    <p style='margin:0; font-size:11px; color:#c9d3ea;'>
-        0 (barely mentioned) ↔ 100 (highly trending)
-    </p>
-    """,
-    unsafe_allow_html=True
-)
-
-# --- Topic Momentum ---
-score_min = int(df["trend_score_norm"].min(skipna=True))
-score_max = int(df["trend_score_norm"].max(skipna=True))
-
-score_range = st.sidebar.slider(
-    "",
-    min_value=score_min,
-    max_value=score_max,
-    value=(score_min, score_max),
-    step=1
-)
-st.sidebar.markdown("---")
-
-# --- Search Box ---
-st.sidebar.markdown(
-    """
-    <p style='margin:0; font-weight:600; font-size:14px;'>Search</p>
-    <p style='margin:0; font-size:11px; color:#c9d3ea;'>
-        Search topic or summary text
-    </p>
-    """,
-    unsafe_allow_html=True
-)
-search_q = st.sidebar.text_input("")
-st.sidebar.markdown("---")
-
-# --- Key Terms Multiselect ---
-# Gather all unique key terms for the multiselect
-all_terms = sorted({
-    t
-    for terms in df["key_terms"]
-    if isinstance(terms, list)
-    for t in terms
-})
-
-st.sidebar.markdown(
-    """
-    <p style='margin:0; font-weight:600; font-size:14px;'>Key Terms</p>
-    <p style='margin:0; font-size:11px; color:#c9d3ea;'>
-        Filter by specific keywords
-    </p>
-    """,
-    unsafe_allow_html=True
-)
-selected_terms = st.sidebar.multiselect("", all_terms)
-
-# --- Minimum Articles Filter ---
-#st.sidebar.markdown(
-#    "<p style='margin-bottom:4px; font-weight:600;'>Minimum Articles per Topic<br>"
-#    "<span style='font-size:12px; color:#c9d3ea;'>(1 = included, 2+ for higher coverage)</span></p>",
-#    unsafe_allow_html=True
-#)
-
-#min_articles = st.sidebar.slider(
-#    "",
-#    min_value=1,
-#    max_value=5,  # adjust based on your data; avoids useless 0 values
-#    value=1,
-#    step=1
-#)
-
-# Apply filters
 filtered = df[
-    (df["trend_score_norm"].fillna(-1) >= score_range[0]) &
-    (df["trend_score_norm"].fillna(-1) <= score_range[1])
+    (df.trend_score_norm >= score_range[0]) &
+    (df.trend_score_norm <= score_range[1])
 ]
-
 if search_q:
     q = search_q.lower()
     filtered = filtered[
-        filtered["topic"].str.lower().str.contains(q, na=False) |
-        filtered["summary"].str.lower().str.contains(q, na=False)
+        filtered.topic.str.lower().str.contains(q) |
+        filtered.summary.str.lower().str.contains(q)
     ]
-
 if selected_terms:
     filtered = filtered[
-        filtered["key_terms"].apply(lambda terms: any(t in terms for t in selected_terms) if isinstance(terms, list) else False)
+        filtered.key_terms.apply(lambda terms: any(t in terms for t in selected_terms))
     ]
 
-# if min_articles > 0:
-#   filtered = filtered[
-#        filtered["articles"].apply(lambda arr: len(arr) if isinstance(arr, list) else 0) >= min_articles
-#    ]
+# -------------------------
+# 11) METRICS
+# -------------------------
+st.metric("Topics", len(filtered))
 
 # -------------------------
-# 9) HEADER + METRICS
+# 12) CHARTS
 # -------------------------
-st.markdown(
-    """
-    <p style="font-size:30px; color:#c9d3ea; text-align:center;">
-        An interactive intelligence platform showcasing automated trend extraction across the biotech ecosystem
-    </p>
-    """,
-    unsafe_allow_html=True
-)
-
-st.divider()
-
-# Metrics
-# -------------------------
-# Metrics Section (Centered)
-# -------------------------
-sp1, center_cols, sp2 = st.columns([1, 3, 1])
-
-with center_cols:
-    # Use 4 columns, slightly wider for Date Range
-    m1, m2, m3, m4 = st.columns([1, 1, 1, 3])
-
-    # RSS Feeds count with tooltip (same style as other metrics)
-    rss_names = [
-        "FierceBiotech", "Labiotech.eu", "GEN", "ScienceDaily – Gene Therapy",
-        "BioWorld Omics / Genomics", "GenomeWeb", "BioPharma Dive", "Endpoints News",
-        "Biology News Net – Biotechnology", "ISAAA – Crop Biotech Update", "FDA MedWatch",
-        "Bayer Corporate News", "Pharma IQ", "The DNA Universe", "Front Line Genomics",
-        "Phase Genomics", "Alithea Genomics Blog", "BioSpace Top Stories", "Nature – Genetics"
-    ]
-    with m1:
-        st.metric(
-            label=f"RSS Feeds",
-            value=len(rss_names),
-            help=" | ".join(rss_names)  # tooltip with each feed on new line
-        )
-
-    # Topics metric
-    with m2:
-        st.metric("Topics", len(filtered))
-
-    # Avg Score metric
-    with m3:
-        st.metric("Avg Score", round(filtered.trend_score.mean(skipna=True), 2) if len(filtered) > 0 else 0)
-
-    # Date Range metric (wider)
-    with m4:
-        if not filtered.empty and not flat_df.empty:
-            flat_filtered = flat_df[flat_df["topic"].isin(filtered["topic"])].copy()
-            if not flat_filtered["published_dt"].isna().all():
-                min_date = flat_filtered['published_dt'].min().strftime("%-m/%-d/%Y")
-                max_date = flat_filtered['published_dt'].max().strftime("%-m/%-d/%Y")
-                date_range_value = f"{min_date} – {max_date}"
-            else:
-                date_range_value = "N/A"
-        else:
-            date_range_value = "N/A"
-        st.metric("Date Range", date_range_value)
-
-st.divider()
-
-# -------------------------
-# 10) CHARTS
-# -------------------------
-# 1. Trend Score Bar
 st.subheader("📈 Top Topics by Trend Score")
 
-display_df = filtered.sort_values("trend_score", ascending=False).head(25)
-if not display_df.empty:
+if not filtered.empty:
     fig = px.bar(
-        display_df,
+        filtered.sort_values("trend_score", ascending=False).head(25),
         x="trend_score",
         y="topic",
         orientation="h",
         hover_data=["summary", "key_terms_str"],
-        labels={"trend_score": "Trend Score", "topic": "Topic"},
-        template="biotech_dark"  # use your dark template
-    )
-    fig.update_layout(
-        title="",
-        paper_bgcolor=LIGHT_BG,
-        plot_bgcolor=LIGHT_BG,
-        xaxis=dict(showgrid=False, color=TEXT_COLOR),
-        yaxis=dict(showgrid=False, color=TEXT_COLOR),
-        title_font=dict(color=TEXT_COLOR),
         template="biotech_dark"
     )
     st.plotly_chart(fig, use_container_width=True)
 else:
     st.info("No topics match the filters.")
 
-# 2. Time Series Articles per Day
+# -------------------------
+# TIME SERIES
+# -------------------------
 st.subheader("🕒 Trend Activity Over Time")
-
-# Filter flat_df by topics currently in the filtered trending topics
-ts_df = flat_df[flat_df["topic"].isin(filtered["topic"])].copy()
-
+ts_df = flat_df[flat_df.topic.isin(filtered.topic)]
 if not ts_df.empty:
-    # Aggregate per day (force date only)
-    ts_df["date"] = ts_df["published_dt"].dt.floor("D")
-    ts_agg = (
-        ts_df.groupby("date")
-        .size()
-        .reset_index(name="count")
-    )
-
-    # Plot
-    fig_ts = px.line(
-        ts_agg,
-        x="date",
-        y="count",
-        markers=True,
-        template="biotech_dark"
-    )
-    fig_ts.update_layout(
-        title="",
-        paper_bgcolor=LIGHT_BG,
-        plot_bgcolor=LIGHT_BG,
-        xaxis=dict(
-            showgrid=False,
-            color=TEXT_COLOR,
-            type="date",
-            tickformat="%b %d, %Y"
-        ),
-        yaxis=dict(showgrid=False, color=TEXT_COLOR),
-        title_font=dict(color=TEXT_COLOR),
-        height=450
-    )
+    ts_df["date"] = ts_df.published_dt.dt.floor("D")
+    agg = ts_df.groupby("date").size().reset_index(name="count")
+    fig_ts = px.line(agg, x="date", y="count", markers=True, template="biotech_dark")
     st.plotly_chart(fig_ts, use_container_width=True)
 else:
-    st.info("No articles match the current filters.")
+    st.info("No matching articles.")
 
-# 3. Top Companies
+# -------------------------
+# COMPANIES
+# -------------------------
 st.subheader("🏢 Top Companies / Entities Mentioned")
-
-company_counter = Counter()
-for terms in filtered["key_terms"]:
-    if isinstance(terms, list):
-        for t in terms:
-            if len(t) > 2:
-                company_counter[t.title()] += 1
-
+company_counter = Counter(t.title() for terms in filtered.key_terms for t in terms)
 company_df = pd.DataFrame(company_counter.most_common(20), columns=["company", "count"])
 if not company_df.empty:
-    fig_comp = px.bar(
-        company_df,
-        x="count",
-        y="company",
-        orientation="h",
-        template="biotech_dark"
-    )
-    fig_comp.update_layout(
-        title="",
-        paper_bgcolor=LIGHT_BG,
-        plot_bgcolor=LIGHT_BG,
-        xaxis=dict(showgrid=False, color=TEXT_COLOR),
-        yaxis=dict(showgrid=False, color=TEXT_COLOR),
-        title_font=dict(color=TEXT_COLOR),
-        yaxis_categoryorder="total ascending",
-        template="biotech_dark"
-    )
+    fig_comp = px.bar(company_df, x="count", y="company", orientation="h", template="biotech_dark")
     st.plotly_chart(fig_comp, use_container_width=True)
 else:
-    st.info("No company-like terms detected.")
+    st.info("No terms detected.")
 
-# 4. Heatmap of Clusters across Sources
+# -------------------------
+# HEATMAP
+# -------------------------
 st.subheader("📊 Cluster Occurrence Across Sources")
-
-if not flat_df.empty and not filtered.empty:
-    # Filter flat_df by the filtered topics
-    flat_filtered = flat_df[flat_df["topic"].isin(filtered["topic"])].copy()
-
-    # Ensure no missing cluster/source
+flat_filtered = flat_df[flat_df.topic.isin(filtered.topic)]
+if not flat_filtered.empty:
     flat_filtered["cluster"] = flat_filtered["topic"].replace("", "Unknown")
-    flat_filtered["source"] = flat_filtered["source"].replace("", "Unknown")
-
-    # Get all sources from original JSON to show even empty ones
-    all_sources = sorted({art.get("source", "Unknown") for art in original_json})
-
-    # Pivot table
-    pivot = flat_filtered.pivot_table(
-        index="cluster",
-        columns="source",
-        values="article_title",
-        aggfunc="count",
-        fill_value=0
-    ).reindex(columns=all_sources, fill_value=0)
-
-    if not pivot.empty:
-        fig_heat = go.Figure(
-            go.Heatmap(
-                z=pivot.values,
-                x=pivot.columns.tolist(),
-                y=pivot.index.tolist(),
-                colorscale="YlGnBu",
-                hovertemplate='Source: %{x}<br>Cluster: %{y}<br>Count: %{z}<extra></extra>'
-            )
-        )
-        fig_heat.update_layout(
-            title="",
-            paper_bgcolor=LIGHT_BG,
-            plot_bgcolor=LIGHT_BG,
-            xaxis=dict(showgrid=False, color=TEXT_COLOR, tickangle=-90),
-            yaxis=dict(showgrid=False, color=TEXT_COLOR),
-            height=800,
-        )
-        st.plotly_chart(fig_heat, use_container_width=True)
-    else:
-        st.info("Not enough data for heatmap.")
+    pivot = flat_filtered.pivot_table(index="cluster", columns="source", values="article_title", aggfunc="count", fill_value=0)
+    fig_heat = go.Figure(go.Heatmap(z=pivot.values, x=pivot.columns, y=pivot.index, colorscale="YlGnBu"))
+    st.plotly_chart(fig_heat, use_container_width=True)
 else:
-    st.info("No articles available for filtered topics.")
+    st.info("Not enough data.")
 
-# 5. WordCloud Concepts
+# -------------------------
+# WORD CLOUD
+# -------------------------
 st.subheader("💡 Trending Concepts")
-
-all_concepts = [t for terms in filtered["key_terms"] if isinstance(terms, list) for t in terms]
-if all_concepts:
-    text = " ".join(all_concepts)
-    wc = WordCloud(
-        width=800,
-        height=400,
-        background_color=LIGHT_BG,
-        colormap="Blues",
-        collocations=False,
-        max_words=50
-    ).generate(text)
-    
+concepts = [t for terms in filtered.key_terms for t in terms]
+if concepts:
+    text = " ".join(concepts)
+    wc = WordCloud(width=800, height=400, background_color=DASHBOARD_BG, colormap="Blues", max_words=60).generate(text)
     fig, ax = plt.subplots(figsize=(12,5))
-    fig.patch.set_facecolor(LIGHT_BG)
-    ax.set_facecolor(LIGHT_BG)
+    fig.patch.set_facecolor(DASHBOARD_BG)
+    ax.set_facecolor(DASHBOARD_BG)
     ax.imshow(wc, interpolation="bilinear")
     ax.axis("off")
     st.pyplot(fig)
 else:
-    st.info("No concepts available to generate WordCloud.")
+    st.info("No concepts available.")
 
-# =========================================================
-# Expandable Trend Cards
-# =========================================================
+# -------------------------
+# EXPANDERS
+# -------------------------
 st.subheader("📚 Detailed Trend Breakdown")
 for _, row in filtered.iterrows():
-    with st.expander(f"{row['topic']}  —  Score: {row['trend_score_norm']:.0f}"):
-        st.markdown("### 🧠 Summary")
-        st.write(row["summary"])
-        st.markdown("### 📰 Articles")
-        st.markdown(row["articles_str"])
-        st.markdown("### 🔑 Key Terms")
-        for term in row["key_terms"]:
-            st.markdown(f"<span class='chip'>{term}</span>", unsafe_allow_html=True)
-        st.write("")
-
-# -------------------------
-# 11) FOOTER
-# -------------------------
-st.markdown(
-    """
-    <style>
-    .footer {
-        position: relative;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        font-size: 12px;
-        color: #c9d3ea;
-        margin-top: 30px;
-        padding: 8px 0;
-        border-top: 1px solid rgba(255,255,255,0.2);
-    }
-    .footer a {
-        color: #4dc4ff;  /* accent color */
-        text-decoration: none;
-    }
-    .footer a:hover {
-        text-decoration: underline;
-    }
-    </style>
-    <div class="footer">
-        Created by:
-        <br>
-        Jeel Faldu (<a href="mailto:jeel.faldu7@gmail.com">Email</a> | <a href="https://www.linkedin.com/in/jeelfaldu7" target="_blank">LinkedIn</a>)
-        <br>
-        Paul London (<a href="mailto:palondon@hotmail.com">Email</a> | <a href="https://www.linkedin.com/in/palondon" target="_blank">LinkedIn</a>)
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+    with st.expander(f"{row['topic']} — Score: {row['trend_score_norm']:.0f}"):
+        st.markdown("### Summary")
+        st.write(row.summary)
+        st.markdown("### Articles")
+        st.write(row.articles_str)
+        st.markdown("### Key Terms")
+        st.write(
+            " ".join([f"<span class='chip'>{t}</span>" for t in row.key_terms]),
+            unsafe_allow_html=True
+        )
