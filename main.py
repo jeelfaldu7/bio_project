@@ -430,9 +430,6 @@ if selected_terms:
 # -------------------------
 # 9) HEADER + METRICS
 # -------------------------
-# -------------------------
-# 9) HEADER + METRICS
-# -------------------------
 st.markdown(
     '<p style="font-size:30px; color:#c9d3ea; text-align:center;">'
     'Interactive dashboard: Trend clusters, intensity, and sources</p>',
@@ -472,35 +469,40 @@ if not filtered.empty:
 else:
     date_range_str = "N/A"
 
-# Layout: RSS feed on left, other 3 in center
-sp1, center_cols, sp2 = st.columns([1, 3, 1])
+# Center all 4 metrics
+spacer1, metrics_col, spacer2 = st.columns([1, 3, 1])
 
-# Left RSS Feeds
-with sp1:
-    st.markdown(f"""
-    <div style="
-        background: rgba(255,255,255,0.08);
-        border-radius: 16px;
-        padding: 12px 14px;
-        text-align: center;
-        font-family: 'Inter', sans-serif;
-        color: white;
-        font-weight: 600;
-        margin-bottom:4px;
-    " title="{rss_tooltip}">
-        <div style="font-size:12px; color:#c9d3ea;">RSS Feeds</div>
-        <div style="font-size:24px;">{rss_count}</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-# Center metrics: Topics, Avg Score, Date Range
-with center_cols:
-    c1, c2, c3 = st.columns(3)
-    with c1:
+with metrics_col:
+    m1, m2, m3, m4 = st.columns(4)
+    
+    # RSS Feeds
+    with m1:
+        st.markdown(f"""
+        <div style="
+            background: rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 12px 14px;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color: white;
+            font-weight: 600;
+            margin-bottom:4px;
+        " title="{rss_tooltip}">
+            <div style="font-size:12px; color:#c9d3ea;">RSS Feeds</div>
+            <div style="font-size:24px;">{rss_count}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    # Topics
+    with m2:
         st.metric("Topics", topic_count, help="Number of trending topics matching the filters")
-    with c2:
+    
+    # Avg Score
+    with m3:
         st.metric("Avg Score", avg_score, help="Average trend score of the topics")
-    with c3:
+    
+    # Date Range
+    with m4:
         st.metric("Date Range", date_range_str, help="Publication date range of articles in filtered topics")
 
 st.divider()
