@@ -466,7 +466,7 @@ with cols[0]:
         label="RSS Feeds",
         value=len(rss_names),
         delta="",
-        help="Feeds included:\n" + "\n".join(rss_names)
+        help="\n".join(rss_names)
     )
 
 with cols[1]:
