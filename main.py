@@ -430,6 +430,9 @@ if selected_terms:
 # -------------------------
 # 9) HEADER + METRICS
 # -------------------------
+# -------------------------
+# 9) HEADER + METRICS
+# -------------------------
 st.markdown(
     '<p style="font-size:30px; color:#c9d3ea; text-align:center;">'
     'Interactive dashboard: Trend clusters, intensity, and sources</p>',
@@ -437,26 +440,68 @@ st.markdown(
 )
 st.divider()
 
-sp1, center_cols, sp2 = st.columns([1,3,1])
+# Prepare metrics
+rss_names = [
+    "FierceBiotech",
+    "Labiotech.eu",
+    "GEN (Genetic Engineering & Biotech News)",
+    "ScienceDaily – Gene Therapy",
+    "BioWorld Omics / Genomics",
+    "GenomeWeb",
+    "BioPharma Dive",
+    "Endpoints News",
+    "Biology News Net – Biotechnology",
+    "ISAAA – Crop Biotech Update",
+    "FDA MedWatch",
+    "Bayer Corporate News",
+    "Pharma IQ",
+    "The DNA Universe",
+    "Front Line Genomics",
+    "Phase Genomics",
+    "Alithea Genomics Blog",
+    "BioSpace Top Stories",
+    "Nature – Genetics"
+]
+rss_count = len(rss_names)
+rss_tooltip = ", ".join(rss_names)
 
+topic_count = len(filtered)
+avg_score = round(filtered.trend_score.mean(skipna=True), 2) if topic_count > 0 else 0
+if not filtered.empty:
+    date_range_str = f"{filtered['published_dt'].min().strftime('%-m/%-d/%Y')} – {filtered['published_dt'].max().strftime('%-m/%-d/%Y')}"
+else:
+    date_range_str = "N/A"
+
+# Layout: RSS feed on left, other 3 in center
+sp1, center_cols, sp2 = st.columns([1, 3, 1])
+
+# Left RSS Feeds
+with sp1:
+    st.markdown(f"""
+    <div style="
+        background: rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 12px 14px;
+        text-align: center;
+        font-family: 'Inter', sans-serif;
+        color: white;
+        font-weight: 600;
+        margin-bottom:4px;
+    " title="{rss_tooltip}">
+        <div style="font-size:12px; color:#c9d3ea;">RSS Feeds</div>
+        <div style="font-size:24px;">{rss_count}</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+# Center metrics: Topics, Avg Score, Date Range
 with center_cols:
-    # Make the Date Range metric take up more space
-    c1, c2, c3 = st.columns([1,1,2])  # third column wider
-    with c1: 
-        st.metric("Topics", len(filtered))
-    with c2: 
-        st.metric(
-            "Avg Score", 
-            round(filtered.trend_score.mean(skipna=True), 2) if len(filtered) > 0 else 0
-        )
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.metric("Topics", topic_count, help="Number of trending topics matching the filters")
+    with c2:
+        st.metric("Avg Score", avg_score, help="Average trend score of the topics")
     with c3:
-        flat_filtered = flat_df[flat_df["topic"].isin(filtered["topic"])]
-        if not flat_filtered.empty:
-            min_date = flat_filtered["published_dt"].min().strftime("%-m/%-d/%Y")
-            max_date = flat_filtered["published_dt"].max().strftime("%-m/%-d/%Y")
-            st.metric("Date Range", f"{min_date} – {max_date}")
-        else:
-            st.metric("Date Range", "N/A")
+        st.metric("Date Range", date_range_str, help="Publication date range of articles in filtered topics")
 
 st.divider()
 
