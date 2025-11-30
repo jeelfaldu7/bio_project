@@ -456,16 +456,15 @@ else:
 
 # 4. Heatmap of Clusters across Sources
 st.subheader("📊 Cluster Occurrence Across Sources")
-if not flat_df.empty and "source" in flat_df.columns:
+
+if not flat_df.empty:
     heat_df = flat_df.copy()
 
-    # Ensure every article has a topic
+    # Fill missing topics and sources
     heat_df["cluster"] = heat_df["topic"].replace("", "Unknown")
+    heat_df["source"] = heat_df["source"].replace("", "Unknown")
 
-    # Remove rows with no source
-    heat_df = heat_df[heat_df["source"].str.strip() != ""]
-
-    # Pivot all clusters vs sources
+    # Pivot: count articles per cluster x source
     pivot = heat_df.pivot_table(
         index="cluster",
         columns="source",
@@ -484,13 +483,13 @@ if not flat_df.empty and "source" in flat_df.columns:
             template="biotech_dark"
         )
         fig_heat.update_layout(
+            title="",
             paper_bgcolor=LIGHT_BG,
             plot_bgcolor=LIGHT_BG,
-            xaxis=dict(showgrid=False, color=TEXT_COLOR),
+            xaxis=dict(showgrid=False, color=TEXT_COLOR, tickangle=-45),
             yaxis=dict(showgrid=False, color=TEXT_COLOR),
-            height=600,
-            width=None,
-            autosize=True,
+            title_font=dict(color=TEXT_COLOR),
+            height=500,
             template="biotech_dark"
         )
         st.plotly_chart(fig_heat, use_container_width=True)
