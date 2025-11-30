@@ -246,7 +246,15 @@ def restore_published_dates_by_position(df, original_json):
     flat_df["published_dt"] = pd.to_datetime(flat_df["published_dt"], errors="coerce")
     return flat_df.dropna(subset=["published_dt"]).copy()
 
-flat_df = restore_published_dates_by_position(df, original_json)
+# -------------------------
+# Restore flat dataframe with published dates (position-matched)
+# -------------------------
+flat_rows = restore_published_dates_by_position(df, original_json)  # already returns 'published_dt'
+flat_df = pd.DataFrame(flat_rows)
+
+# Ensure published_dt is datetime dtype
+flat_df["published_dt"] = pd.to_datetime(flat_df["published_dt"], errors="coerce")
+flat_df = flat_df.dropna(subset=["published_dt"]).copy()
 
 # -------------------------
 # 8) SIDEBAR FILTERS
@@ -323,18 +331,19 @@ if not display_df.empty:
 else:
     st.info("No topics match the filters.")
 
+# -------------------------
 # 2. Time Series Articles per Day
+# -------------------------
 st.subheader("🕒 Articles Over Time")
 
-if not flat_df.empty and flat_df["published_dt"].notna().any():
-    # Use only rows with valid published dates
-    ts_df = flat_df.dropna(subset=["published_dt"]).copy()
+if not flat_df.empty:
+    ts_df = flat_df.copy()
     
-    # Aggregate counts per day
+    # Aggregate per day
     ts_agg = ts_df.groupby(ts_df["published_dt"].dt.date).size().reset_index(name="count")
-    ts_agg["date"] = pd.to_datetime(ts_agg["published_dt"])  # convert back to datetime for Plotly
+    ts_agg["date"] = pd.to_datetime(ts_agg["published_dt"])  # convert to datetime for Plotly
     
-    # Plot time series
+    # Plot
     fig_ts = px.line(
         ts_agg,
         x="date",
@@ -353,8 +362,6 @@ if not flat_df.empty and flat_df["published_dt"].notna().any():
     st.plotly_chart(fig_ts, use_container_width=True)
 else:
     st.info("No article publication dates available.")
-
-st.divider()
 
 # 3. Top Companies
 st.subheader("🏢 Top Companies / Entities Mentioned")
