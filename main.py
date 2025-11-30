@@ -675,7 +675,7 @@ else:
 # =========================================================
 st.subheader("📚 Detailed Trend Breakdown")
 for _, row in filtered.iterrows():
-    with st.expander(f"{row['topic']}  —  Score: {row['trend_score']}"):
+    with st.expander(f"{row['topic']}  —  Score: {row['trend_score_norm']:.0f}"):
         st.markdown("### 🧠 Summary")
         st.write(row["summary"])
         st.markdown("### 📰 Articles")
