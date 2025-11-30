@@ -246,59 +246,56 @@ def parse_published_date(date_str):
         return None
 
 # -------------------------
-# Restore flat dataframe with topics and published dates
+# Restore flat dataframe with topics and published dates (position-based)
 # -------------------------
-def restore_published_dates_flat(original_json):
+def restore_published_dates_by_position(trending_json, rss_json):
     """
-    Flatten articles from original_json and parse their published dates.
-    Ensures 'published_dt' exists and handles missing or malformed dates.
+    Returns a flat DataFrame of articles with 'topic', 'article_title',
+    'source', 'published', 'published_dt' using position-based topic mapping.
     """
     flat_rows = []
 
-    for art in original_json:
-        if not isinstance(art, dict):
-            continue
+    for topic_idx, topic_item in enumerate(trending_json):
+        topic_name = topic_item.get("topic") or topic_item.get("title") or "Unknown"
+        articles = topic_item.get("articles") or []
 
-        # Get published string and source safely
-        published_str = art.get("published") or art.get("published_at")
-        source = art.get("source") or ""
+        # Get matching RSS article (by position)
+        rss_art = rss_json[topic_idx] if topic_idx < len(rss_json) else {}
 
-        # Parse date robustly
+        published_str = rss_art.get("published") or rss_art.get("published_at")
+        source = rss_art.get("source") or ""
+
         published_dt = parse_published_date(published_str)
+        if published_dt is not None and published_dt.tzinfo is None:
+            published_dt = pd.Timestamp(published_dt).tz_localize("UTC")
+        elif published_dt is not None:
+            published_dt = pd.Timestamp(published_dt).tz_convert("UTC")
 
-        # Normalize timezone to UTC if naive
-        if published_dt is not None:
-            if published_dt.tzinfo is None:
-                published_dt = pd.Timestamp(published_dt).tz_localize("UTC")
-            else:
-                published_dt = pd.Timestamp(published_dt).tz_convert("UTC")
+        # Flatten articles under this topic
+        for art in articles:
+            if not isinstance(art, dict):
+                continue
+            flat_rows.append({
+                "topic": topic_name,
+                "article_title": art.get("title") or "",
+                "source": source,
+                "published": published_str or "",
+                "published_dt": published_dt
+            })
 
-        flat_rows.append({
-            "article_title": art.get("title") or "",
-            "source": source,
-            "published": published_str or "",
-            "published_dt": published_dt
-        })
-
-    # Create DataFrame
     flat_df = pd.DataFrame(flat_rows)
 
-    # Ensure 'published_dt' exists even if flat_rows is empty
-    if "published_dt" not in flat_df.columns:
-        flat_df["published_dt"] = pd.NaT
-    if "article_title" not in flat_df.columns:
-        flat_df["article_title"] = ""
-    if "source" not in flat_df.columns:
-        flat_df["source"] = ""
-    if "published" not in flat_df.columns:
-        flat_df["published"] = ""
+    # Ensure columns exist
+    for col in ["topic", "article_title", "source", "published", "published_dt"]:
+        if col not in flat_df.columns:
+            flat_df[col] = pd.NA
 
     # Drop rows without valid datetime
     flat_df = flat_df.dropna(subset=["published_dt"]).copy()
 
     return flat_df
 
-flat_df = restore_published_dates_flat(original_json)
+flat_df = restore_published_dates_by_position(df.to_dict(orient="records"), original_json)
 
 # -------------------------
 # Check restored published dates
