@@ -388,7 +388,7 @@ else:
 # -------------------------
 # 2. Time Series Articles per Day
 # -------------------------
-st.subheader("🕒 Articles Over Time")
+st.subheader("🕒 Articles Per Day")
 
 if not flat_df.empty:
     ts_df = flat_df.copy()
@@ -412,6 +412,7 @@ if not flat_df.empty:
         template="biotech_dark"
     )
     fig_ts.update_layout(
+        title="",
         paper_bgcolor=LIGHT_BG,
         plot_bgcolor=LIGHT_BG,
         xaxis=dict(showgrid=False, color=TEXT_COLOR),
