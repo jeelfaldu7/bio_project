@@ -152,7 +152,12 @@ st.markdown(f"""
 # 5) HERO BANNER
 # -------------------------
 banner = Image.open("thumbnail.png")
-st.image(banner)
+
+# Create 3 columns: left spacer, center for image, right spacer
+sp_left, sp_center, sp_right = st.columns([1, 3, 1])
+
+with sp_center:
+    st.image(banner, use_column_width=True)
 
 # -------------------------
 # 6) HELPER FUNCTIONS
