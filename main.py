@@ -334,7 +334,7 @@ search_q = st.sidebar.text_input("Search topic or summary")
 all_terms = sorted({t for terms in df["key_terms"] for t in (terms if isinstance(terms, list) else [])})
 selected_terms = st.sidebar.multiselect("Key terms (filter)", all_terms)
 
-min_articles = st.sidebar.slider("Min # of articles per topic", 0, 50, 0)
+#min_articles = st.sidebar.slider("Min # of articles per topic", 0, 50, 0)
 
 # Apply filters
 filtered = df[
