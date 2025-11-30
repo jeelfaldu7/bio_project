@@ -322,7 +322,10 @@ df["trend_score_norm"] = (df["trend_score"] - df["trend_score"].min()) / (
 
 score_min, score_max = float(df["trend_score_norm"].min(skipna=True)), float(df["trend_score_norm"].max(skipna=True))
 score_range = st.sidebar.slider(
-    "Topic Momentum (0 = barely mentioned, 100 = highly trending)",
+    """
+    Topic Momentum
+    (0 = barely mentioned, 100 = highly trending)
+    """,
     min_value=score_min,
     max_value=score_max,
     value=(score_min, score_max),
