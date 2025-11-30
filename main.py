@@ -48,7 +48,7 @@ pio.templates["biotech_dark"] = go.layout.Template(
         colorway=[ACCENT_COLOR, "#ff9f43", "#ff6b81", "#6c5ce7", "#00d2d3"]
     )
 )
-pio.templates.default = "biotech_dark"
+#pio.templates.default = "biotech_dark"
 
 # Helper function to enforce template on existing figure
 def apply_dark_theme(fig):
@@ -272,6 +272,7 @@ if not display_df.empty:
         xaxis=dict(showgrid=False, color=TEXT_COLOR),
         yaxis=dict(showgrid=False, color=TEXT_COLOR),
         title_font=dict(color=TEXT_COLOR),
+        template="biotech_dark"
     )
     st.plotly_chart(fig, use_container_width=True)
 else:
@@ -314,7 +315,8 @@ if not company_df.empty:
         xaxis=dict(showgrid=False, color=TEXT_COLOR),
         yaxis=dict(showgrid=False, color=TEXT_COLOR),
         title_font=dict(color=TEXT_COLOR),
-        yaxis_categoryorder="total ascending"
+        yaxis_categoryorder="total ascending",
+        template="biotech_dark"
     )
     st.plotly_chart(fig_comp, use_container_width=True)
 else:
@@ -347,7 +349,8 @@ if not flat_df.empty and "source" in flat_df.columns:
             xaxis=dict(showgrid=False, color=TEXT_COLOR),
             yaxis=dict(showgrid=False, color=TEXT_COLOR),
             title_font=dict(color=TEXT_COLOR),
-            height=500
+            height=500,
+            template="biotech_dark"
         )
         st.plotly_chart(fig_heat, use_container_width=True)
     else:
