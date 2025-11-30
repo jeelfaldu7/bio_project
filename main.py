@@ -248,35 +248,57 @@ def parse_published_date(date_str):
 # -------------------------
 # Restore flat dataframe with topics and published dates
 # -------------------------
-flat_rows = []
+def restore_published_dates_flat(original_json):
+    """
+    Flatten articles from original_json and parse their published dates.
+    Ensures 'published_dt' exists and handles missing or malformed dates.
+    """
+    flat_rows = []
 
-for _, topic_row in df.iterrows():
-    topic_name = topic_row["topic"]
-    articles = topic_row.get("articles", [])
-    for art in articles:
+    for art in original_json:
         if not isinstance(art, dict):
             continue
+
+        # Get published string and source safely
         published_str = art.get("published") or art.get("published_at")
+        source = art.get("source") or ""
+
+        # Parse date robustly
         published_dt = parse_published_date(published_str)
 
-        # Normalize to UTC
-        if published_dt is not None and published_dt.tzinfo is None:
-            published_dt = pd.Timestamp(published_dt, tz="UTC")
-        elif published_dt is not None:
-            published_dt = published_dt.astimezone(pd.Timestamp.utcnow().tz)
+        # Normalize timezone to UTC if naive
+        if published_dt is not None:
+            if published_dt.tzinfo is None:
+                published_dt = pd.Timestamp(published_dt).tz_localize("UTC")
+            else:
+                published_dt = pd.Timestamp(published_dt).tz_convert("UTC")
 
         flat_rows.append({
-            "topic": topic_name,
-            "article_title": art.get("title"),
-            "source": art.get("source", ""),
-            "published": published_str,
+            "article_title": art.get("title") or "",
+            "source": source,
+            "published": published_str or "",
             "published_dt": published_dt
         })
 
-flat_df = pd.DataFrame(flat_rows)
+    # Create DataFrame
+    flat_df = pd.DataFrame(flat_rows)
 
-# Optional: drop articles without valid datetime
-flat_df = flat_df.dropna(subset=["published_dt"]).copy()
+    # Ensure 'published_dt' exists even if flat_rows is empty
+    if "published_dt" not in flat_df.columns:
+        flat_df["published_dt"] = pd.NaT
+    if "article_title" not in flat_df.columns:
+        flat_df["article_title"] = ""
+    if "source" not in flat_df.columns:
+        flat_df["source"] = ""
+    if "published" not in flat_df.columns:
+        flat_df["published"] = ""
+
+    # Drop rows without valid datetime
+    flat_df = flat_df.dropna(subset=["published_dt"]).copy()
+
+    return flat_df
+
+flat_df = restore_published_dates_flat(original_json)
 
 # -------------------------
 # Check restored published dates
