@@ -211,7 +211,8 @@ df["articles_str"] = df["articles"].apply(lambda x: "• " + "\n• ".join(x) if
 df["key_terms_str"] = df["key_terms"].apply(lambda x: ", ".join(x) if isinstance(x, list) else str(x))
 
 flat_df = pd.DataFrame(flattened_rows)
-flat_df["published_dt"] = flat_df["published"].apply(lambda x: safe_to_datetime(x)) if not flat_df.empty else pd.Series(dtype="datetime64[ns]")
+flat_df["published_dt"] = pd.to_datetime(flat_df["published"], errors="coerce")
+flat_df = flat_df.dropna(subset=["published_dt"]).copy()
 
 # -------------------------
 # 8) SIDEBAR FILTERS
