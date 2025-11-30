@@ -352,8 +352,7 @@ score_range = st.sidebar.slider(
     min_value=score_min,
     max_value=score_max,
     value=(score_min, score_max),
-    step=1,
-    help="A composite measure of how 'hot' a topic is: considers number of articles, recency, and relevance of keywords."
+    step=1
 )
 st.sidebar.markdown("---")
 
