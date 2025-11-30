@@ -663,11 +663,8 @@ st.markdown(
     }
     </style>
     <div class="footer">
-        © 2025 Jeel Faldu & Paul London | 
-        <a href="mailto:jeel.faldu7@gmail.com">Email</a> | 
-        <a href="mailto:palondon@hotmail.com">Email</a> | 
-        <a href="https://www.linkedin.com/in/jeelfaldu7" target="_blank">LinkedIn</a>
-        <a href="https://www.linkedin.com/in/palondon" target="_blank">LinkedIn</a>
+        © 2025 Jeel Faldu <a href="mailto:jeel.faldu7@gmail.com">Email</a>) | <a href="https://www.linkedin.com/in/jeelfaldu7" target="_blank">LinkedIn</a>
+        & Paul London | <a href="mailto:palondon@hotmail.com">Email</a> | <a href="https://www.linkedin.com/in/palondon" target="_blank">LinkedIn</a>
     </div>
     """,
     unsafe_allow_html=True
