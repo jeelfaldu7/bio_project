@@ -336,7 +336,7 @@ st.sidebar.markdown(
     <p style='margin-bottom:2px; font-weight:600; font-size:14px;'>
         Topic Momentum
     </p>
-    <p style='margin-top:0; font-size:11px; color:#c9d3ea;'>
+    <p style='margin-top:-6px; font-size:11px; color:#c9d3ea;'>
         0 (barely mentioned) ↔ 100 (highly trending)
     </p>
     """,
@@ -358,7 +358,7 @@ st.sidebar.markdown(
     <p style='margin-bottom:2px; font-weight:600; font-size:14px;'>
         Search
     </p>
-    <p style='margin-top:0; font-size:11px; color:#c9d3ea;'>
+    <p style='margin-top:-6px; font-size:11px; color:#c9d3ea;'>
         Search topic or summary text
     </p>
     """,
@@ -373,7 +373,7 @@ st.sidebar.markdown(
     <p style='margin-bottom:2px; font-weight:600; font-size:14px;'>
         Key Terms
     </p>
-    <p style='margin-top:0; font-size:11px; color:#c9d3ea;'>
+    <p style='margin-top:-6px; font-size:11px; color:#c9d3ea;'>
         Filter by specific keywords
     </p>
     """,
@@ -382,19 +382,6 @@ st.sidebar.markdown(
 selected_terms = st.sidebar.multiselect("", all_terms)
 
 # --- Minimum Articles Filter ---
-st.sidebar.markdown(
-    """
-    <p style='margin-bottom:2px; font-weight:600; font-size:14px;'>
-        Minimum Articles
-    </p>
-    <p style='margin-top:0; font-size:11px; color:#c9d3ea;'>
-        Minimum # of articles per topic to display
-    </p>
-    """,
-    unsafe_allow_html=True
-)
-
-# --- Min Articles per Topic ---
 """
 st.sidebar.markdown(
     "<p style='margin-bottom:4px; font-weight:600;'>Minimum Articles per Topic<br>"
