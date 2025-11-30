@@ -454,13 +454,14 @@ sp1, center_cols, sp2 = st.columns([1,3,1])
 with center_cols:
     m1, m2, m3, m4 = st.columns([1,1.2,1,1])
     
-    # RSS Feeds (HTML with line breaks)
+    # RSS Feeds (clean, tooltip for feed names)
     with m1:
         st.markdown(
             f"""
-            <div style='text-align:center; background: rgba(255,255,255,0.08); border-radius:16px; padding:12px;'>
-                <strong>RSS Feeds ({len(rss_names)})</strong><br>
-                {'<br>'.join(rss_names)}
+            <div style='text-align:center; background: rgba(255,255,255,0.08); 
+                        border-radius:16px; padding:12px; cursor:help;'
+                 title='{"\n".join(rss_names)}'>
+                <strong>RSS Feeds ({len(rss_names)})</strong>
             </div>
             """,
             unsafe_allow_html=True
@@ -484,7 +485,8 @@ with center_cols:
             max_date = filtered['published_dt'].max().strftime("%-m/%-d/%Y")
             st.markdown(
                 f"""
-                <div style='text-align:center; background: rgba(255,255,255,0.08); border-radius:16px; padding:12px;'>
+                <div style='text-align:center; background: rgba(255,255,255,0.08); 
+                            border-radius:16px; padding:12px;'>
                     <strong>Date Range</strong><br>
                     {min_date} – {max_date}
                 </div>
