@@ -315,29 +315,48 @@ for idx in range(min(len(flat_df), len(rows))):
 # -------------------------
 st.sidebar.header("Filters")
 
-# Normalize trend score 0-100 for easier interpretation
-df["trend_score_norm"] = (df["trend_score"] - df["trend_score"].min()) / (
-    df["trend_score"].max() - df["trend_score"].min()
-) * 100
+# --- Topic Momentum Slider (0-100, normalized) ---
+score_min = int(df["trend_score_norm"].min(skipna=True))
+score_max = int(df["trend_score_norm"].max(skipna=True))
 
-st.sidebar.markdown("**Topic Momentum**<br><span style='font-size:12px;'>(0 = barely mentioned, 100 = highly trending)</span>", unsafe_allow_html=True)
+st.sidebar.markdown(
+    "<p style='margin-bottom:4px; font-weight:600;'>Topic Momentum<br>"
+    "<span style='font-size:12px; color:#c9d3ea;'>0 = barely mentioned, 100 = highly trending</span></p>",
+    unsafe_allow_html=True
+)
 
-score_min, score_max = int(df["trend_score_norm"].min(skipna=True)), int(df["trend_score_norm"].max(skipna=True))
 score_range = st.sidebar.slider(
     "",
     min_value=score_min,
     max_value=score_max,
     value=(score_min, score_max),
-    step=1,  # ensure only integers
+    step=1,
     help="A composite measure of how 'hot' a topic is: considers number of articles, recency, and relevance of keywords."
 )
 
+# --- Search Box ---
 search_q = st.sidebar.text_input("Search topic or summary")
 
+# --- Key Terms Filter ---
 all_terms = sorted({t for terms in df["key_terms"] for t in (terms if isinstance(terms, list) else [])})
 selected_terms = st.sidebar.multiselect("Key terms (filter)", all_terms)
 
-#min_articles = st.sidebar.slider("Min # of articles per topic", 0, 50, 0)
+# --- Min Articles per Topic ---
+"""
+st.sidebar.markdown(
+    "<p style='margin-bottom:4px; font-weight:600;'>Minimum Articles per Topic<br>"
+    "<span style='font-size:12px; color:#c9d3ea;'>(1 = included, 2+ for higher coverage)</span></p>",
+    unsafe_allow_html=True
+)
+
+min_articles = st.sidebar.slider(
+    "",
+    min_value=1,
+    max_value=5,  # adjust based on your data; avoids useless 0 values
+    value=1,
+    step=1
+)
+"""
 
 # Apply filters
 filtered = df[
