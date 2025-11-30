@@ -455,23 +455,16 @@ else:
     st.info("No company-like terms detected.")
 
 # 4. Heatmap of Clusters across Sources
-
-# Add topic to flat_df by matching article titles
-flat_df["topic"] = ""
-
-for idx, topic_row in df.iterrows():
-    topic = topic_row["topic"]
-    for art in topic_row["articles"]:
-        title = art.get("title") if isinstance(art, dict) else str(art)
-        mask = flat_df["article_title"] == title
-        flat_df.loc[mask, "topic"] = topic
-
-# Heatmap
 st.subheader("📊 Cluster Occurrence Across Sources")
-if not flat_df.empty and "source" in flat_df.columns:
-    heat_df = flat_df.copy()
-    heat_df["cluster"] = heat_df["topic"].replace("", "Unknown")  # handle missing topics
 
+if not flat_df.empty:
+    heat_df = flat_df.copy()
+
+    # Ensure no missing cluster/source
+    heat_df["cluster"] = heat_df["topic"].replace("", "Unknown")
+    heat_df["source"] = heat_df["source"].replace("", "Unknown")
+
+    # Pivot table
     pivot = heat_df.pivot_table(
         index="cluster",
         columns="source",
@@ -481,14 +474,17 @@ if not flat_df.empty and "source" in flat_df.columns:
     )
 
     if not pivot.empty:
-        fig_heat = px.imshow(
-            pivot.values,
-            x=pivot.columns.tolist(),
-            y=pivot.index.tolist(),
-            labels=dict(x="Source", y="Cluster", color="Article Count"),
-            color_continuous_scale="YlGnBu",
-            template="biotech_dark",
-            aspect="auto"  # allows wider display
+        # Use DataFrame directly with plotly.graph_objects.Heatmap instead of px.imshow
+        import plotly.graph_objects as go
+
+        fig_heat = go.Figure(
+            go.Heatmap(
+                z=pivot.values,
+                x=pivot.columns.tolist(),
+                y=pivot.index.tolist(),
+                colorscale="YlGnBu",
+                hovertemplate='Source: %{x}<br>Cluster: %{y}<br>Count: %{z}<extra></extra>'
+            )
         )
         fig_heat.update_layout(
             title="",
@@ -496,16 +492,13 @@ if not flat_df.empty and "source" in flat_df.columns:
             plot_bgcolor=LIGHT_BG,
             xaxis=dict(showgrid=False, color=TEXT_COLOR, tickangle=-90),
             yaxis=dict(showgrid=False, color=TEXT_COLOR),
-            title_font=dict(color=TEXT_COLOR),
             height=500,
-            template="biotech_dark"
         )
         st.plotly_chart(fig_heat, use_container_width=True)
     else:
         st.info("Not enough data for heatmap.")
 else:
     st.info("No per-article source data available for heatmap.")
-
 
 # 5. WordCloud Concepts
 st.subheader("💡 Trending Concepts (WordCloud)")
