@@ -435,75 +435,51 @@ st.markdown(
     'Interactive dashboard: Trend clusters, intensity, and sources</p>',
     unsafe_allow_html=True
 )
+
 st.divider()
 
-# Prepare metrics
+# ------- Metrics -------
+# Gather RSS feed names from your _infer_source function
 rss_names = [
-    "FierceBiotech",
-    "Labiotech.eu",
-    "GEN (Genetic Engineering & Biotech News)",
-    "ScienceDaily – Gene Therapy",
-    "BioWorld Omics / Genomics",
-    "GenomeWeb",
-    "BioPharma Dive",
-    "Endpoints News",
-    "Biology News Net – Biotechnology",
-    "ISAAA – Crop Biotech Update",
-    "FDA MedWatch",
-    "Bayer Corporate News",
-    "Pharma IQ",
-    "The DNA Universe",
-    "Front Line Genomics",
-    "Phase Genomics",
-    "Alithea Genomics Blog",
-    "BioSpace Top Stories",
-    "Nature – Genetics"
+    "FierceBiotech", "Labiotech.eu", "GEN (Genetic Engineering & Biotech News)",
+    "ScienceDaily – Gene Therapy", "BioWorld Omics / Genomics", "GenomeWeb",
+    "BioPharma Dive", "Endpoints News", "Biology News Net – Biotechnology",
+    "ISAAA – Crop Biotech Update", "FDA MedWatch", "Bayer Corporate News",
+    "Pharma IQ", "The DNA Universe", "Front Line Genomics", "Phase Genomics",
+    "Alithea Genomics Blog", "BioSpace Top Stories", "Nature – Genetics"
 ]
-rss_count = len(rss_names)
-rss_tooltip = ", ".join(rss_names)
 
-topic_count = len(filtered)
-avg_score = round(filtered.trend_score.mean(skipna=True), 2) if topic_count > 0 else 0
-if not filtered.empty:
-    date_range_str = f"{filtered['published_dt'].min().strftime('%-m/%-d/%Y')} – {filtered['published_dt'].max().strftime('%-m/%-d/%Y')}"
+# Compute date range from flat_df for filtered topics
+ts_filtered = flat_df[flat_df["topic"].isin(filtered["topic"])].copy()
+if not ts_filtered.empty:
+    min_date = ts_filtered["published_dt"].min()
+    max_date = ts_filtered["published_dt"].max()
+    date_range_str = f"{min_date.strftime('%-m/%-d/%Y')} – {max_date.strftime('%-m/%-d/%Y')}"
 else:
     date_range_str = "N/A"
 
-# Center all 4 metrics
-spacer1, metrics_col, spacer2 = st.columns([1, 3, 1])
+# Center all metrics
+cols = st.columns(4)
 
-with metrics_col:
-    m1, m2, m3, m4 = st.columns(4)
-    
-    # RSS Feeds
-    with m1:
-        st.markdown(f"""
-        <div style="
-            background: rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 12px 14px;
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-            color: white;
-            font-weight: 600;
-            margin-bottom:4px;
-        " title="{rss_tooltip}">
-            <div style="font-size:12px; color:#c9d3ea;">RSS Feeds</div>
-            <div style="font-size:24px;">{rss_count}</div>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    # Topics
-    with m2:
-        st.metric("Topics", topic_count, help="Number of trending topics matching the filters")
-    
-    # Avg Score
-    with m3:
-        st.metric("Avg Score", avg_score, help="Average trend score of the topics")
-    
-    # Date Range
-    with m4:
-        st.metric("Date Range", date_range_str, help="Publication date range of articles in filtered topics")
+with cols[0]:
+    st.metric(
+        label="RSS Feeds",
+        value=len(rss_names),
+        delta="",
+        help="Feeds included:\n" + "\n".join(rss_names)
+    )
+
+with cols[1]:
+    st.metric("Topics", len(filtered))
+
+with cols[2]:
+    st.metric(
+        "Avg Score",
+        round(filtered.trend_score.mean(skipna=True), 2) if len(filtered) > 0 else 0
+    )
+
+with cols[3]:
+    st.metric("Date Range", date_range_str)
 
 st.divider()
 
