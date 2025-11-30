@@ -210,6 +210,7 @@ with open("data/rss_summarized.json", "r", encoding="utf-8") as f:
 # Restore published dates by position
 # -------------------------
 # Helper to parse multiple date formats
+# Helper: parse multiple date formats
 def parse_published_date(date_str):
     if not date_str or not isinstance(date_str, str):
         return None
@@ -238,8 +239,8 @@ def restore_published_dates_by_position(df, original_json):
     flat_rows = []
 
     for idx, row in df.iterrows():
-        topic = row["topic"]
-        articles = row["articles"]
+        topic = row.get("topic", "Unknown")
+        articles = row.get("articles", [])
 
         if idx >= len(original_json):
             continue
@@ -263,9 +264,9 @@ def restore_published_dates_by_position(df, original_json):
 
             # Optional: normalize to UTC if datetime exists
             if published_dt is not None and published_dt.tzinfo is None:
-                published_dt = published_dt.tz_localize("UTC")
+                published_dt = pd.Timestamp(published_dt).tz_localize("UTC")
             elif published_dt is not None:
-                published_dt = published_dt.astimezone(pd.Timestamp.utcnow().tz)
+                published_dt = pd.Timestamp(published_dt).tz_convert("UTC")
 
             flat_rows.append({
                 "topic": topic,
@@ -275,13 +276,18 @@ def restore_published_dates_by_position(df, original_json):
                 "published_dt": published_dt
             })
 
+    # Create DataFrame
     flat_df = pd.DataFrame(flat_rows)
 
-# Ensure 'published_dt' exists even if flat_rows is empty
-    if "published_dt" not in flat_df.columns:
-        flat_df["published_dt"] = pd.NaT
+    # Ensure all required columns exist
+    required_cols = ["topic", "article_title", "source", "published", "published_dt"]
+    for col in required_cols:
+        if col not in flat_df.columns:
+            flat_df[col] = np.nan
 
+    # Drop rows without valid published_dt
     flat_df = flat_df.dropna(subset=["published_dt"]).copy()
+
     return flat_df
 
 # -------------------------
