@@ -342,6 +342,11 @@ st.sidebar.markdown(
     """,
     unsafe_allow_html=True
 )
+
+# --- Topic Momentum ---
+score_min = int(df["trend_score_norm"].min(skipna=True))
+score_max = int(df["trend_score_norm"].max(skipna=True))
+
 score_range = st.sidebar.slider(
     "",
     min_value=score_min,
