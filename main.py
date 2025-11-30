@@ -437,7 +437,7 @@ st.markdown(
 )
 st.divider()
 
-sp1, center_cols, sp2 = st.columns([1,3,1])
+sp1, center_cols, sp2 = st.columns([1,1,2])
 
 with center_cols:
     c1, c2, c3 = st.columns(3)  # three metrics
