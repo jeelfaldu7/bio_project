@@ -454,7 +454,7 @@ with center_cols:
         if not flat_filtered.empty:
             min_date = flat_filtered["published_dt"].min().strftime("%-m/%-d/%Y")
             max_date = flat_filtered["published_dt"].max().strftime("%-m/%-d/%Y")
-            st.metric("Date Range", f"{min_date} → {max_date}")
+            st.metric("Date Range", f"{min_date} – {max_date}")
         else:
             st.metric("Date Range", "N/A")
 
