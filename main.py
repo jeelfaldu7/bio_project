@@ -425,12 +425,14 @@ else:
 
 # 3. Top Companies
 st.subheader("🏢 Top Companies / Entities Mentioned")
+
 company_counter = Counter()
 for terms in filtered["key_terms"]:
     if isinstance(terms, list):
         for t in terms:
             if len(t) > 2:
                 company_counter[t.title()] += 1
+
 company_df = pd.DataFrame(company_counter.most_common(20), columns=["company", "count"])
 if not company_df.empty:
     fig_comp = px.bar(
@@ -457,26 +459,27 @@ else:
 # 4. Heatmap of Clusters across Sources
 st.subheader("📊 Cluster Occurrence Across Sources")
 
-if not flat_df.empty:
-    heat_df = flat_df.copy()
+if not flat_df.empty and not filtered.empty:
+    # Filter flat_df by the filtered topics
+    flat_filtered = flat_df[flat_df["topic"].isin(filtered["topic"])].copy()
 
     # Ensure no missing cluster/source
-    heat_df["cluster"] = heat_df["topic"].replace("", "Unknown")
-    heat_df["source"] = heat_df["source"].replace("", "Unknown")
+    flat_filtered["cluster"] = flat_filtered["topic"].replace("", "Unknown")
+    flat_filtered["source"] = flat_filtered["source"].replace("", "Unknown")
+
+    # Get all sources from original JSON to show even empty ones
+    all_sources = sorted({art.get("source", "Unknown") for art in original_json})
 
     # Pivot table
-    pivot = heat_df.pivot_table(
+    pivot = flat_filtered.pivot_table(
         index="cluster",
         columns="source",
         values="article_title",
         aggfunc="count",
         fill_value=0
-    )
+    ).reindex(columns=all_sources, fill_value=0)
 
     if not pivot.empty:
-        # Use DataFrame directly with plotly.graph_objects.Heatmap instead of px.imshow
-        import plotly.graph_objects as go
-
         fig_heat = go.Figure(
             go.Heatmap(
                 z=pivot.values,
@@ -498,14 +501,22 @@ if not flat_df.empty:
     else:
         st.info("Not enough data for heatmap.")
 else:
-    st.info("No per-article source data available for heatmap.")
+    st.info("No articles available for filtered topics.")
 
 # 5. WordCloud Concepts
-st.subheader("💡 Trending Concepts (WordCloud)")
+st.subheader("💡 Trending Concepts")
+
 all_concepts = [t for terms in filtered["key_terms"] if isinstance(terms, list) for t in terms]
 if all_concepts:
     text = " ".join(all_concepts)
-    wc = WordCloud(width=800, height=400, background_color=LIGHT_BG, colormap="Blues", collocations=False).generate(text)
+    wc = WordCloud(
+        width=800,
+        height=400,
+        background_color=LIGHT_BG,
+        colormap="Blues",
+        collocations=False
+    ).generate(text)
+    
     fig, ax = plt.subplots(figsize=(12,5))
     fig.patch.set_facecolor(LIGHT_BG)
     ax.set_facecolor(LIGHT_BG)
@@ -514,7 +525,6 @@ if all_concepts:
     st.pyplot(fig)
 else:
     st.info("No concepts available to generate WordCloud.")
-st.divider()
 
 # =========================================================
 # Expandable Trend Cards
