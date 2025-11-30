@@ -610,7 +610,8 @@ if all_concepts:
         height=400,
         background_color=LIGHT_BG,
         colormap="Blues",
-        collocations=False
+        collocations=False,
+        max_words=50
     ).generate(text)
     
     fig, ax = plt.subplots(figsize=(12,5))
@@ -674,4 +675,3 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
