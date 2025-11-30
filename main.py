@@ -250,6 +250,16 @@ def restore_published_dates_by_position(df, original_json):
 # Restore flat dataframe with published dates (position-matched)
 # -------------------------
 flat_rows = restore_published_dates_by_position(df, original_json)  # already returns 'published_dt'
+
+# -------------------------
+# Check restored published dates
+# -------------------------
+st.subheader("Debug: Check Published Dates")
+st.write(f"Total articles: {len(flat_df)}")
+st.write(f"Articles with valid published_dt: {flat_df['published_dt'].notna().sum()}")
+st.dataframe(flat_df[["topic", "article_title", "source", "published", "published_dt"]].head(20))
+
+
 flat_df = pd.DataFrame(flat_rows)
 
 # Ensure published_dt is datetime dtype
