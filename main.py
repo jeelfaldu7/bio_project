@@ -591,7 +591,7 @@ if not flat_df.empty and not filtered.empty:
             plot_bgcolor=LIGHT_BG,
             xaxis=dict(showgrid=False, color=TEXT_COLOR, tickangle=-90),
             yaxis=dict(showgrid=False, color=TEXT_COLOR),
-            height=500,
+            height=800,
         )
         st.plotly_chart(fig_heat, use_container_width=True)
     else:
