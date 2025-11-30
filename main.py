@@ -326,32 +326,26 @@ else:
 # 8) SIDEBAR FILTERS
 # -------------------------
 st.sidebar.markdown(
-    "<p style='font-size:30px; font-weight:700; margin-bottom:8px;'>Filters</p>",
+    "<p style='font-size:30px; font-weight:700; margin-bottom:4px;'>Filters</p>",
     unsafe_allow_html=True
 )
 
-# --- Topic Momentum Slider (0-100, normalized) ---
+# --- Topic Momentum ---
 score_min = int(df["trend_score_norm"].min(skipna=True))
 score_max = int(df["trend_score_norm"].max(skipna=True))
 
 st.sidebar.markdown(
     """
-    <p style='margin-bottom:2px; font-weight:600; font-size:14px;'>
-        Topic Momentum
-    </p>
-    <p style='margin-top:0; font-size:11px; color:#c9d3ea;'>
+    <p style='margin-bottom:1px; font-weight:600; font-size:14px;'>Topic Momentum</p>
+    <p style='margin-top:0; margin-bottom:2px; font-size:11px; color:#c9d3ea;'>
         0 (barely mentioned) ↔ 100 (highly trending)
     </p>
     """,
     unsafe_allow_html=True
 )
-
 score_range = st.sidebar.slider(
-    "",
-    min_value=score_min,
-    max_value=score_max,
-    value=(score_min, score_max),
-    step=1,
+    "", min_value=score_min, max_value=score_max,
+    value=(score_min, score_max), step=1,
     help="A composite measure of how 'hot' a topic is: considers number of articles, recency, and relevance of keywords."
 )
 
@@ -360,33 +354,30 @@ st.sidebar.markdown("---")
 # --- Search Box ---
 st.sidebar.markdown(
     """
-    <p style='margin-bottom:2px; font-weight:600; font-size:14px;'>
-        Search
-    </p>
-    <p style='margin-top:0; font-size:11px; color:#c9d3ea;'>
+    <p style='margin-bottom:1px; font-weight:600; font-size:14px;'>Search</p>
+    <p style='margin-top:0; margin-bottom:2px; font-size:11px; color:#c9d3ea;'>
         Search topic or summary text
     </p>
     """,
     unsafe_allow_html=True
 )
-search_q = st.sidebar.text_input("")
+search_q = st.sidebar.text_input("", value="")
 
 st.sidebar.markdown("---")
 
-# --- Key Terms Filter ---
+# --- Key Terms ---
 all_terms = sorted({t for terms in df["key_terms"] for t in (terms if isinstance(terms, list) else [])})
 st.sidebar.markdown(
     """
-    <p style='margin-bottom:2px; font-weight:600; font-size:14px;'>
-        Key Terms
-    </p>
-    <p style='margin-top:0; font-size:11px; color:#c9d3ea;'>
+    <p style='margin-bottom:1px; font-weight:600; font-size:14px;'>Key Terms</p>
+    <p style='margin-top:0; margin-bottom:2px; font-size:11px; color:#c9d3ea;'>
         Filter by specific keywords
     </p>
     """,
     unsafe_allow_html=True
 )
 selected_terms = st.sidebar.multiselect("", all_terms)
+
 
 # --- Minimum Articles Filter ---
 """
