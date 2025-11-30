@@ -236,12 +236,18 @@ if min_articles > 0:
 # -------------------------
 # 9) HEADER + METRICS
 # -------------------------
-st.markdown('<p class="subtle">Portfolio dashboard — clusters, trend intensity, and signal sources.</p>', unsafe_allow_html=True)
+st.markdown('<p class="subtle">Interactive dashboard — clusters, trend intensity, and signal sources.</p>', unsafe_allow_html=True)
 st.divider()
 
-col1, col2, col3 = st.columns([3, 1, 1])
-with col2: st.metric("Topics", len(filtered))
-with col3: st.metric("Avg Score", round(filtered.trend_score.mean(skipna=True), 2) if len(filtered)>0 else 0)
+sp1, center_cols, sp2 = st.columns([1,3,1])
+
+with center_cols:
+    c1, c2 = st.columns(2)
+    with c1: 
+        st.metric("Topics", len(filtered))
+    with c2: 
+        st.metric("Avg Score", round(filtered.trend_score.mean(skipna=True), 2) if len(filtered)>0 else 0)
+
 st.divider()
 
 # -------------------------
