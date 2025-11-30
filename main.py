@@ -310,6 +310,18 @@ flat_df["topic"] = ""
 for idx in range(min(len(flat_df), len(rows))):
     flat_df.at[idx, "topic"] = rows[idx]["topic"]
 
+
+# -------------------------
+# Normalize trend score 0-100 for easier interpretation
+# -------------------------
+if "trend_score" in df.columns:
+    df["trend_score_norm"] = (
+        (df["trend_score"] - df["trend_score"].min(skipna=True)) /
+        (df["trend_score"].max(skipna=True) - df["trend_score"].min(skipna=True))
+    ) * 100
+else:
+    df["trend_score_norm"] = 0  # fallback if trend_score is missing
+
 # -------------------------
 # 8) SIDEBAR FILTERS
 # -------------------------
