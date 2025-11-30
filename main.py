@@ -276,6 +276,7 @@ if not display_df.empty:
         template="biotech_dark"  # use your dark template
     )
     fig.update_layout(
+        title=None,
         paper_bgcolor=LIGHT_BG,
         plot_bgcolor=LIGHT_BG,
         xaxis=dict(showgrid=False, color=TEXT_COLOR),
@@ -319,6 +320,7 @@ if not company_df.empty:
         template="biotech_dark"
     )
     fig_comp.update_layout(
+        title=None,
         paper_bgcolor=LIGHT_BG,
         plot_bgcolor=LIGHT_BG,
         xaxis=dict(showgrid=False, color=TEXT_COLOR),
@@ -353,6 +355,7 @@ if not flat_df.empty and "source" in flat_df.columns:
             template="biotech_dark"
         )
         fig_heat.update_layout(
+            title=None,
             paper_bgcolor=LIGHT_BG,
             plot_bgcolor=LIGHT_BG,
             xaxis=dict(showgrid=False, color=TEXT_COLOR),
