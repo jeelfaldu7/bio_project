@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import numpy as np
 from datetime import datetime
+from dateutil import parser
 from collections import Counter
 from pathlib import Path
 from PIL import Image
@@ -208,6 +209,31 @@ with open("data/rss_summarized.json", "r", encoding="utf-8") as f:
 # -------------------------
 # Restore published dates by position
 # -------------------------
+# Helper to parse multiple date formats
+def parse_published_date(date_str):
+    if not date_str or not isinstance(date_str, str):
+        return None
+
+    # Format 1: Nov 24, 2025 3:18pm
+    try:
+        return pd.to_datetime(date_str, format="%b %d, %Y %I:%M%p")
+    except (ValueError, TypeError):
+        pass
+
+    # Format 2 & 3: RFC 2822 with numeric or abbreviation timezone
+    try:
+        dt = parser.parse(date_str)
+        return dt
+    except (ValueError, TypeError):
+        pass
+
+    # Fallback: generic parse
+    try:
+        return pd.to_datetime(date_str, errors='coerce', infer_datetime_format=True)
+    except:
+        return None
+
+# Main restore function
 def restore_published_dates_by_position(df, original_json):
     flat_rows = []
 
@@ -215,20 +241,35 @@ def restore_published_dates_by_position(df, original_json):
         topic = row["topic"]
         articles = row["articles"]
 
-        orig_topic = original_json[idx] if idx < len(original_json) else None
-        orig_articles = orig_topic.get("articles", []) if orig_topic else []
+        if idx >= len(original_json):
+            continue
+
+        orig_topic = original_json[idx]
+        orig_articles = orig_topic.get("articles", [])
 
         for i, art in enumerate(articles):
-            orig_art = orig_articles[i] if i < len(orig_articles) else {}
-            title = art.get("title") if isinstance(art, dict) else str(art)
-            published_str = orig_art.get("published") or orig_art.get("published_at") if isinstance(orig_art, dict) else None
-            source = orig_art.get("source") if isinstance(orig_art, dict) else ""
+            if i >= len(orig_articles):
+                continue
 
-            published_dt = pd.to_datetime(published_str, errors='coerce', utc=True)
+            orig_art = orig_articles[i]
+            if isinstance(orig_art, dict):
+                published_str = orig_art.get("published") or orig_art.get("published_at")
+                source = orig_art.get("source", "")
+            else:
+                published_str = None
+                source = ""
+
+            published_dt = parse_published_date(published_str)
+
+            # Optional: normalize to UTC if datetime exists
+            if published_dt is not None and published_dt.tzinfo is None:
+                published_dt = published_dt.tz_localize("UTC")
+            elif published_dt is not None:
+                published_dt = published_dt.astimezone(pd.Timestamp.utcnow().tz)
 
             flat_rows.append({
                 "topic": topic,
-                "article_title": title,
+                "article_title": art.get("title") if isinstance(art, dict) else str(art),
                 "source": source,
                 "published": published_str,
                 "published_dt": published_dt
