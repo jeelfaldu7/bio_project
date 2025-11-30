@@ -322,10 +322,7 @@ df["trend_score_norm"] = (df["trend_score"] - df["trend_score"].min()) / (
 
 score_min, score_max = float(df["trend_score_norm"].min(skipna=True)), float(df["trend_score_norm"].max(skipna=True))
 score_range = st.sidebar.slider(
-    """
-    Topic Momentum
-    (0 = barely mentioned, 100 = highly trending)
-    """,
+    "Topic Momentum\n(0 = barely mentioned, 100 = highly trending)",
     min_value=score_min,
     max_value=score_max,
     value=(score_min, score_max),
@@ -384,6 +381,7 @@ st.divider()
 # -------------------------
 # 1. Trend Score Bar
 st.subheader("📈 Top Topics by Trend Score")
+
 display_df = filtered.sort_values("trend_score", ascending=False).head(25)
 if not display_df.empty:
     fig = px.bar(
@@ -411,12 +409,12 @@ else:
 # 2. Time Series Articles per Day
 st.subheader("🕒 Trend Activity Over Time")
 
-if not flat_df.empty:
-    ts_df = flat_df.copy()
+# Filter flat_df by topics currently in the filtered trending topics
+ts_df = flat_df[flat_df["topic"].isin(filtered["topic"])].copy()
 
-    # Aggregate per day (force date only, start of day)
+if not ts_df.empty:
+    # Aggregate per day (force date only)
     ts_df["date"] = ts_df["published_dt"].dt.floor("D")
-
     ts_agg = (
         ts_df.groupby("date")
         .size()
@@ -438,8 +436,8 @@ if not flat_df.empty:
         xaxis=dict(
             showgrid=False,
             color=TEXT_COLOR,
-            type="date",   # ensures clean date axis
-            tickformat="%b %d, %Y"  # readable format
+            type="date",
+            tickformat="%b %d, %Y"
         ),
         yaxis=dict(showgrid=False, color=TEXT_COLOR),
         title_font=dict(color=TEXT_COLOR),
@@ -447,7 +445,7 @@ if not flat_df.empty:
     )
     st.plotly_chart(fig_ts, use_container_width=True)
 else:
-    st.info("No article publication dates available.")
+    st.info("No articles match the current filters.")
 
 # 3. Top Companies
 st.subheader("🏢 Top Companies / Entities Mentioned")
