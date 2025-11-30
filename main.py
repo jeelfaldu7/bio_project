@@ -432,7 +432,7 @@ if selected_terms:
 # 9) HEADER + METRICS
 # -------------------------
 st.markdown(
-    '<p style="font-size:18px; color:#c9d3ea; text-align:center;">'
+    '<p style="font-size:30px; color:#c9d3ea; text-align:center;">'
     'Interactive dashboard: Trend clusters, intensity, and sources</p>',
     unsafe_allow_html=True
 )
