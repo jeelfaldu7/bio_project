@@ -291,16 +291,36 @@ else:
 
 # 2. Time Series Articles per Day
 st.subheader("🕒 Articles Over Time")
+
 if not flat_df.empty and flat_df["published_dt"].notna().any():
+    # Ensure datetime dtype
     ts_df = flat_df.dropna(subset=["published_dt"]).copy()
-    ts_df["date"] = pd.to_datetime(ts_df["published_dt"]).dt.date
-    ts_agg = ts_df.groupby("date").size().reset_index(name="count")
-    ts_agg = ts_agg.sort_values("date")
-    fig_ts = px.line(ts_agg, x="date", y="count", title="Articles per Day", markers=True, template="biotech_dark")
-    fig_ts = apply_dark_theme(fig_ts)
+    ts_df["date"] = pd.to_datetime(ts_df["published_dt"])  # keep full datetime
+    
+    # Aggregate per day
+    ts_agg = ts_df.groupby(ts_df["date"].dt.date).size().reset_index(name="count")
+    ts_agg["date"] = pd.to_datetime(ts_agg["date"])  # convert back to datetime for Plotly
+    
+    # Plot
+    fig_ts = px.line(
+        ts_agg,
+        x="date",
+        y="count",
+        title="Articles per Day",
+        markers=True,
+        template="biotech_dark"
+    )
+    fig_ts.update_layout(
+        paper_bgcolor=LIGHT_BG,
+        plot_bgcolor=LIGHT_BG,
+        xaxis=dict(showgrid=False, color=TEXT_COLOR),
+        yaxis=dict(showgrid=False, color=TEXT_COLOR),
+        title_font=dict(color=TEXT_COLOR),
+    )
     st.plotly_chart(fig_ts, use_container_width=True)
 else:
     st.info("No article publication dates available.")
+
 st.divider()
 
 # 3. Top Companies
