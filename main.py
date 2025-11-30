@@ -279,7 +279,7 @@ def restore_published_dates_by_position(df, original_json):
 
 # Ensure 'published_dt' exists even if flat_rows is empty
     if "published_dt" not in flat_df.columns:
-    flat_df["published_dt"] = pd.NaT
+        flat_df["published_dt"] = pd.NaT
 
     flat_df = flat_df.dropna(subset=["published_dt"]).copy()
     return flat_df
