@@ -430,10 +430,12 @@ if selected_terms:
 # -------------------------
 # 9) HEADER + METRICS
 # -------------------------
-# Header
 st.markdown(
-    '<p style="font-size:30px; color:#c9d3ea; text-align:center;">'
-    'Interactive dashboard: Trend clusters, intensity, and sources</p>',
+    """
+    <p style="font-size:30px; color:#c9d3ea; text-align:center;">
+        An interactive intelligence platform showcasing automated trend extraction across the biotech ecosystem
+    </p>
+    """,
     unsafe_allow_html=True
 )
 
