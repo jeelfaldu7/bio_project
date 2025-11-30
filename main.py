@@ -179,7 +179,6 @@ if not raw:
     st.stop()
 
 rows = []
-flattened_rows = []
 for r in raw:
     topic = r.get("topic") or r.get("title") or "Unknown"
     score = r.get("trend_score") or r.get("score") or np.nan
@@ -194,86 +193,49 @@ for r in raw:
         "key_terms": key_terms,
         "summary": summary
     })
-    
-    for art in articles:
-        if isinstance(art, dict):
-            title = art.get("title") or art.get("headline") or ""
-            source = art.get("source") or art.get("source_name") or ""
-            published = art.get("published") or art.get("published_at") or None
-        else:
-            title = str(art)
-            source = ""
-            published = None
-        flattened_rows.append({"topic": topic, "article_title": title, "source": source, "published": published})
 
 df = pd.DataFrame(rows)
-df["articles_str"] = df["articles"].apply(lambda x: "• " + "\n• ".join(x) if isinstance(x, list) else str(x))
+df["articles_str"] = df["articles"].apply(lambda x: "• " + "\n• ".join(
+    [a.get("title") if isinstance(a, dict) else str(a) for a in x]) if isinstance(x, list) else str(x))
 df["key_terms_str"] = df["key_terms"].apply(lambda x: ", ".join(x) if isinstance(x, list) else str(x))
 
-
-# Load published dates from original JSON
 # -------------------------
-# Load your processed filtered topics (example)
-# filtered_df should have columns: 'topic' and 'articles' (list of article titles or dicts)
-# -------------------------
-# filtered_df = pd.read_csv("filtered_topics.csv")  # or however you have it
-
-# -------------------------
-# Load original JSON (with published dates)
+# Restore published dates from original JSON
 # -------------------------
 with open("data/rss_summarized.json", "r", encoding="utf-8") as f:
     original_json = json.load(f)
 
-# -------------------------
-# Function to restore published dates
-# -------------------------
-def restore_published_dates(filtered_df, original_json):
-    restored_flat_rows = []
-
-    for _, row in filtered_df.iterrows():
-        topic = row['topic']
-        articles = row['articles']  # list of article titles or dicts
-
-        # Find the original topic entry
-        orig_topic = next((r for r in original_json if r.get("title") == topic or r.get("topic") == topic), None)
-
-        original_articles = orig_topic.get("articles", []) if orig_topic else []
+def restore_published_dates(df, original_json):
+    flat_rows = []
+    for _, row in df.iterrows():
+        topic = row["topic"]
+        articles = row["articles"]
+        # Find matching original topic
+        orig_topic = next((o for o in original_json if o.get("title")==topic or o.get("topic")==topic), None)
+        orig_articles = orig_topic.get("articles", []) if orig_topic else []
 
         for i, art in enumerate(articles):
-            # Use matching original article by index
-            orig_art = original_articles[i] if i < len(original_articles) else {}
-
-            # Extract title
+            orig_art = orig_articles[i] if i < len(orig_articles) else {}
             title = art.get("title") if isinstance(art, dict) else str(art)
-
-            # Extract published string
-            published_str = None
-            if isinstance(orig_art, dict):
-                published_str = orig_art.get("published") or orig_art.get("published_at")
-
-            # Parse datetime
+            published_str = orig_art.get("published") or orig_art.get("published_at") if isinstance(orig_art, dict) else None
             published_dt = None
             if published_str:
                 try:
                     published_dt = datetime.strptime(published_str, "%b %d, %Y %I:%M%p")
                 except:
                     published_dt = None
-
-            restored_flat_rows.append({
+            flat_rows.append({
                 "topic": topic,
                 "article_title": title,
                 "source": orig_art.get("source") if isinstance(orig_art, dict) else "",
                 "published": published_str,
                 "published_dt": published_dt
             })
+    return pd.DataFrame(flat_rows)
 
-    return pd.DataFrame(restored_flat_rows)
-
-# -------------------------
-# Restore flat dataframe with published dates
-# -------------------------
+# Restore flat_df with proper dates
 flat_df = restore_published_dates(df, original_json)
-flat_df["published_dt"] = pd.to_datetime(flat_df["published"], errors="coerce")
+flat_df["published_dt"] = pd.to_datetime(flat_df["published_dt"], errors="coerce")
 flat_df = flat_df.dropna(subset=["published_dt"]).copy()
 
 # -------------------------
