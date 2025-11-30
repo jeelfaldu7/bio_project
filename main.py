@@ -52,7 +52,6 @@ pio.templates["biotech_dark"] = go.layout.Template(
 
 # Helper function to enforce template on existing figure
 def apply_dark_theme(fig):
-    fig.update_layout(template="biotech_dark")
     return fig
 
 # -------------------------
