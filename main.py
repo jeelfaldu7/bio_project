@@ -636,3 +636,40 @@ for _, row in filtered.iterrows():
         for term in row["key_terms"]:
             st.markdown(f"<span class='chip'>{term}</span>", unsafe_allow_html=True)
         st.write("")
+
+# -------------------------
+# 11) FOOTER
+# -------------------------
+st.markdown(
+    """
+    <style>
+    .footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        color: #c9d3ea;
+        margin-top: 30px;
+        padding: 8px 0;
+        border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .footer a {
+        color: #4dc4ff;  /* accent color */
+        text-decoration: none;
+    }
+    .footer a:hover {
+        text-decoration: underline;
+    }
+    </style>
+    <div class="footer">
+        © 2025 Jeel Faldu & Paul London | 
+        <a href="mailto:jeel.faldu7@gmail.com">Email</a> | 
+        <a href="mailto:palondon@hotmail.com">Email</a> | 
+        <a href="https://www.linkedin.com/in/jeelfaldu7" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/palondon" target="_blank">LinkedIn</a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
