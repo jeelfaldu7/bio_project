@@ -46,8 +46,18 @@ pio.templates["biotech_dark"] = go.layout.Template(
         yaxis=dict(showgrid=False, color=TEXT_COLOR),
         legend=dict(bgcolor="rgba(0,0,0,0)", font=dict(color=TEXT_COLOR)),
         colorway=[ACCENT_COLOR, "#ff9f43", "#ff6b81", "#6c5ce7", "#00d2d3"]
-    )
+    ),
+    data={
+        "scatter": [go.Scatter()],
+        "bar": [go.Bar()],
+        "heatmap": [go.Heatmap()],
+        "pie": [go.Pie()],
+        "histogram": [go.Histogram()],
+        "box": [go.Box()],
+        "violin": [go.Violin()]
+    }
 )
+
 #pio.templates.default = "biotech_dark"
 
 # Helper function to enforce template on existing figure
