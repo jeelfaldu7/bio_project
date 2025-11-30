@@ -440,13 +440,16 @@ st.markdown(
 st.divider()
 
 # Metrics
+# -------------------------
+# Metrics Section (Centered)
+# -------------------------
 sp1, center_cols, sp2 = st.columns([1, 3, 1])
 
 with center_cols:
-    # Use 4 columns, but make Date Range slightly wider
+    # Use 4 columns, slightly wider for Date Range
     m1, m2, m3, m4 = st.columns([1, 1, 1, 1.5])
 
-    # Gather RSS feed names from your _infer_source function
+    # RSS Feeds count with tooltip (same style as other metrics)
     rss_names = [
         "FierceBiotech", "Labiotech.eu", "GEN", "ScienceDaily – Gene Therapy",
         "BioWorld Omics / Genomics", "GenomeWeb", "BioPharma Dive", "Endpoints News",
@@ -457,8 +460,8 @@ with center_cols:
     with m1:
         st.metric(
             label=f"RSS Feeds ({len(rss_names)})",
-            value="",
-            help="<br>".join(rss_names)  # use <br> for new lines in Streamlit tooltip
+            value=len(rss_names),
+            help="<br>".join(rss_names)  # tooltip with each feed on new line
         )
 
     # Topics metric
