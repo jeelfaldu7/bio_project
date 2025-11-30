@@ -325,7 +325,10 @@ else:
 # -------------------------
 # 8) SIDEBAR FILTERS
 # -------------------------
-st.sidebar.header("Filters")
+st.sidebar.markdown(
+    "<p style='font-size:20px; font-weight:700; margin-bottom:8px;'>Filters</p>",
+    unsafe_allow_html=True
+)
 
 # --- Topic Momentum Slider (0-100, normalized) ---
 score_min = int(df["trend_score_norm"].min(skipna=True))
