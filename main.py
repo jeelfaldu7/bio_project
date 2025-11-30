@@ -447,7 +447,7 @@ sp1, center_cols, sp2 = st.columns([1, 3, 1])
 
 with center_cols:
     # Use 4 columns, slightly wider for Date Range
-    m1, m2, m3, m4 = st.columns([1, 1, 1, 1.5])
+    m1, m2, m3, m4 = st.columns([1, 1, 1, 2])
 
     # RSS Feeds count with tooltip (same style as other metrics)
     rss_names = [
@@ -459,7 +459,7 @@ with center_cols:
     ]
     with m1:
         st.metric(
-            label=f"RSS Feeds ({len(rss_names)})",
+            label=f"RSS Feeds",
             value=len(rss_names),
             help="<br>".join(rss_names)  # tooltip with each feed on new line
         )
