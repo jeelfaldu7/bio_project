@@ -449,53 +449,47 @@ rss_names = [
     "Phase Genomics", "Alithea Genomics Blog", "BioSpace Top Stories", "Nature – Genetics"
 ]
 
-# Center all metrics
+# Columns for metrics
 sp1, center_cols, sp2 = st.columns([1,3,1])
 with center_cols:
-    m1, m2, m3, m4 = st.columns([1,1.2,1,1])
-    
-    # RSS Feeds (number displayed, tooltip with names)
-    with m1:
+    m1, m2, m3, m4 = st.columns([1,1,1,1])
+
+    # Helper function for uniform box
+    def metric_box(title, value, tooltip=None):
+        tooltip_attr = f"title='{tooltip}'" if tooltip else ""
         st.markdown(
             f"""
             <div style='text-align:center; background: rgba(255,255,255,0.08); 
-                        border-radius:16px; padding:12px; cursor:help;'
-                 title='{"\n".join(rss_names)}'>
-                <strong>RSS Feeds</strong><br>
-                {len(rss_names)}
+                        border-radius:16px; padding:14px; font-weight:600; cursor:help;'
+                 {tooltip_attr}>
+                <div style='font-size:14px; color:#c9d3ea;'>{title}</div>
+                <div style='font-size:22px; margin-top:4px;'>{value}</div>
             </div>
             """,
             unsafe_allow_html=True
         )
 
+    # RSS Feeds
+    with m1:
+        metric_box("RSS Feeds", len(rss_names), tooltip="\n".join(rss_names))
+
     # Topics count
     with m2:
-        st.metric("Topics", len(filtered))
+        metric_box("Topics", len(filtered))
 
     # Average Trend Score
     with m3:
-        st.metric(
-            "Avg Score",
-            round(filtered.trend_score.mean(skipna=True), 2) if len(filtered) > 0 else 0
-        )
+        avg_score = round(filtered.trend_score.mean(skipna=True), 2) if len(filtered) > 0 else 0
+        metric_box("Avg Score", avg_score)
 
-    # Date Range (wider box)
+    # Date Range
     with m4:
         if "published_dt" in filtered.columns and not filtered["published_dt"].isna().all():
             min_date = filtered['published_dt'].min().strftime("%-m/%-d/%Y")
             max_date = filtered['published_dt'].max().strftime("%-m/%-d/%Y")
-            st.markdown(
-                f"""
-                <div style='text-align:center; background: rgba(255,255,255,0.08); 
-                            border-radius:16px; padding:12px;'>
-                    <strong>Date Range</strong><br>
-                    {min_date} – {max_date}
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+            metric_box("Date Range", f"{min_date} – {max_date}")
         else:
-            st.metric("Date Range", "N/A")
+            metric_box("Date Range", "N/A")
 
 st.divider()
 
