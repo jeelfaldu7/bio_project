@@ -437,10 +437,11 @@ st.markdown(
 )
 st.divider()
 
-sp1, center_cols, sp2 = st.columns([1,1,2])
+sp1, center_cols, sp2 = st.columns([1,3,1])
 
 with center_cols:
-    c1, c2, c3 = st.columns(3)  # three metrics
+    # Make the Date Range metric take up more space
+    c1, c2, c3 = st.columns([1,1,2])  # third column wider
     with c1: 
         st.metric("Topics", len(filtered))
     with c2: 
@@ -449,7 +450,6 @@ with center_cols:
             round(filtered.trend_score.mean(skipna=True), 2) if len(filtered) > 0 else 0
         )
     with c3:
-        # Filter flat_df by selected topics
         flat_filtered = flat_df[flat_df["topic"].isin(filtered["topic"])]
         if not flat_filtered.empty:
             min_date = flat_filtered["published_dt"].min().strftime("%-m/%-d/%Y")
