@@ -327,15 +327,14 @@ else:
 st.subheader("🕒 Articles Over Time")
 
 if not flat_df.empty and flat_df["published_dt"].notna().any():
-    # Ensure datetime dtype
+    # Use only rows with valid published dates
     ts_df = flat_df.dropna(subset=["published_dt"]).copy()
-    ts_df["date"] = pd.to_datetime(ts_df["published_dt"])  # keep full datetime
     
-    # Aggregate per day
-    ts_agg = ts_df.groupby(ts_df["date"].dt.date).size().reset_index(name="count")
-    ts_agg["date"] = pd.to_datetime(ts_agg["date"])  # convert back to datetime for Plotly
+    # Aggregate counts per day
+    ts_agg = ts_df.groupby(ts_df["published_dt"].dt.date).size().reset_index(name="count")
+    ts_agg["date"] = pd.to_datetime(ts_agg["published_dt"])  # convert back to datetime for Plotly
     
-    # Plot
+    # Plot time series
     fig_ts = px.line(
         ts_agg,
         x="date",
