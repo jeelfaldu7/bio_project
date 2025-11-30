@@ -338,11 +338,16 @@ st.subheader("🕒 Articles Over Time")
 
 if not flat_df.empty:
     ts_df = flat_df.copy()
-    
+
     # Aggregate per day
-    ts_agg = ts_df.groupby(ts_df["published_dt"].dt.date).size().reset_index(name="count")
-    ts_agg["date"] = pd.to_datetime(ts_agg["published_dt"])  # convert to datetime for Plotly
-    
+    ts_agg = (
+        ts_df.groupby(ts_df["published_dt"].dt.date)
+        .size()
+        .reset_index(name="count")
+    )
+    ts_agg.rename(columns={"published_dt": "date"}, inplace=True)
+    ts_agg["date"] = pd.to_datetime(ts_agg["date"])  # ensure datetime for Plotly
+
     # Plot
     fig_ts = px.line(
         ts_agg,
