@@ -215,22 +215,33 @@ def parse_published_date(date_str):
     if not date_str or not isinstance(date_str, str):
         return None
 
-    # Format 1: Nov 24, 2025 3:18pm
+    # Try fixed format: Nov 24, 2025 3:18pm
     try:
         return pd.to_datetime(date_str, format="%b %d, %Y %I:%M%p")
     except (ValueError, TypeError):
         pass
 
-    # Format 2 & 3: RFC 2822 with numeric or abbreviation timezone
+    # Try RFC 2822 with numeric or abbreviation timezone
     try:
-        dt = parser.parse(date_str)
+        # Map common TZ abbreviations to offsets
+        tzinfos = {
+            "EST": -5*3600,
+            "EDT": -4*3600,
+            "CST": -6*3600,
+            "CDT": -5*3600,
+            "MST": -7*3600,
+            "MDT": -6*3600,
+            "PST": -8*3600,
+            "PDT": -7*3600,
+        }
+        dt = parser.parse(date_str, tzinfos=tzinfos)
         return dt
     except (ValueError, TypeError):
         pass
 
-    # Fallback: generic parse
+    # Fallback
     try:
-        return pd.to_datetime(date_str, errors='coerce', infer_datetime_format=True)
+        return pd.to_datetime(date_str, errors="coerce", infer_datetime_format=True)
     except:
         return None
 
