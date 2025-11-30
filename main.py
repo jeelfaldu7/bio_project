@@ -347,7 +347,6 @@ st.sidebar.markdown(
 )
 
 score_range = st.sidebar.slider(
-    "",
     min_value=score_min,
     max_value=score_max,
     value=(score_min, score_max),
@@ -386,7 +385,7 @@ st.sidebar.markdown(
     """,
     unsafe_allow_html=True
 )
-selected_terms = st.sidebar.multiselect("", all_terms)
+selected_terms = st.sidebar.multiselect(all_terms)
 
 # --- Minimum Articles Filter ---
 """
