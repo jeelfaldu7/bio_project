@@ -669,8 +669,6 @@ st.markdown(
         Jeel Faldu (<a href="mailto:jeel.faldu7@gmail.com">Email</a> | <a href="https://www.linkedin.com/in/jeelfaldu7" target="_blank">LinkedIn</a>)
         <br>
         Paul London (<a href="mailto:palondon@hotmail.com">Email</a> | <a href="https://www.linkedin.com/in/palondon" target="_blank">LinkedIn</a>)
-        <br>
-        Submitted 11/30/2025 as a Concierge Agent project for <a href="https://www.kaggle.com/learn-guide/5-day-agents">Kaggle 5-Day AI Agents Intensive Course with Google</a>
     </div>
     """,
     unsafe_allow_html=True
