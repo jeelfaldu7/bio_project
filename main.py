@@ -215,24 +215,16 @@ def restore_published_dates_by_position(df, original_json):
         topic = row["topic"]
         articles = row["articles"]
 
-        # Align original topic by position
         orig_topic = original_json[idx] if idx < len(original_json) else None
         orig_articles = orig_topic.get("articles", []) if orig_topic else []
 
         for i, art in enumerate(articles):
             orig_art = orig_articles[i] if i < len(orig_articles) else {}
             title = art.get("title") if isinstance(art, dict) else str(art)
-
-            # Published date
             published_str = orig_art.get("published") or orig_art.get("published_at") if isinstance(orig_art, dict) else None
-            published_dt = None
-            if published_str:
-                try:
-                    published_dt = datetime.strptime(published_str, "%b %d, %Y %I:%M%p")
-                except:
-                    published_dt = None
-
             source = orig_art.get("source") if isinstance(orig_art, dict) else ""
+
+            published_dt = pd.to_datetime(published_str, errors='coerce', utc=True)
 
             flat_rows.append({
                 "topic": topic,
@@ -243,19 +235,13 @@ def restore_published_dates_by_position(df, original_json):
             })
 
     flat_df = pd.DataFrame(flat_rows)
-    flat_df["published_dt"] = pd.to_datetime(flat_df["published_dt"], errors="coerce")
-    return flat_df.dropna(subset=["published_dt"]).copy()
+    flat_df = flat_df.dropna(subset=["published_dt"]).copy()
+    return flat_df
 
 # -------------------------
 # Restore flat dataframe with published dates (position-matched)
 # -------------------------
-flat_rows = restore_published_dates_by_position(df, original_json)  # already returns 'published_dt'
-flat_df = pd.DataFrame(flat_rows)
-
-# Ensure published_dt is datetime dtype
-flat_df["published_dt"] = pd.to_datetime(flat_df["published_dt"], errors="coerce")
-flat_df = flat_df.dropna(subset=["published_dt"]).copy()
-
+flat_df = restore_published_dates_by_position(df, original_json)  # already returns 'published_dt'
 
 # -------------------------
 # Check restored published dates
