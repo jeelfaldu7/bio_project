@@ -19,7 +19,7 @@ import plotly.graph_objects as go
 # 1) PAGE CONFIG
 # -------------------------
 st.set_page_config(
-    page_title="Biotech Trend Dashboard",
+    page_title="Biotech Trend Intelligence",
     layout="wide",
     page_icon="📊",
     initial_sidebar_state="expanded"
