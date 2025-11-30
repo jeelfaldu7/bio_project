@@ -354,10 +354,12 @@ if selected_terms:
         filtered["key_terms"].apply(lambda terms: any(t in terms for t in selected_terms) if isinstance(terms, list) else False)
     ]
 
+"""
 if min_articles > 0:
     filtered = filtered[
         filtered["articles"].apply(lambda arr: len(arr) if isinstance(arr, list) else 0) >= min_articles
     ]
+"""
 
 # -------------------------
 # 9) HEADER + METRICS
