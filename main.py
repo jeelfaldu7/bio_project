@@ -454,16 +454,18 @@ if not company_df.empty:
 else:
     st.info("No company-like terms detected.")
 
-# -------------------------
 # 4. Heatmap of Clusters across Sources
 st.subheader("📊 Cluster Occurrence Across Sources")
 if not flat_df.empty and "source" in flat_df.columns:
     heat_df = flat_df.copy()
-    heat_df["cluster"] = heat_df["topic"]
-    
-    # Remove empty clusters to avoid small rows
-    heat_df = heat_df[heat_df["cluster"].str.strip() != ""]
 
+    # Ensure every article has a topic
+    heat_df["cluster"] = heat_df["topic"].replace("", "Unknown")
+
+    # Remove rows with no source
+    heat_df = heat_df[heat_df["source"].str.strip() != ""]
+
+    # Pivot all clusters vs sources
     pivot = heat_df.pivot_table(
         index="cluster",
         columns="source",
@@ -471,7 +473,7 @@ if not flat_df.empty and "source" in flat_df.columns:
         aggfunc="count",
         fill_value=0
     )
-    
+
     if not pivot.empty:
         fig_heat = px.imshow(
             pivot.values,
@@ -482,15 +484,13 @@ if not flat_df.empty and "source" in flat_df.columns:
             template="biotech_dark"
         )
         fig_heat.update_layout(
-            title="",
             paper_bgcolor=LIGHT_BG,
             plot_bgcolor=LIGHT_BG,
             xaxis=dict(showgrid=False, color=TEXT_COLOR),
             yaxis=dict(showgrid=False, color=TEXT_COLOR),
-            title_font=dict(color=TEXT_COLOR),
-            height=600,               # taller height
-            width=None,               # allow full container width
-            autosize=True,            # stretch to container
+            height=600,
+            width=None,
+            autosize=True,
             template="biotech_dark"
         )
         st.plotly_chart(fig_heat, use_container_width=True)
