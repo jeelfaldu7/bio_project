@@ -245,46 +245,38 @@ def parse_published_date(date_str):
     except:
         return None
 
-# Main restore function
-def restore_published_dates_flat(original_json):
-    flat_rows = []
+# -------------------------
+# Restore flat dataframe with topics and published dates
+# -------------------------
+flat_rows = []
 
-    for art in original_json:
+for _, topic_row in df.iterrows():
+    topic_name = topic_row["topic"]
+    articles = topic_row.get("articles", [])
+    for art in articles:
         if not isinstance(art, dict):
             continue
-
         published_str = art.get("published") or art.get("published_at")
-        source = art.get("source", "")
         published_dt = parse_published_date(published_str)
 
-        # Normalize timezone
+        # Normalize to UTC
         if published_dt is not None and published_dt.tzinfo is None:
-            published_dt = published_dt.tz_localize("UTC")
+            published_dt = pd.Timestamp(published_dt, tz="UTC")
         elif published_dt is not None:
             published_dt = published_dt.astimezone(pd.Timestamp.utcnow().tz)
 
         flat_rows.append({
+            "topic": topic_name,
             "article_title": art.get("title"),
-            "source": source,
+            "source": art.get("source", ""),
             "published": published_str,
             "published_dt": published_dt
         })
 
-    flat_df = pd.DataFrame(flat_rows)
+flat_df = pd.DataFrame(flat_rows)
 
-    # Ensure published_dt exists
-    if "published_dt" not in flat_df.columns:
-        flat_df["published_dt"] = pd.NaT
-
-    # Optional: drop rows without a valid datetime
-    flat_df = flat_df.dropna(subset=["published_dt"]).copy()
-
-    return flat_df
-
-# -------------------------
-# Restore flat dataframe with published dates (position-matched)
-# -------------------------
-flat_df = restore_published_dates_flat(original_json)  # already returns 'published_dt'
+# Optional: drop articles without valid datetime
+flat_df = flat_df.dropna(subset=["published_dt"]).copy()
 
 # -------------------------
 # Check restored published dates
