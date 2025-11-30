@@ -460,11 +460,11 @@ st.subheader("📊 Cluster Occurrence Across Sources")
 if not flat_df.empty:
     heat_df = flat_df.copy()
 
-    # Fill missing topics and sources
+    # Ensure no missing cluster/source
     heat_df["cluster"] = heat_df["topic"].replace("", "Unknown")
     heat_df["source"] = heat_df["source"].replace("", "Unknown")
 
-    # Pivot: count articles per cluster x source
+    # Pivot table
     pivot = heat_df.pivot_table(
         index="cluster",
         columns="source",
@@ -474,23 +474,25 @@ if not flat_df.empty:
     )
 
     if not pivot.empty:
-        fig_heat = px.imshow(
-            pivot.values,
-            x=pivot.columns.tolist(),
-            y=pivot.index.tolist(),
-            labels=dict(x="Source", y="Cluster", color="Article Count"),
-            color_continuous_scale="YlGnBu",
-            template="biotech_dark"
+        # Use DataFrame directly with plotly.graph_objects.Heatmap instead of px.imshow
+        import plotly.graph_objects as go
+
+        fig_heat = go.Figure(
+            go.Heatmap(
+                z=pivot.values,
+                x=pivot.columns.tolist(),
+                y=pivot.index.tolist(),
+                colorscale="YlGnBu",
+                hovertemplate='Source: %{x}<br>Cluster: %{y}<br>Count: %{z}<extra></extra>'
+            )
         )
         fig_heat.update_layout(
             title="",
             paper_bgcolor=LIGHT_BG,
             plot_bgcolor=LIGHT_BG,
-            xaxis=dict(showgrid=False, color=TEXT_COLOR, tickangle=-45),
+            xaxis=dict(showgrid=False, color=TEXT_COLOR, tickangle=-90),
             yaxis=dict(showgrid=False, color=TEXT_COLOR),
-            title_font=dict(color=TEXT_COLOR),
             height=500,
-            template="biotech_dark"
         )
         st.plotly_chart(fig_heat, use_container_width=True)
     else:
