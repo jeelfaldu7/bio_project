@@ -440,11 +440,23 @@ st.divider()
 sp1, center_cols, sp2 = st.columns([1,3,1])
 
 with center_cols:
-    c1, c2 = st.columns(2)
+    c1, c2, c3 = st.columns(3)  # add a third column for date range
     with c1: 
         st.metric("Topics", len(filtered))
     with c2: 
-        st.metric("Avg Score", round(filtered.trend_score.mean(skipna=True), 2) if len(filtered)>0 else 0)
+        st.metric(
+            "Avg Score", 
+            round(filtered.trend_score.mean(skipna=True), 2) if len(filtered) > 0 else 0
+        )
+    with c3:
+        # Filter flat_df by selected topics
+        flat_filtered = flat_df[flat_df["topic"].isin(filtered["topic"])]
+        if not flat_filtered.empty:
+            min_date = flat_filtered["published_dt"].min().strftime("%b %d, %Y")
+            max_date = flat_filtered["published_dt"].max().strftime("%b %d, %Y")
+            st.metric("Date Range", f"{min_date} → {max_date}")
+        else:
+            st.metric("Date Range", "N/A")
 
 st.divider()
 
