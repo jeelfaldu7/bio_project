@@ -311,17 +311,6 @@ for idx in range(min(len(flat_df), len(rows))):
     flat_df.at[idx, "topic"] = rows[idx]["topic"]
 
 # -------------------------
-# Check restored published dates
-# -------------------------
-st.subheader("Debug: Check Published Dates")
-st.write(f"Total articles: {len(flat_df)}")
-st.write(f"Articles with valid published_dt: {flat_df['published_dt'].notna().sum()}")
-st.dataframe(flat_df[["topic", "article_title", "source", "published", "published_dt"]].head(20))
-
-
-
-
-# -------------------------
 # 8) SIDEBAR FILTERS
 # -------------------------
 st.sidebar.header("Filters")
