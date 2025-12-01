@@ -477,7 +477,7 @@ with center_cols:
 
     # Avg Score metric
     with m3:
-        st.metric("Avg Score", round(filtered.trend_score_norm.mean(skipna=True), 2) if len(filtered) > 0 else 0)
+        st.metric("Avg Score", round(filtered.trend_score_norm.mean(skipna=True), 0) if len(filtered) > 0 else 0)
 
     # Date Range metric (wider)
     with m4:
