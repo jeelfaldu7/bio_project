@@ -477,7 +477,7 @@ with center_cols:
 
     # Avg Score metric
     with m3:
-        st.metric("Avg Score", round(filtered.trend_score.mean(skipna=True), 2) if len(filtered) > 0 else 0)
+        st.metric("Avg Score", round(filtered.trend_score_norm.mean(skipna=True), 2) if len(filtered) > 0 else 0)
 
     # Date Range metric (wider)
     with m4:
@@ -567,7 +567,7 @@ else:
     st.info("No articles match the current filters.")
 
 # 3. Top Companies
-st.subheader("🏢 Top Companies / Entities Mentioned")
+st.subheader("🏢 Top Topics Mentioned")
 
 company_counter = Counter()
 for terms in filtered["key_terms"]:
@@ -581,7 +581,7 @@ if not company_df.empty:
     fig_comp = px.bar(
         company_df,
         x="count",
-        y="company",
+        y="topic",
         orientation="h",
         template="biotech_dark"
     )
