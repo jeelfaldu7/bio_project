@@ -638,7 +638,7 @@ if not flat_df.empty and not filtered.empty:
             title="",
             paper_bgcolor=LIGHT_BG,
             plot_bgcolor=LIGHT_BG,
-            xaxis=dict(showgrid=False, color=TEXT_COLOR, tickangle=45),
+            xaxis=dict(showgrid=False, color=TEXT_COLOR, tickangle=-45),
             yaxis=dict(showgrid=False, color=TEXT_COLOR),
             height=800,
         )
