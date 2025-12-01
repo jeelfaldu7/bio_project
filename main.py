@@ -545,6 +545,7 @@ if not ts_df.empty:
         ts_agg,
         x="date",
         y="count",
+        labels={"date": "Date", "count": "Count"},
         markers=True,
         template="biotech_dark"
     )
@@ -582,6 +583,7 @@ if not company_df.empty:
         company_df,
         x="count",
         y="topic",
+        labels={"topic": "Topic", "count": "Count"},
         orientation="h",
         template="biotech_dark"
     )
