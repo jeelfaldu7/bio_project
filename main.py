@@ -567,7 +567,7 @@ if not ts_df.empty:
 else:
     st.info("No articles match the current filters.")
 
-# 3. Top Companies
+# 3. Top Topics
 st.subheader("🏢 Top Topics Mentioned")
 
 company_counter = Counter()
@@ -582,8 +582,8 @@ if not company_df.empty:
     fig_comp = px.bar(
         company_df,
         x="count",
-        y="topic",
-        labels={"topic": "Topic", "count": "Count"},
+        y="company",
+        labels={"company": "Topic", "count": "Count"},
         orientation="h",
         template="biotech_dark"
     )
