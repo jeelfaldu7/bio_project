@@ -10,7 +10,7 @@ by Jeel Faldu and Paul London
 
 ## Overview
 
-**Biotech Trend Intelligence** is a data-driven pipeline we built to automatically monitor emerging developments across the biotechnology industry and convert them into structured, decision-ready insights. The project demonstrates our ability to design a clean, reliable workflow that ingests real-world biotech news, processes it through a controlled AI summarization layer, and outputs standardized JSON used by a lightweight [**Streamlit dashboard**](https://bioproject.streamlit.app/).
+**Biotech Trend Intelligence** is a data-driven pipeline we built to automatically monitor emerging developments across the biotechnology industry and convert them into structured, decision-ready insights. The project demonstrates our ability to design a clean, reliable workflow that ingests real-world biotech news, processes it through a controlled AI summarization layer, and outputs standardized JSON used by a lightweight [**Streamlit dashboard**](https://biotechtrendintelligence.streamlit.app/).
 
 The system collects articles from curated biotech-focused RSS feeds—including therapeutics, clinical development, genomics, synthetic biology, regulatory updates, and market dynamics—and parses each item into a unified schema.
 
