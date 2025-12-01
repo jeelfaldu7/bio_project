@@ -591,7 +591,7 @@ if not company_df.empty:
         title="",
         paper_bgcolor=LIGHT_BG,
         plot_bgcolor=LIGHT_BG,
-        xaxis=dict(showgrid=False, color=TEXT_COLOR, tickangle=45),
+        xaxis=dict(showgrid=False, color=TEXT_COLOR),
         yaxis=dict(showgrid=False, color=TEXT_COLOR),
         title_font=dict(color=TEXT_COLOR),
         yaxis_categoryorder="total ascending",
@@ -638,7 +638,7 @@ if not flat_df.empty and not filtered.empty:
             title="",
             paper_bgcolor=LIGHT_BG,
             plot_bgcolor=LIGHT_BG,
-            xaxis=dict(showgrid=False, color=TEXT_COLOR, tickangle=-90),
+            xaxis=dict(showgrid=False, color=TEXT_COLOR, tickangle=45),
             yaxis=dict(showgrid=False, color=TEXT_COLOR),
             height=800,
         )
